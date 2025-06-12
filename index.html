@@ -602,59 +602,86 @@
             'portfolio-best-medicine': 'work/portfolio - the best medicine/'
         };
 
-        // This function would typically load photos from your folders
-        // For now, it shows placeholder content
         async function loadPhotosFromFolder(folderName, gridId) {
     const grid = document.getElementById(gridId);
+    if (!grid) return;
+
     const folderPath = photoFolders[folderName];
+    if (!folderPath) return;
+
+    grid.innerHTML = '<p>Loading photos...</p>';
     
-    // Clear existing content
-    grid.innerHTML = '<div class="gallery-item">Loading images...</div>';
+    const images = [];
+    let imageNumber = 1;
+    let consecutiveFails = 0;
     
-    // Try to load images with your naming pattern
-    const foundImages = [];
-    
-    // Try different image patterns based on your example: wesley_portfolio2020_AMANDA_73870001.jpg
-    const patterns = [
-        'wesley_portfolio2020_AMANDA_73870001.jpg',
-        'wesley_portfolio2020_AMANDA_73870002.jpg',
-        'wesley_portfolio2020_AMANDA_73870003.jpg',
-        'wesley_portfolio2020_AMANDA_73870004.jpg',
-        'wesley_portfolio2020_AMANDA_73870005.jpg'
-    ];
-    
-    // Test each pattern
-    for (const pattern of patterns) {
+    // Keep trying image_001.jpg, image_002.jpg until we get 3 consecutive failures
+    while (consecutiveFails < 3) {
+        const filename = `image_${imageNumber.toString().padStart(3, '0')}.jpg`;
+        const fullPath = folderPath + filename;
+        
         try {
-            const response = await fetch(folderPath + pattern);
-            if (response.ok) {
-                foundImages.push(folderPath + pattern);
+            // Test if image exists by trying to load it
+            const imageExists = await checkImageExists(fullPath);
+            if (imageExists) {
+                images.push(filename);
+                consecutiveFails = 0; // Reset counter
+            } else {
+                consecutiveFails++;
             }
-        } catch (e) {
-            // Image doesn't exist, continue
+        } catch {
+            consecutiveFails++;
         }
+        
+        imageNumber++;
+        
+        // Safety valve - don't check more than 100 images
+        if (imageNumber > 100) break;
     }
     
-    // Display found images
-    if (foundImages.length > 0) {
-        grid.innerHTML = '';
-        foundImages.forEach(imagePath => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-            
-            const img = document.createElement('img');
-            img.src = imagePath;
-            img.alt = 'Portfolio image';
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.objectFit = 'cover';
-            
-            galleryItem.appendChild(img);
-            grid.appendChild(galleryItem);
-        });
-    } else {
-        grid.innerHTML = '<div class="gallery-item">No images found in ' + folderPath + '</div>';
+    if (images.length === 0) {
+        grid.innerHTML = `<p>No images found in ${folderName}. Use naming pattern: image_001.jpg, image_002.jpg, etc.</p>`;
+        return;
     }
+    
+    // Display the images
+    displayImages(grid, folderPath, images, folderName);
+}
+
+async function checkImageExists(imageSrc) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = imageSrc;
+        
+        // Timeout after 3 seconds
+        setTimeout(() => resolve(false), 3000);
+    });
+}
+
+function displayImages(grid, folderPath, images, folderName) {
+    grid.innerHTML = '';
+    
+    images.forEach((filename, index) => {
+        const fullPath = folderPath + filename;
+        
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'photo-item';
+        
+        const img = document.createElement('img');
+        img.src = fullPath;
+        img.alt = `${folderName} photo ${index + 1}`;
+        img.loading = 'lazy';
+        
+        img.onerror = function() {
+            console.error(`Failed to load: ${fullPath}`);
+            this.style.display = 'none';
+        };
+        
+        imageContainer.appendChild(img);
+        grid.appendChild(imageContainer);
+    });
 }
 
         // Menu functionality
