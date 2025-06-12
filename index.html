@@ -604,35 +604,79 @@
 
         // This function would typically load photos from your folders
         // For now, it shows placeholder content
-        async function loadPhotosFromFolder(folderName, gridId) {
-    console.log("=== DEBUG START ===");
-    console.log("Function called:", folderName, gridId);
+        async function loadPhotosFromFolder(folderName, gridId) async function loadPhotosFromFolder(folderName, gridId) {
+    console.log("Loading photos for:", folderName);
     
     const grid = document.getElementById(gridId);
-    console.log("Grid found:", !!grid);
-    
     const folderPath = photoFolders[folderName];
-    console.log("Folder path:", folderPath);
     
-    if (grid) {
-        grid.innerHTML = '<p>Testing image_002.jpg...</p>';
-        
-        // Test the specific file you uploaded
-        const testPath = folderPath + 'image_002.jpg';
-        console.log("Testing path:", testPath);
-        
-        const img = new Image();
-        img.onload = function() {
-            console.log("SUCCESS: Image loaded!");
-            grid.innerHTML = `<img src="${testPath}" style="width: 100%; height: auto;">`;
-        };
-        img.onerror = function() {
-            console.log("FAILED: Image not found at:", testPath);
-            grid.innerHTML = '<p>Image not found. Check console for details.</p>';
-        };
-        img.src = testPath;
+    if (!grid || !folderPath) {
+        console.log("Missing grid or folder path");
+        return;
     }
-    console.log("=== DEBUG END ===");
+    
+    grid.innerHTML = '<p>Loading photos...</p>';
+    
+    const images = [];
+    let imageNumber = 1;
+    let consecutiveFails = 0;
+    
+    // Check for images from 001 to 050
+    while (consecutiveFails < 3 && imageNumber <= 50) {
+        const filename = `image_${imageNumber.toString().padStart(3, '0')}.jpg`;
+        const fullPath = folderPath + filename;
+        
+        console.log(`Checking: ${filename}`);
+        
+        const imageExists = await checkImageExists(fullPath);
+        if (imageExists) {
+            images.push(filename);
+            consecutiveFails = 0;
+            console.log(`✓ Found: ${filename}`);
+        } else {
+            consecutiveFails++;
+            console.log(`✗ Missing: ${filename}`);
+        }
+        
+        imageNumber++;
+    }
+    
+    console.log(`Total images found: ${images.length}`);
+    
+    if (images.length === 0) {
+        grid.innerHTML = `<p>No images found. Name files: image_001.jpg, image_002.jpg, etc.</p>`;
+        return;
+    }
+    
+    // Display all found images
+    grid.innerHTML = '';
+    images.forEach((filename, index) => {
+        const img = document.createElement('img');
+        img.src = folderPath + filename;
+        img.alt = `${folderName} photo ${index + 1}`;
+        img.style.cssText = 'width: 100%; height: auto; margin-bottom: 20px; cursor: pointer;';
+        
+        img.onerror = function() {
+            console.error(`Failed to display: ${this.src}`);
+        };
+        
+        img.onload = function() {
+            console.log(`Displayed: ${filename}`);
+        };
+        
+        grid.appendChild(img);
+    });
+}
+
+// Make sure this helper function is also in your code
+async function checkImageExists(imageSrc) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = imageSrc;
+        setTimeout(() => resolve(false), 2000);
+    });
 }
 
         // Menu functionality
