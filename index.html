@@ -603,8 +603,8 @@
         };
 
         // This function would typically load photos from your folders
-
-async function loadPhotosFromFolder(folderName, gridId) {
+        // For now, it shows placeholder content
+        async function loadPhotosFromFolder(folderName, gridId) {
     const grid = document.getElementById(gridId);
     if (!grid) {
         console.log(`Grid not found: ${gridId}`);
@@ -626,8 +626,54 @@ async function loadPhotosFromFolder(folderName, gridId) {
     
     while (consecutiveFails < 3 && imageNumber <= 50) {
         const filename = `image_${imageNumber.toString().padStart(3, '0')}.jpg`;
-        const fullPath = folderPath + filename;        
+        const fullPath = folderPath + filename;
+        
+        const imageExists = await checkImageExists(fullPath);
+        if (imageExists) {
+            images.push(filename);
+            consecutiveFails = 0;
+            console.log(`Found image: ${filename}`);
+        } else {
+            consecutiveFails++;
+            console.log(`Image not found: ${filename}`);
+        }
+        
+        imageNumber++;
+    }
+    
+    if (images.length === 0) {
+        grid.innerHTML = `<p>No images found in ${folderName}. Make sure files are named: image_001.jpg, image_002.jpg, etc.</p>`;
+        return;
+    }
+    
+    // Display images
+    grid.innerHTML = '';
+    images.forEach((filename, index) => {
+        const img = document.createElement('img');
+        img.src = folderPath + filename;
+        img.alt = `${folderName} photo ${index + 1}`;
+        img.style.cssText = 'width: 100%; height: auto; margin-bottom: 20px; cursor: pointer;';
+        
+        img.onerror = function() {
+            console.error(`Failed to load: ${this.src}`);
+        };
+        
+        grid.appendChild(img);
+    });
+    
+    console.log(`Loaded ${images.length} images for ${folderName}`);
+}
 
+// Add this helper function right after loadPhotosFromFolder
+async function checkImageExists(imageSrc) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = imageSrc;
+        setTimeout(() => resolve(false), 2000);
+    });
+}
 
         // Menu functionality
         function toggleMenu() {
