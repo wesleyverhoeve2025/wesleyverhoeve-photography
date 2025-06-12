@@ -602,87 +602,32 @@
             'portfolio-best-medicine': 'work/portfolio - the best medicine/'
         };
 
-        async function loadPhotosFromFolder(folderName, gridId) {
+        // This function would typically load photos from your folders
+
+async function loadPhotosFromFolder(folderName, gridId) {
     const grid = document.getElementById(gridId);
-    if (!grid) return;
+    if (!grid) {
+        console.log(`Grid not found: ${gridId}`);
+        return;
+    }
 
     const folderPath = photoFolders[folderName];
-    if (!folderPath) return;
+    if (!folderPath) {
+        console.log(`Folder path not found for: ${folderName}`);
+        return;
+    }
 
+    console.log(`Loading photos from ${folderPath} into ${gridId}`);
     grid.innerHTML = '<p>Loading photos...</p>';
     
     const images = [];
     let imageNumber = 1;
     let consecutiveFails = 0;
     
-    // Keep trying image_001.jpg, image_002.jpg until we get 3 consecutive failures
-    while (consecutiveFails < 3) {
+    while (consecutiveFails < 3 && imageNumber <= 50) {
         const filename = `image_${imageNumber.toString().padStart(3, '0')}.jpg`;
-        const fullPath = folderPath + filename;
-        
-        try {
-            // Test if image exists by trying to load it
-            const imageExists = await checkImageExists(fullPath);
-            if (imageExists) {
-                images.push(filename);
-                consecutiveFails = 0; // Reset counter
-            } else {
-                consecutiveFails++;
-            }
-        } catch {
-            consecutiveFails++;
-        }
-        
-        imageNumber++;
-        
-        // Safety valve - don't check more than 100 images
-        if (imageNumber > 100) break;
-    }
-    
-    if (images.length === 0) {
-        grid.innerHTML = `<p>No images found in ${folderName}. Use naming pattern: image_001.jpg, image_002.jpg, etc.</p>`;
-        return;
-    }
-    
-    // Display the images
-    displayImages(grid, folderPath, images, folderName);
-}
+        const fullPath = folderPath + filename;        
 
-async function checkImageExists(imageSrc) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = imageSrc;
-        
-        // Timeout after 3 seconds
-        setTimeout(() => resolve(false), 3000);
-    });
-}
-
-function displayImages(grid, folderPath, images, folderName) {
-    grid.innerHTML = '';
-    
-    images.forEach((filename, index) => {
-        const fullPath = folderPath + filename;
-        
-        const imageContainer = document.createElement('div');
-        imageContainer.className = 'photo-item';
-        
-        const img = document.createElement('img');
-        img.src = fullPath;
-        img.alt = `${folderName} photo ${index + 1}`;
-        img.loading = 'lazy';
-        
-        img.onerror = function() {
-            console.error(`Failed to load: ${fullPath}`);
-            this.style.display = 'none';
-        };
-        
-        imageContainer.appendChild(img);
-        grid.appendChild(imageContainer);
-    });
-}
 
         // Menu functionality
         function toggleMenu() {
