@@ -604,12 +604,58 @@
 
         // This function would typically load photos from your folders
         // For now, it shows placeholder content
-        function loadPhotosFromFolder(folderName, gridId) {
-            const grid = document.getElementById(gridId);
-            // In a real implementation, this would scan the folder and create img elements
-            // For demo purposes, showing how it would work
-            console.log(`Loading photos from ${photoFolders[folderName]} into ${gridId}`);
+        async function loadPhotosFromFolder(folderName, gridId) {
+    const grid = document.getElementById(gridId);
+    const folderPath = photoFolders[folderName];
+    
+    // Clear existing content
+    grid.innerHTML = '<div class="gallery-item">Loading images...</div>';
+    
+    // Try to load images with your naming pattern
+    const foundImages = [];
+    
+    // Try different image patterns based on your example: wesley_portfolio2020_AMANDA_73870001.jpg
+    const patterns = [
+        'wesley_portfolio2020_AMANDA_73870001.jpg',
+        'wesley_portfolio2020_AMANDA_73870002.jpg',
+        'wesley_portfolio2020_AMANDA_73870003.jpg',
+        'wesley_portfolio2020_AMANDA_73870004.jpg',
+        'wesley_portfolio2020_AMANDA_73870005.jpg'
+    ];
+    
+    // Test each pattern
+    for (const pattern of patterns) {
+        try {
+            const response = await fetch(folderPath + pattern);
+            if (response.ok) {
+                foundImages.push(folderPath + pattern);
+            }
+        } catch (e) {
+            // Image doesn't exist, continue
         }
+    }
+    
+    // Display found images
+    if (foundImages.length > 0) {
+        grid.innerHTML = '';
+        foundImages.forEach(imagePath => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            
+            const img = document.createElement('img');
+            img.src = imagePath;
+            img.alt = 'Portfolio image';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            
+            galleryItem.appendChild(img);
+            grid.appendChild(galleryItem);
+        });
+    } else {
+        grid.innerHTML = '<div class="gallery-item">No images found in ' + folderPath + '</div>';
+    }
+}
 
         // Menu functionality
         function toggleMenu() {
