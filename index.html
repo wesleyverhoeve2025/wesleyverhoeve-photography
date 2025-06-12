@@ -605,74 +605,34 @@
         // This function would typically load photos from your folders
         // For now, it shows placeholder content
         async function loadPhotosFromFolder(folderName, gridId) {
+    console.log("=== DEBUG START ===");
+    console.log("Function called:", folderName, gridId);
+    
     const grid = document.getElementById(gridId);
-    if (!grid) {
-        console.log(`Grid not found: ${gridId}`);
-        return;
-    }
-
+    console.log("Grid found:", !!grid);
+    
     const folderPath = photoFolders[folderName];
-    if (!folderPath) {
-        console.log(`Folder path not found for: ${folderName}`);
-        return;
-    }
-
-    console.log(`Loading photos from ${folderPath} into ${gridId}`);
-    grid.innerHTML = '<p>Loading photos...</p>';
+    console.log("Folder path:", folderPath);
     
-    const images = [];
-    let imageNumber = 1;
-    let consecutiveFails = 0;
-    
-    while (consecutiveFails < 3 && imageNumber <= 50) {
-        const filename = `image_${imageNumber.toString().padStart(3, '0')}.jpg`;
-        const fullPath = folderPath + filename;
+    if (grid) {
+        grid.innerHTML = '<p>Testing image_002.jpg...</p>';
         
-        const imageExists = await checkImageExists(fullPath);
-        if (imageExists) {
-            images.push(filename);
-            consecutiveFails = 0;
-            console.log(`Found image: ${filename}`);
-        } else {
-            consecutiveFails++;
-            console.log(`Image not found: ${filename}`);
-        }
+        // Test the specific file you uploaded
+        const testPath = folderPath + 'image_002.jpg';
+        console.log("Testing path:", testPath);
         
-        imageNumber++;
-    }
-    
-    if (images.length === 0) {
-        grid.innerHTML = `<p>No images found in ${folderName}. Make sure files are named: image_001.jpg, image_002.jpg, etc.</p>`;
-        return;
-    }
-    
-    // Display images
-    grid.innerHTML = '';
-    images.forEach((filename, index) => {
-        const img = document.createElement('img');
-        img.src = folderPath + filename;
-        img.alt = `${folderName} photo ${index + 1}`;
-        img.style.cssText = 'width: 100%; height: auto; margin-bottom: 20px; cursor: pointer;';
-        
-        img.onerror = function() {
-            console.error(`Failed to load: ${this.src}`);
-        };
-        
-        grid.appendChild(img);
-    });
-    
-    console.log(`Loaded ${images.length} images for ${folderName}`);
-}
-
-// Add this helper function right after loadPhotosFromFolder
-async function checkImageExists(imageSrc) {
-    return new Promise((resolve) => {
         const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = imageSrc;
-        setTimeout(() => resolve(false), 2000);
-    });
+        img.onload = function() {
+            console.log("SUCCESS: Image loaded!");
+            grid.innerHTML = `<img src="${testPath}" style="width: 100%; height: auto;">`;
+        };
+        img.onerror = function() {
+            console.log("FAILED: Image not found at:", testPath);
+            grid.innerHTML = '<p>Image not found. Check console for details.</p>';
+        };
+        img.src = testPath;
+    }
+    console.log("=== DEBUG END ===");
 }
 
         // Menu functionality
