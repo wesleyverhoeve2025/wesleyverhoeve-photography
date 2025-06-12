@@ -490,50 +490,35 @@
         <section class="gallery" id="portraits-i">
             <h2>Portraits I</h2>
             <div class="gallery-grid" id="portraitsiGrid">
-                <!-- Photos will be loaded automatically from /work/portraits I/ folder -->
-                <div class="gallery-item">
-                    <span>Portraits I photos will appear here automatically</span>
-                </div>
+                <!-- Photos will be loaded here -->
             </div>
         </section>
 
         <section class="gallery" id="portraits-ii">
             <h2>Portraits II</h2>
-            <div class="gallery-grid" id="portraitsIIGrid">
-                <!-- Photos will be loaded automatically from /work/portraits II/ folder -->
-                <div class="gallery-item">
-                    <span>Portraits II photos will appear here automatically</span>
-                </div>
+            <div class="gallery-grid" id="portraitsiiGrid">
+                <!-- Photos will be loaded here -->
             </div>
         </section>
 
         <section class="gallery" id="travel">
             <h2>Travel</h2>
             <div class="gallery-grid" id="travelGrid">
-                <!-- Photos will be loaded automatically from /work/travel/ folder -->
-                <div class="gallery-item">
-                    <span>Travel photos will appear here automatically</span>
-                </div>
+                <!-- Photos will be loaded here -->
             </div>
         </section>
 
         <section class="gallery" id="portfolio-one-of-many">
             <h2>Portfolio - one of many</h2>
-            <div class="gallery-grid" id="portfolioOneOfManyGrid">
-                <!-- Photos will be loaded automatically from /work/portfolio - one of many/ folder -->
-                <div class="gallery-item">
-                    <span>Portfolio - one of many photos will appear here automatically</span>
-                </div>
+            <div class="gallery-grid" id="portfolioneofmanyGrid">
+                <!-- Photos will be loaded here -->
             </div>
         </section>
 
         <section class="gallery" id="portfolio-best-medicine">
             <h2>Portfolio - the best medicine</h2>
-            <div class="gallery-grid" id="portfolioBestMedicineGrid">
-                <!-- Photos will be loaded automatically from /work/portfolio - the best medicine/ folder -->
-                <div class="gallery-item">
-                    <span>Portfolio - the best medicine photos will appear here automatically</span>
-                </div>
+            <div class="gallery-grid" id="portfoliobestmedicineGrid">
+                <!-- Photos will be loaded here -->
             </div>
         </section>
 
@@ -541,7 +526,6 @@
         <section class="books" id="books">
             <h2>Books</h2>
             <div class="books-grid" id="booksGrid">
-                <!-- Books will be loaded automatically from /books/ folder -->
                 <div class="book-item">
                     <div class="book-cover">
                         <span>Book covers will appear here</span>
@@ -563,9 +547,7 @@
                 <div class="about-text">
                     <h2>Process</h2>
                     <p>Share insights into your creative process, techniques, and behind-the-scenes work.</p>
-                    
                     <p>This section can include your thoughts on photography, equipment discussions, or work-in-progress shots.</p>
-                    
                     <p>Content from your /process/ folder will appear here.</p>
                 </div>
             </div>
@@ -580,9 +562,7 @@
                 <div class="about-text">
                     <h2>Info</h2>
                     <p>Add your full biography here. This is where you can tell your story, share your artistic vision, and connect with visitors on a personal level.</p>
-                    
                     <p>You can include information about your background, training, exhibitions, awards, and what drives your photographic practice.</p>
-                    
                     <p>This section helps potential clients and galleries understand who you are beyond your images.</p>
                 </div>
             </div>
@@ -593,47 +573,138 @@
     </div>
 
     <script>
-        // Photo folders mapping to your new structure
-        const photoFolders = {
-            'portraits-i': 'work/portraits I/',
-            'portraits-ii': 'work/portraits II/',
-            'travel': 'work/travel/',
-            'portfolio-one-of-many': 'work/portfolio - one of many/',
-            'portfolio-best-medicine': 'work/portfolio - the best medicine/'
+        // Gallery configuration with naming conventions
+        const galleryConfig = {
+            'portraits-i': {
+                folder: 'work/portraits I/',
+                prefix: 'image_',
+                maxImages: 50, // Will try image_001.jpg through image_050.jpg
+                extensions: ['jpg', 'jpeg', 'png', 'webp']
+            },
+            'portraits-ii': {
+                folder: 'work/portraits II/',
+                prefix: 'image_',
+                maxImages: 50,
+                extensions: ['jpg', 'jpeg', 'png', 'webp']
+            },
+            'travel': {
+                folder: 'work/travel/',
+                prefix: 'travel_',
+                maxImages: 50,
+                extensions: ['jpg', 'jpeg', 'png', 'webp']
+            },
+            'portfolio-one-of-many': {
+                folder: 'work/portfolio - one of many/',
+                prefix: 'portfolio_',
+                maxImages: 30,
+                extensions: ['jpg', 'jpeg', 'png', 'webp']
+            },
+            'portfolio-best-medicine': {
+                folder: 'work/portfolio - the best medicine/',
+                prefix: 'medicine_',
+                maxImages: 30,
+                extensions: ['jpg', 'jpeg', 'png', 'webp']
+            }
         };
 
-        // This function would typically load photos from your folders
-        // For now, it shows placeholder content
-        async function loadPhotosFromFolder(folderName, gridId) {
-    console.log("=== DEBUG START ===");
-    console.log("Function called:", folderName, gridId);
-    
-    const grid = document.getElementById(gridId);
-    console.log("Grid found:", !!grid);
-    
-    const folderPath = photoFolders[folderName];
-    console.log("Folder path:", folderPath);
-    
-    if (grid) {
-        grid.innerHTML = '<p>Testing image_002.jpg...</p>';
-        
-        // Test the specific file you uploaded
-        const testPath = folderPath + 'image_002.jpg';
-        console.log("Testing path:", testPath);
-        
-        const img = new Image();
-        img.onload = function() {
-            console.log("SUCCESS: Image loaded!");
-            grid.innerHTML = `<img src="${testPath}" style="width: 100%; height: auto;">`;
-        };
-        img.onerror = function() {
-            console.log("FAILED: Image not found at:", testPath);
-            grid.innerHTML = '<p>Image not found. Check console for details.</p>';
-        };
-        img.src = testPath;
-    }
-    console.log("=== DEBUG END ===");
-}
+        // Generate possible image paths based on naming convention
+        function generateImagePaths(config) {
+            const paths = [];
+            const { folder, prefix, maxImages, extensions } = config;
+            
+            for (let i = 1; i <= maxImages; i++) {
+                const paddedNumber = String(i).padStart(3, '0'); // 001, 002, 003, etc.
+                
+                extensions.forEach(ext => {
+                    paths.push(`${folder}${prefix}${paddedNumber}.${ext}`);
+                });
+            }
+            
+            return paths;
+        }
+
+        // Load photos using naming convention
+        async function loadPhotosFromFolder(galleryName, gridId) {
+            console.log("Loading photos for:", galleryName);
+            
+            const grid = document.getElementById(gridId);
+            const config = galleryConfig[galleryName];
+            
+            if (!grid) {
+                console.error("Grid not found:", gridId);
+                return;
+            }
+            
+            if (!config) {
+                grid.innerHTML = '<div class="gallery-item"><span>No configuration found for this gallery</span></div>';
+                return;
+            }
+            
+            // Clear existing content and show loading message
+            grid.innerHTML = '<div class="gallery-item"><span>Loading images...</span></div>';
+            
+            const possiblePaths = generateImagePaths(config);
+            const validImages = [];
+            let checkedCount = 0;
+            
+            // Check each possible image path
+            const checkPromises = possiblePaths.map(imagePath => {
+                return new Promise(resolve => {
+                    const img = new Image();
+                    
+                    img.onload = function() {
+                        console.log("Found image:", imagePath);
+                        validImages.push(imagePath);
+                        resolve();
+                    };
+                    
+                    img.onerror = function() {
+                        // Silently fail for missing images - this is expected
+                        resolve();
+                    };
+                    
+                    img.src = imagePath;
+                    
+                    // Timeout after 3 seconds to avoid hanging
+                    setTimeout(() => {
+                        resolve();
+                    }, 3000);
+                });
+            });
+            
+            // Wait for all checks to complete
+            await Promise.all(checkPromises);
+            
+            // Clear loading message
+            grid.innerHTML = '';
+            
+            if (validImages.length === 0) {
+                grid.innerHTML = `<div class="gallery-item"><span>No images found.<br>Expected format: ${config.folder}${config.prefix}001.jpg</span></div>`;
+                return;
+            }
+            
+            // Sort images numerically
+            validImages.sort((a, b) => {
+                const numA = parseInt(a.match(/(\d+)\./)?.[1] || '0');
+                const numB = parseInt(b.match(/(\d+)\./)?.[1] || '0');
+                return numA - numB;
+            });
+            
+            // Create gallery items for valid images
+            validImages.forEach((imagePath, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.src = imagePath;
+                img.alt = `${galleryName} image ${index + 1}`;
+                
+                galleryItem.appendChild(img);
+                grid.appendChild(galleryItem);
+            });
+            
+            console.log(`Loaded ${validImages.length} images for ${galleryName}`);
+        }
 
         // Menu functionality
         function toggleMenu() {
@@ -687,8 +758,8 @@
             }
             
             // Load photos for gallery sections
-            if (photoFolders[sectionName]) {
-                const gridId = sectionName.replace(/-/g, '') + 'Grid';
+            if (galleryConfig[sectionName]) {
+                const gridId = sectionName.replace(/-/g, '').toLowerCase() + 'Grid';
                 loadPhotosFromFolder(sectionName, gridId);
             }
             
