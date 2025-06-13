@@ -971,116 +971,101 @@
             closeMenu();
         }
 
-const landingImages = [
-    'work/landing/landing_001.jpg',
-    'work/landing/landing_002.jpg',
-    'work/landing/landing_003.jpg'
-    // Add more as needed
-];
-let landingCurrentIndex = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    // Landing slideshow and thumbnails
+    const landingImages = [
+        'work/landing/landing_001.jpg',
+        'work/landing/landing_002.jpg',
+        'work/landing/landing_003.jpg'
+        // Add more as needed
+    ];
+    let landingCurrentIndex = 0;
+    const landingSlideshowImage = document.getElementById('landingSlideshowImage');
+    const landingPrevBtn = document.getElementById('landingPrevBtn');
+    const landingNextBtn = document.getElementById('landingNextBtn');
+    const landingImageCounter = document.getElementById('landingImageCounter');
+    const landingThumbsView = document.getElementById('landingThumbsView');
+    const landingThumbsGrid = document.getElementById('landingThumbsGrid');
+    const landingThumbsLink = document.getElementById('landingThumbsLink');
+    const landingBackToSingleView = document.getElementById('landingBackToSingleView');
+    const landingControls = document.querySelector('.landing-controls');
+    const landingLinks = document.querySelector('.landing-links');
+    const landingIndexLink = document.getElementById('landingIndexLink');
 
-const landingSlideshowImage = document.getElementById('landingSlideshowImage');
-const landingPrevBtn = document.getElementById('landingPrevBtn');
-const landingNextBtn = document.getElementById('landingNextBtn');
-const landingImageCounter = document.getElementById('landingImageCounter');
-
-function showLandingImage(index) {
-    landingCurrentIndex = index;
-    landingSlideshowImage.src = landingImages[index];
-    landingImageCounter.textContent = `${index + 1} / ${landingImages.length}`;
-}
-
-if (landingImages.length > 0) {
-    showLandingImage(0);
-}
-if (landingSlideshowImage) {
-    landingSlideshowImage.style.cursor = "pointer";
-    landingSlideshowImage.onclick = function() {
-        if (landingCurrentIndex < landingImages.length - 1) {
-            showLandingImage(landingCurrentIndex + 1);
-        } else {
-            // Optionally, loop back to the first image:
-            showLandingImage(0);
-        }
-    };
-}
-  document.getElementById('landingIndexLink').onclick = function(e) {
-      e.preventDefault();
-      toggleMenu();
-  };
-
-const landingThumbsView = document.getElementById('landingThumbsView');
-const landingThumbsGrid = document.getElementById('landingThumbsGrid');
-const landingThumbsLink = document.getElementById('landingThumbsLink');
-const landingBackToSingleView = document.getElementById('landingBackToSingleView');
-
-// Show the thumbnail grid
-function showLandingThumbsView() {
-    landingThumbsGrid.innerHTML = '';
-    landingImages.forEach((src, idx) => {
-        const thumb = document.createElement('img');
-        thumb.src = src;
-        thumb.style.width = '120px';
-        thumb.style.cursor = 'pointer';
-        thumb.onclick = () => {
-            showLandingImage(idx);
-            landingThumbsView.style.display = 'none';
-            landingSlideshowImage.style.display = 'block';
-            document.querySelector('.landing-controls').style.display = 'block';
-            document.querySelector('.landing-links').style.display = 'block';
+    function showLandingImage(index) {
+        landingCurrentIndex = index;
+        landingSlideshowImage.src = landingImages[index];
+        landingImageCounter.textContent = `${index + 1} / ${landingImages.length}`;
+    }
+    function showLandingThumbsView() {
+        landingThumbsGrid.innerHTML = '';
+        landingImages.forEach((src, idx) => {
+            const thumb = document.createElement('img');
+            thumb.src = src;
+            thumb.style.width = '120px';
+            thumb.style.cursor = 'pointer';
+            thumb.onclick = () => {
+                showLandingImage(idx);
+                landingThumbsView.style.display = 'none';
+                landingSlideshowImage.style.display = 'block';
+                landingControls.style.display = 'block';
+                landingLinks.style.display = 'block';
+            };
+            landingThumbsGrid.appendChild(thumb);
+        });
+        landingThumbsView.style.display = 'block';
+        landingSlideshowImage.style.display = 'none';
+        landingControls.style.display = 'none';
+        landingLinks.style.display = 'none';
+    }
+    function showLandingSingleImageView() {
+        landingThumbsView.style.display = 'none';
+        landingSlideshowImage.style.display = 'block';
+        landingControls.style.display = 'block';
+        landingLinks.style.display = 'block';
+    }
+    if (landingThumbsLink) {
+        landingThumbsLink.onclick = function(e) {
+            e.preventDefault();
+            showLandingThumbsView();
         };
-        landingThumbsGrid.appendChild(thumb);
-    });
-    landingThumbsView.style.display = 'block';
-    landingSlideshowImage.style.display = 'none';
-    document.querySelector('.landing-controls').style.display = 'none';
-    document.querySelector('.landing-links').style.display = 'none';
-}
-
-// Show the single image view
-function showLandingSingleImageView() {
-    landingThumbsView.style.display = 'none';
-    landingSlideshowImage.style.display = 'block';
-    document.querySelector('.landing-controls').style.display = 'block';
-    document.querySelector('.landing-links').style.display = 'block';
-}
-
-// Event listeners
-landingThumbsLink.onclick = function(e) {
-    e.preventDefault();
-    showLandingThumbsView();
-};
-landingBackToSingleView.onclick = function(e) {
-    e.preventDefault();
-    showLandingSingleImageView();
-};
-
-        // External links
-        function openExternal(url) {
-            window.open(url, '_blank');
-            closeMenu();
-        }
-
-        // Counter functionality
-        function updateCounter() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const milliseconds = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
-            
-            document.getElementById('counter').textContent = `${hours} : ${minutes} : ${seconds} : ${milliseconds}`;
-        }
-
-        // Initialize counter
-        setInterval(updateCounter, 10);
-        updateCounter();
-
-        // Initialize page
-        showSection('landing');
-
-        // Initialize work submenu as hidden
-        document.getElementById('workSubmenu').style.display = 'none';
+    }
+    if (landingBackToSingleView) {
+        landingBackToSingleView.onclick = function(e) {
+            e.preventDefault();
+            showLandingSingleImageView();
+        };
+    }
+    if (landingImages.length > 0) {
+        showLandingImage(0);
+    }
+    if (landingSlideshowImage) {
+        landingSlideshowImage.style.cursor = "pointer";
+        landingSlideshowImage.onclick = function() {
+            if (landingCurrentIndex < landingImages.length - 1) {
+                showLandingImage(landingCurrentIndex + 1);
+            } else {
+                showLandingImage(0);
+            }
+        };
+    }
+    if (landingPrevBtn && landingNextBtn) {
+        landingPrevBtn.onclick = function() {
+            if (landingCurrentIndex > 0) showLandingImage(landingCurrentIndex - 1);
+            else showLandingImage(landingImages.length - 1);
+        };
+        landingNextBtn.onclick = function() {
+            if (landingCurrentIndex < landingImages.length - 1) showLandingImage(landingCurrentIndex + 1);
+            else showLandingImage(0);
+        };
+    }
+    if (landingIndexLink) {
+        landingIndexLink.onclick = function(e) {
+            e.preventDefault();
+            toggleMenu();
+        };
+    }
+});
 
 // --- Portraits I Gallery Data ---
 const portraitsIImages = [
