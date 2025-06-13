@@ -587,12 +587,12 @@
     text-decoration: underline;
 }
 
-<div class="landing-thumbs-view" id="landingThumbsView" style="display:none;">
-    <div class="landing-thumbs-grid" id="landingThumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
-    <div style="text-align:center; margin-top:20px;">
-        <a href="#" id="landingBackToSingleView">Back to Image</a>
-    </div>
-</div>
+   <div class="landing-thumbs-view" id="landingThumbsView" style="display:none;">
+       <div class="landing-thumbs-grid" id="landingThumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+       <div style="text-align:center; margin-top:20px;">
+           <a href="#" id="landingBackToSingleView">Back to Image</a>
+       </div>
+   </div>
 
 .landing-thumbs-grid img {
     border-radius: 2px;
@@ -983,10 +983,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const landingPrevBtn = document.getElementById('landingPrevBtn');
     const landingNextBtn = document.getElementById('landingNextBtn');
     const landingImageCounter = document.getElementById('landingImageCounter');
-    const landingThumbsView = document.getElementById('landingThumbsView');
-    const landingThumbsGrid = document.getElementById('landingThumbsGrid');
-    const landingThumbsLink = document.getElementById('landingThumbsLink');
-    const landingBackToSingleView = document.getElementById('landingBackToSingleView');
+       const landingThumbsLink = document.getElementById('landingThumbsLink');
+   const landingThumbsView = document.getElementById('landingThumbsView');
+   const landingThumbsGrid = document.getElementById('landingThumbsGrid');
+   const landingBackToSingleView = document.getElementById('landingBackToSingleView');
+   // ... rest of the code as previously provided ...
     const landingControls = document.querySelector('.landing-controls');
     const landingLinks = document.querySelector('.landing-links');
     const landingIndexLink = document.getElementById('landingIndexLink');
@@ -1023,18 +1024,18 @@ document.addEventListener('DOMContentLoaded', function() {
         landingControls.style.display = 'block';
         landingLinks.style.display = 'block';
     }
-    if (landingThumbsLink) {
-        landingThumbsLink.onclick = function(e) {
-            e.preventDefault();
-            showLandingThumbsView();
-        };
-    }
-    if (landingBackToSingleView) {
-        landingBackToSingleView.onclick = function(e) {
-            e.preventDefault();
-            showLandingSingleImageView();
-        };
-    }
+       if (landingThumbsLink) {
+       landingThumbsLink.onclick = function(e) {
+           e.preventDefault();
+           showLandingThumbsView();
+       };
+   }
+   if (landingBackToSingleView) {
+       landingBackToSingleView.onclick = function(e) {
+           e.preventDefault();
+           showLandingSingleImageView();
+       };
+   }
     if (landingImages.length > 0) {
         showLandingImage(0);
     }
