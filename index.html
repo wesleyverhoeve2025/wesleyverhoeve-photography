@@ -896,18 +896,6 @@ let currentImageIndex = 0;
 // --- DOM Elements for Portraits I ---
 const singleImageView = document.getElementById('singleImageView');
 const mainGalleryImage = document.getElementById('mainGalleryImage');
-
-   if (mainGalleryImage) {
-       mainGalleryImage.style.cursor = "pointer";
-       mainGalleryImage.onclick = function() {
-           if (currentImageIndex < portraitsIImages.length - 1) {
-               showSingleImageView(currentImageIndex + 1);
-           } else {
-               // Optionally, loop back to the first image:
-               showSingleImageView(0);
-           }
-       };
-   }
 const imageCounter = document.getElementById('imageCounter');
 const prevImageBtn = document.getElementById('prevImageBtn');
 const nextImageBtn = document.getElementById('nextImageBtn');
@@ -916,6 +904,19 @@ const thumbsGrid = document.getElementById('thumbsGrid');
 const thumbsLink = document.getElementById('thumbsLink');
 const backToSingleView = document.getElementById('backToSingleView');
 const indexLink = document.getElementById('indexLink');
+
+// --- Make the main image clickable to go to next image ---
+if (mainGalleryImage) {
+    mainGalleryImage.style.cursor = "pointer";
+    mainGalleryImage.onclick = function() {
+        if (currentImageIndex < portraitsIImages.length - 1) {
+            showSingleImageView(currentImageIndex + 1);
+        } else {
+            // Optionally, loop back to the first image:
+            showSingleImageView(0);
+        }
+    };
+}
 
 // --- Functions for Portraits I ---
 function showSingleImageView(index) {
