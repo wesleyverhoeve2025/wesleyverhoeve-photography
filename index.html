@@ -487,12 +487,26 @@
         </section>
 
         <!-- Gallery Sections -->
-        <section class="gallery" id="portraits-i">
-            <h2>Portraits I</h2>
-            <div class="gallery-grid" id="portraitsiGrid">
-                <!-- Photos will be loaded here -->
-            </div>
-        </section>
+   <section class="gallery" id="portraits-i">
+    <div class="single-image-view" id="singleImageView" style="display:none;">
+        <img id="mainGalleryImage" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+        <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+            <button id="prevImageBtn">&larr;</button>
+            <span id="imageCounter"></span>
+            <button id="nextImageBtn">&rarr;</button>
+        </div>
+        <div class="gallery-links" style="text-align:center; margin-top:20px;">
+            <a href="#" id="indexLink">Index</a> |
+            <a href="#" id="thumbsLink">Thumbs</a>
+        </div>
+    </div>
+    <div class="thumbs-view" id="thumbsView" style="display:none;">
+        <div class="thumbs-grid" id="thumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+        <div style="text-align:center; margin-top:20px;">
+            <a href="#" id="backToSingleView">Back to Image</a>
+        </div>
+    </div>
+</section>
 
         <section class="gallery" id="portraits-ii">
             <h2>Portraits II</h2>
@@ -793,6 +807,113 @@
 
         // Initialize work submenu as hidden
         document.getElementById('workSubmenu').style.display = 'none';
+
+// --- Portraits I Gallery Data ---
+const portraitsIImages = [
+    'work/portraits I/image_001.jpg',
+    'work/portraits I/image_002.jpg',
+    'work/portraits I/image_003.jpg',
+    'work/portraits I/image_004.jpg',
+    'work/portraits I/image_005.jpg'
+    // Add more as needed
+];
+let currentImageIndex = 0;
+
+// --- DOM Elements for Portraits I ---
+const singleImageView = document.getElementById('singleImageView');
+const mainGalleryImage = document.getElementById('mainGalleryImage');
+const imageCounter = document.getElementById('imageCounter');
+const prevImageBtn = document.getElementById('prevImageBtn');
+const nextImageBtn = document.getElementById('nextImageBtn');
+const thumbsView = document.getElementById('thumbsView');
+const thumbsGrid = document.getElementById('thumbsGrid');
+const thumbsLink = document.getElementById('thumbsLink');
+const backToSingleView = document.getElementById('backToSingleView');
+const indexLink = document.getElementById('indexLink');
+
+// --- Functions for Portraits I ---
+function showSingleImageView(index) {
+    currentImageIndex = index;
+    mainGalleryImage.src = portraitsIImages[index];
+    imageCounter.textContent = `${index + 1} / ${portraitsIImages.length}`;
+    singleImageView.style.display = 'block';
+    thumbsView.style.display = 'none';
+}
+function showThumbsView() {
+    thumbsGrid.innerHTML = '';
+    portraitsIImages.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageView(idx);
+        thumbsGrid.appendChild(thumb);
+    });
+    singleImageView.style.display = 'none';
+    thumbsView.style.display = 'block';
+}
+
+// --- Event Listeners for Portraits I ---
+if (prevImageBtn && nextImageBtn && thumbsLink && backToSingleView && indexLink) {
+    prevImageBtn.onclick = () => {
+        if (currentImageIndex > 0) showSingleImageView(currentImageIndex - 1);
+    };
+    nextImageBtn.onclick = () => {
+        if (currentImageIndex < portraitsIImages.length - 1) showSingleImageView(currentImageIndex + 1);
+    };
+    thumbsLink.onclick = (e) => {
+        e.preventDefault();
+        showThumbsView();
+    };
+    backToSingleView.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageView(currentImageIndex);
+    };
+    indexLink.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+// Optional: Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (singleImageView && singleImageView.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtn.onclick();
+        if (e.key === 'ArrowRight') nextImageBtn.onclick();
+    }
+});
+
+// --- Initialize Portraits I Gallery ---
+function startPortraitsIGallery() {
+    showSingleImageView(0);
+}
+
+// --- Update showSection for Portraits I ---
+const originalShowSection = showSection;
+showSection = function(sectionName) {
+    // Hide all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none';
+    });
+    // Show selected section
+    const targetSection = document.getElementById(sectionName);
+    if (targetSection) {
+        if (sectionName === 'landing') {
+            targetSection.style.display = 'flex';
+        } else {
+            targetSection.style.display = 'block';
+            targetSection.classList.add('active');
+        }
+    }
+    // Portraits I: show single image view
+    if (sectionName === 'portraits-i') {
+        startPortraitsIGallery();
+    }
+    // Close menu
+    closeMenu();
+};
+
     </script>
 </body>
 </html>
