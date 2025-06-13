@@ -952,7 +952,17 @@ function showLandingImage(index) {
 if (landingImages.length > 0) {
     showLandingImage(0);
 }
-
+if (landingSlideshowImage) {
+    landingSlideshowImage.style.cursor = "pointer";
+    landingSlideshowImage.onclick = function() {
+        if (landingCurrentIndex < landingImages.length - 1) {
+            showLandingImage(landingCurrentIndex + 1);
+        } else {
+            // Optionally, loop back to the first image:
+            showLandingImage(0);
+        }
+    };
+}
         // External links
         function openExternal(url) {
             window.open(url, '_blank');
