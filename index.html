@@ -467,10 +467,12 @@
     }
 
     #imageCounter {
-        font-size: 0.95em;
+        font-size: 0.8em;
         color: #888;
         font-weight: 300;
         letter-spacing: 0.01em;
+	margin: 0 8px;
+    	vertical-align: middle;
     }
 
     .thumbs-grid img {
@@ -566,6 +568,24 @@
         margin: 24px auto 16px auto;
     }
 }
+
+.landing-links a,
+.gallery-links a,
+#backToSingleView {
+    font-size: 0.8em;
+    color: #222;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+}
+.landing-links a:hover,
+.gallery-links a:hover,
+#backToSingleView:hover {
+    color: #888;
+    text-decoration: underline;
+}
     /* --- End of new CSS --- */
     </style>
 </head>
@@ -621,6 +641,10 @@
       <button id="landingNextBtn">&rarr;</button>
     </div>
   </div>
+<div class="landing-links" style="text-align:center; margin-top: 4px;">
+    <a href="#" id="landingIndexLink">Index</a> |
+    <a href="#" id="landingThumbsLink">Thumbnails</a>
+</div>
 
     <h1>Wesley Verhoeve</h1>
     <p class="subtitle">Photographer capturing life through light and shadow</p>
@@ -963,6 +987,10 @@ if (landingSlideshowImage) {
         }
     };
 }
+  document.getElementById('landingIndexLink').onclick = function(e) {
+      e.preventDefault();
+      toggleMenu();
+  };
         // External links
         function openExternal(url) {
             window.open(url, '_blank');
