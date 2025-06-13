@@ -526,6 +526,33 @@
     color: #888;
     font-weight: 300;
 }
+
+.landing-slideshow {
+    max-width: 900px;      /* or 1000px for even larger images */
+    margin: 40px auto 32px auto; /* top, right/left, bottom, right/left */
+    padding: 0 24px;       /* side padding for extra safety on mobile */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.landing-slideshow img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+}
+
+@media (max-width: 600px) {
+    .landing-slideshow {
+        max-width: 98vw;
+        padding: 0 4vw;
+        margin: 24px auto 16px auto;
+    }
+}
     /* --- End of new CSS --- */
     </style>
 </head>
@@ -574,7 +601,7 @@
         <!-- Landing Page -->
         <section class="landing" id="landing">
     <div class="landing-slideshow" style="text-align:center;">
-        <img id="landingSlideshowImage" src="" alt="Slideshow" style="max-width:90vw; max-height:70vh; display:block; margin: 0 auto 16px auto;">
+        <img id="landingSlideshowImage" src="" alt="Slideshow">
         <div class="landing-controls" style="margin-bottom: 16px;">
             <button id="landingPrevBtn">&larr;</button>
             <span id="landingImageCounter"></span>
