@@ -148,7 +148,6 @@
 
         /* Landing Page */
         .landing {
-            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -499,57 +498,71 @@
     margin-bottom: 10px;
 }
 
-.landing-slideshow img {
-    border-radius: 2px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    transition: box-shadow 0.2s;
-}
-.landing-slideshow img:hover {
-    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-}
-.landing-controls button {
-    font-family: inherit;
-    font-size: 1em;
-    background: none;
-    border: none;
-    color: #222;
-    padding: 0 12px;
-    cursor: pointer;
-    font-weight: 300;
-    transition: color 0.2s;
-}
-.landing-controls button:hover {
-    color: #888;
-}
-#landingImageCounter {
-    font-size: 0.9em;
-    color: #888;
-    font-weight: 300;
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  background: #fff;
 }
 
 .landing-slideshow {
-    max-width: 900px;      /* or 1000px for even larger images */
-    margin: 40px auto 32px auto; /* top, right/left, bottom, right/left */
-    padding: 0 24px;       /* side padding for extra safety on mobile */
+  width: 100%;
+  max-width: 900px;
+  margin: 48px auto 32px auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-slideshow img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.landing-controls {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 700px) {
+  .landing-slideshow {
+    max-width: 98vw;
+    padding: 0 2vw;
+    margin: 24px auto 16px auto;
+  }
+}
+.landing-slideshow {
+    width: 100%;
+    max-width: 900px;
+    margin: 48px auto 32px auto;
+    padding: 0 32px;
     box-sizing: border-box;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .landing-slideshow img {
     width: 100%;
-    max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
     border-radius: 2px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    transition: box-shadow 0.2s;
+    margin-bottom: 12px;
+    background: #fff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .landing-slideshow {
         max-width: 98vw;
-        padding: 0 4vw;
+        padding: 0 2vw;
         margin: 24px auto 16px auto;
     }
 }
@@ -602,7 +615,7 @@
         <section class="landing" id="landing">
     <div class="landing-slideshow" style="text-align:center;">
         <img id="landingSlideshowImage" src="" alt="Slideshow">
-        <div class="landing-controls" style="margin-bottom: 16px;">
+        <div class="landing-controls">
             <button id="landingPrevBtn">&larr;</button>
             <span id="landingImageCounter"></span>
             <button id="landingNextBtn">&rarr;</button>
@@ -1061,50 +1074,6 @@ showSection = function(sectionName) {
     // Close menu
     closeMenu();
 };
-
-// --- Landing Page Slideshow Data ---
-const landingImages = [
-    'work/landing/landing_001.jpg',
-    'work/landing/landing_002.jpg',
-    'work/landing/landing_003.jpg'
-    // Add more as needed
-];
-let landingCurrentIndex = 0;
-
-// --- DOM Elements for Landing Slideshow ---
-const landingSlideshowImage = document.getElementById('landingSlideshowImage');
-const landingPrevBtn = document.getElementById('landingPrevBtn');
-const landingNextBtn = document.getElementById('landingNextBtn');
-const landingImageCounter = document.getElementById('landingImageCounter');
-
-// --- Functions ---
-function showLandingImage(index) {
-    landingCurrentIndex = index;
-    landingSlideshowImage.src = landingImages[index];
-    landingImageCounter.textContent = `${index + 1} / ${landingImages.length}`;
-}
-
-// --- Event Listeners ---
-if (landingPrevBtn && landingNextBtn && landingSlideshowImage) {
-    landingPrevBtn.onclick = () => {
-        if (landingCurrentIndex > 0) showLandingImage(landingCurrentIndex - 1);
-        else showLandingImage(landingImages.length - 1); // loop to last
-    };
-    landingNextBtn.onclick = () => {
-        if (landingCurrentIndex < landingImages.length - 1) showLandingImage(landingCurrentIndex + 1);
-        else showLandingImage(0); // loop to first
-    };
-    landingSlideshowImage.style.cursor = "pointer";
-    landingSlideshowImage.onclick = () => {
-        if (landingCurrentIndex < landingImages.length - 1) showLandingImage(landingCurrentIndex + 1);
-        else showLandingImage(0);
-    };
-}
-
-// --- Initialize on page load ---
-if (landingImages.length > 0) {
-    showLandingImage(0);
-}
 
     </script>
 </body>
