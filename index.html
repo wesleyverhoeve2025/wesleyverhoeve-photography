@@ -613,14 +613,15 @@
     <div class="main-content" id="mainContent">
         <!-- Landing Page -->
         <section class="landing" id="landing">
-    <div class="landing-slideshow" style="text-align:center;">
-        <img id="landingSlideshowImage" src="" alt="Slideshow">
-        <div class="landing-controls">
-            <button id="landingPrevBtn">&larr;</button>
-            <span id="landingImageCounter"></span>
-            <button id="landingNextBtn">&rarr;</button>
-        </div>
+  <div class="landing-slideshow">
+    <img id="landingSlideshowImage" src="" alt="Slideshow">
+    <div class="landing-controls">
+      <button id="landingPrevBtn">&larr;</button>
+      <span id="landingImageCounter"></span>
+      <button id="landingNextBtn">&rarr;</button>
     </div>
+  </div>
+
     <h1>Wesley Verhoeve</h1>
     <p class="subtitle">Photographer capturing life through light and shadow</p>
     <div class="bio">
@@ -928,6 +929,29 @@
             // Close menu
             closeMenu();
         }
+
+const landingImages = [
+    'work/landing/landing_001.jpg',
+    'work/landing/landing_002.jpg',
+    'work/landing/landing_003.jpg'
+    // Add more as needed
+];
+let landingCurrentIndex = 0;
+
+const landingSlideshowImage = document.getElementById('landingSlideshowImage');
+const landingPrevBtn = document.getElementById('landingPrevBtn');
+const landingNextBtn = document.getElementById('landingNextBtn');
+const landingImageCounter = document.getElementById('landingImageCounter');
+
+function showLandingImage(index) {
+    landingCurrentIndex = index;
+    landingSlideshowImage.src = landingImages[index];
+    landingImageCounter.textContent = `${index + 1} / ${landingImages.length}`;
+}
+
+if (landingImages.length > 0) {
+    showLandingImage(0);
+}
 
         // External links
         function openExternal(url) {
