@@ -586,6 +586,23 @@
     color: #888;
     text-decoration: underline;
 }
+
+<div class="landing-thumbs-view" id="landingThumbsView" style="display:none;">
+    <div class="landing-thumbs-grid" id="landingThumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+    <div style="text-align:center; margin-top:20px;">
+        <a href="#" id="landingBackToSingleView">Back to Image</a>
+    </div>
+</div>
+
+.landing-thumbs-grid img {
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+    margin-bottom: 8px;
+}
+.landing-thumbs-grid img:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
     /* --- End of new CSS --- */
     </style>
 </head>
@@ -991,6 +1008,53 @@ if (landingSlideshowImage) {
       e.preventDefault();
       toggleMenu();
   };
+
+const landingThumbsView = document.getElementById('landingThumbsView');
+const landingThumbsGrid = document.getElementById('landingThumbsGrid');
+const landingThumbsLink = document.getElementById('landingThumbsLink');
+const landingBackToSingleView = document.getElementById('landingBackToSingleView');
+
+// Show the thumbnail grid
+function showLandingThumbsView() {
+    landingThumbsGrid.innerHTML = '';
+    landingImages.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => {
+            showLandingImage(idx);
+            landingThumbsView.style.display = 'none';
+            landingSlideshowImage.style.display = 'block';
+            document.querySelector('.landing-controls').style.display = 'block';
+            document.querySelector('.landing-links').style.display = 'block';
+        };
+        landingThumbsGrid.appendChild(thumb);
+    });
+    landingThumbsView.style.display = 'block';
+    landingSlideshowImage.style.display = 'none';
+    document.querySelector('.landing-controls').style.display = 'none';
+    document.querySelector('.landing-links').style.display = 'none';
+}
+
+// Show the single image view
+function showLandingSingleImageView() {
+    landingThumbsView.style.display = 'none';
+    landingSlideshowImage.style.display = 'block';
+    document.querySelector('.landing-controls').style.display = 'block';
+    document.querySelector('.landing-links').style.display = 'block';
+}
+
+// Event listeners
+landingThumbsLink.onclick = function(e) {
+    e.preventDefault();
+    showLandingThumbsView();
+};
+landingBackToSingleView.onclick = function(e) {
+    e.preventDefault();
+    showLandingSingleImageView();
+};
+
         // External links
         function openExternal(url) {
             window.open(url, '_blank');
