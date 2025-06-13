@@ -565,7 +565,7 @@
     <div class="single-image-view" id="singleImageView" style="display:none;">
         <img id="mainGalleryImage" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
        <div class="gallery-links" style="text-align:center;">
-            <a href="#" id="indexLink">Index</a> —-
+            <a href="#" id="indexLink">Index</a> ———
             <a href="#" id="thumbsLink">Thumbnails</a>
         </div>
         <div class="gallery-controls" style="text-align:center; margin-top:20px;">
@@ -896,6 +896,18 @@ let currentImageIndex = 0;
 // --- DOM Elements for Portraits I ---
 const singleImageView = document.getElementById('singleImageView');
 const mainGalleryImage = document.getElementById('mainGalleryImage');
+
+   if (mainGalleryImage) {
+       mainGalleryImage.style.cursor = "pointer";
+       mainGalleryImage.onclick = function() {
+           if (currentImageIndex < portraitsIImages.length - 1) {
+               showSingleImageView(currentImageIndex + 1);
+           } else {
+               // Optionally, loop back to the first image:
+               showSingleImageView(0);
+           }
+       };
+   }
 const imageCounter = document.getElementById('imageCounter');
 const prevImageBtn = document.getElementById('prevImageBtn');
 const nextImageBtn = document.getElementById('nextImageBtn');
