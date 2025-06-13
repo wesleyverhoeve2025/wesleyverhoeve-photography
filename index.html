@@ -453,7 +453,7 @@
     .gallery-links a,
     #backToSingleView {
         font-family: inherit;
-        font-size: 0.95em;
+        font-size: 0.8em;
         color: #222;
         text-decoration: none;
         margin: 0 8px;
@@ -482,6 +482,22 @@
     .thumbs-grid img:hover {
         box-shadow: 0 2px 12px rgba(0,0,0,0.10);
     }
+
+.gallery-links a,
+#backToSingleView {
+    font-size: 0.8em;
+    /* keep other styles as before */
+}
+.gallery-links {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.gallery-controls {
+    margin-top: 10px;
+}
+#mainGalleryImage {
+    margin-bottom: 10px;
+}
     /* --- End of new CSS --- */
     </style>
 </head>
@@ -548,14 +564,14 @@
    <section class="gallery" id="portraits-i">
     <div class="single-image-view" id="singleImageView" style="display:none;">
         <img id="mainGalleryImage" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+       <div class="gallery-links" style="text-align:center;">
+            <a href="#" id="indexLink">Index</a> |
+            <a href="#" id="thumbsLink">Thumbnails</a>
+        </div>
         <div class="gallery-controls" style="text-align:center; margin-top:20px;">
             <button id="prevImageBtn">&larr;</button>
             <span id="imageCounter"></span>
             <button id="nextImageBtn">&rarr;</button>
-        </div>
-        <div class="gallery-links" style="text-align:center; margin-top:20px;">
-            <a href="#" id="indexLink">Index</a> |
-            <a href="#" id="thumbsLink">Thumbs</a>
         </div>
     </div>
     <div class="thumbs-view" id="thumbsView" style="display:none;">
