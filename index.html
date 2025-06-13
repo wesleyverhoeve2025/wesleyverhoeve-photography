@@ -648,41 +648,42 @@
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
-        <!-- Landing Page -->
-        <section class="landing" id="landing">
-  <div class="landing-slideshow">
-    <img id="landingSlideshowImage" src="" alt="Slideshow">
-    <div class="landing-controls">
-      <button id="landingPrevBtn">&larr;</button>
-      <span id="landingImageCounter"></span>
-      <button id="landingNextBtn">&rarr;</button>
-    </div>
-  </div>
-<div class="landing-links" style="text-align:center; margin-top: 4px;">
-    <a href="#" id="landingIndexLink">Index</a> |
-    <a href="#" id="landingThumbsLink">Thumbnails</a>
-</div>
-
-  <div class="landing-thumbs-view" id="landingThumbsView" style="display:none;">
-      <div class="landing-thumbs-grid" id="landingThumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
-      <div style="text-align:center; margin-top:20px;">
-        <a href="#" id="landingBackToSingleView">Back to Image</a>
+  <!-- Landing Page -->
+  <section class="landing" id="landing">
+    <div class="landing-slideshow">
+      <img id="landingSlideshowImage" src="" alt="Slideshow">
+      <div class="landing-controls">
+        <button id="landingPrevBtn">&larr;</button>
+        <span id="landingImageCounter"></span>
+        <button id="landingNextBtn">&rarr;</button>
+      </div>
+      <div class="landing-links" style="text-align:center; margin-top: 4px;">
+        <a href="#" id="landingIndexLink">Index</a> |
+        <a href="#" id="landingThumbsLink">Thumbnails</a>
+      </div>
+      <!-- Thumbnails view goes INSIDE .landing-slideshow, here: -->
+      <div class="landing-thumbs-view" id="landingThumbsView" style="display:none;">
+        <div class="landing-thumbs-grid" id="landingThumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+        <div style="text-align:center; margin-top:20px;">
+          <a href="#" id="landingBackToSingleView">Back to Image</a>
+        </div>
       </div>
     </div>
-  
-
+    <!-- You can now have your h1, subtitle, bio, links, etc. here -->
     <h1>Wesley Verhoeve</h1>
     <p class="subtitle">Photographer capturing life through light and shadow</p>
     <div class="bio">
-        <p>Specializing in portrait and travel photography, I seek to tell stories that connect us to the human experience. Each image is crafted with intention, drawing viewers into moments both intimate and expansive.</p>
+      <p>Specializing in portrait and travel photography, I seek to tell stories that connect us to the human experience. Each image is crafted with intention, drawing viewers into moments both intimate and expansive.</p>
     </div>
     <div class="links">
-        <a href="#">Instagram</a>
-        <a href="#">Exhibitions</a>
-        <a href="#">Contact</a>
-        <a href="#">Prints</a>
+      <a href="#">Instagram</a>
+      <a href="#">Exhibitions</a>
+      <a href="#">Contact</a>
+      <a href="#">Prints</a>
     </div>
-</section>
+  </section>
+  <!-- ...other sections... -->
+</div>
 
         <!-- Gallery Sections -->
    <section class="gallery" id="portraits-i">
