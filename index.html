@@ -498,6 +498,34 @@
 #mainGalleryImage {
     margin-bottom: 10px;
 }
+
+.landing-slideshow img {
+    border-radius: 2px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+}
+.landing-slideshow img:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+.landing-controls button {
+    font-family: inherit;
+    font-size: 1em;
+    background: none;
+    border: none;
+    color: #222;
+    padding: 0 12px;
+    cursor: pointer;
+    font-weight: 300;
+    transition: color 0.2s;
+}
+.landing-controls button:hover {
+    color: #888;
+}
+#landingImageCounter {
+    font-size: 0.9em;
+    color: #888;
+    font-weight: 300;
+}
     /* --- End of new CSS --- */
     </style>
 </head>
@@ -545,20 +573,26 @@
     <div class="main-content" id="mainContent">
         <!-- Landing Page -->
         <section class="landing" id="landing">
-            <h1>Wesley Verhoeve</h1>
-            <p class="subtitle">Photographer capturing life through light and shadow</p>
-            
-            <div class="bio">
-                <p>Specializing in portrait and travel photography, I seek to tell stories that connect us to the human experience. Each image is crafted with intention, drawing viewers into moments both intimate and expansive.</p>
-            </div>
-            
-            <div class="links">
-                <a href="#">Instagram</a>
-                <a href="#">Exhibitions</a>
-                <a href="#">Contact</a>
-                <a href="#">Prints</a>
-            </div>
-        </section>
+    <div class="landing-slideshow" style="text-align:center;">
+        <img id="landingSlideshowImage" src="" alt="Slideshow" style="max-width:90vw; max-height:70vh; display:block; margin: 0 auto 16px auto;">
+        <div class="landing-controls" style="margin-bottom: 16px;">
+            <button id="landingPrevBtn">&larr;</button>
+            <span id="landingImageCounter"></span>
+            <button id="landingNextBtn">&rarr;</button>
+        </div>
+    </div>
+    <h1>Wesley Verhoeve</h1>
+    <p class="subtitle">Photographer capturing life through light and shadow</p>
+    <div class="bio">
+        <p>Specializing in portrait and travel photography, I seek to tell stories that connect us to the human experience. Each image is crafted with intention, drawing viewers into moments both intimate and expansive.</p>
+    </div>
+    <div class="links">
+        <a href="#">Instagram</a>
+        <a href="#">Exhibitions</a>
+        <a href="#">Contact</a>
+        <a href="#">Prints</a>
+    </div>
+</section>
 
         <!-- Gallery Sections -->
    <section class="gallery" id="portraits-i">
@@ -1000,6 +1034,50 @@ showSection = function(sectionName) {
     // Close menu
     closeMenu();
 };
+
+// --- Landing Page Slideshow Data ---
+const landingImages = [
+    'work/landing/landing_001.jpg',
+    'work/landing/landing_002.jpg',
+    'work/landing/landing_003.jpg'
+    // Add more as needed
+];
+let landingCurrentIndex = 0;
+
+// --- DOM Elements for Landing Slideshow ---
+const landingSlideshowImage = document.getElementById('landingSlideshowImage');
+const landingPrevBtn = document.getElementById('landingPrevBtn');
+const landingNextBtn = document.getElementById('landingNextBtn');
+const landingImageCounter = document.getElementById('landingImageCounter');
+
+// --- Functions ---
+function showLandingImage(index) {
+    landingCurrentIndex = index;
+    landingSlideshowImage.src = landingImages[index];
+    landingImageCounter.textContent = `${index + 1} / ${landingImages.length}`;
+}
+
+// --- Event Listeners ---
+if (landingPrevBtn && landingNextBtn && landingSlideshowImage) {
+    landingPrevBtn.onclick = () => {
+        if (landingCurrentIndex > 0) showLandingImage(landingCurrentIndex - 1);
+        else showLandingImage(landingImages.length - 1); // loop to last
+    };
+    landingNextBtn.onclick = () => {
+        if (landingCurrentIndex < landingImages.length - 1) showLandingImage(landingCurrentIndex + 1);
+        else showLandingImage(0); // loop to first
+    };
+    landingSlideshowImage.style.cursor = "pointer";
+    landingSlideshowImage.onclick = () => {
+        if (landingCurrentIndex < landingImages.length - 1) showLandingImage(landingCurrentIndex + 1);
+        else showLandingImage(0);
+    };
+}
+
+// --- Initialize on page load ---
+if (landingImages.length > 0) {
+    showLandingImage(0);
+}
 
     </script>
 </body>
