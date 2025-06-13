@@ -12,12 +12,12 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: #ffffff;
-            color: #000;
-            line-height: 1.4;
-            overflow-x: hidden;
-        }
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: #222;
+    background: #fff;
+    letter-spacing: 0.01em;
+}
 
         /* Menu Toggle Button */
         .menu-toggle {
@@ -425,6 +425,64 @@
                 padding: 60px 20px 20px;
             }
         }
+
+ /* --- Add the new minimalist gallery CSS below --- */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        color: #222;
+        background: #fff;
+        letter-spacing: 0.01em;
+    }
+
+    .gallery-controls button {
+        font-family: inherit;
+        font-size: 1.1em;
+        background: none;
+        border: none;
+        color: #222;
+        padding: 0 16px;
+        cursor: pointer;
+        font-weight: 300;
+        transition: color 0.2s;
+    }
+    .gallery-controls button:hover {
+        color: #888;
+    }
+
+    .gallery-links a,
+    #backToSingleView {
+        font-family: inherit;
+        font-size: 0.95em;
+        color: #222;
+        text-decoration: none;
+        margin: 0 8px;
+        font-weight: 300;
+        letter-spacing: 0.01em;
+        transition: color 0.2s;
+    }
+    .gallery-links a:hover,
+    #backToSingleView:hover {
+        color: #888;
+        text-decoration: underline;
+    }
+
+    #imageCounter {
+        font-size: 0.95em;
+        color: #888;
+        font-weight: 300;
+        letter-spacing: 0.01em;
+    }
+
+    .thumbs-grid img {
+        border-radius: 2px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        transition: box-shadow 0.2s;
+    }
+    .thumbs-grid img:hover {
+        box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+    /* --- End of new CSS --- */
     </style>
 </head>
 <body>
