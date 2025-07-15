@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wesley Verhoeve - Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 15px;
     color: #222;
     background: #fff;
@@ -138,8 +139,9 @@
         /* Main Content */
         .main-content {
             transition: margin-left 0.4s ease;
-            min-height: 100vh;
             position: relative;
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .main-content.menu-open {
@@ -197,11 +199,19 @@
 
         /* Gallery Section */
         .gallery {
-            display: none;
-            padding: 80px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 30px 30px;
             max-width: 1200px;
             margin: 0 auto;
-            min-height: 100vh;
+            min-height: 0;
+        }
+
+        .single-image-view {
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .gallery.active {
@@ -427,7 +437,7 @@
 
  /* --- Add the new minimalist gallery CSS below --- */
     body {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-size: 15px;
         color: #222;
         background: #fff;
@@ -533,6 +543,25 @@
   margin-bottom: 16px;
 }
 
+.landing-controls button {
+    background: none;
+    border: none;
+    color: #222;
+    font-size: 1.5em;
+    padding: 0 10px;
+    cursor: pointer;
+    font-weight: 300;
+    transition: color 0.2s;
+    box-shadow: none;
+    outline: none;
+}
+.landing-controls button:hover {
+    color: #888;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
 @media (max-width: 700px) {
   .landing-slideshow {
     max-width: 98vw;
@@ -587,13 +616,6 @@
     text-decoration: underline;
 }
 
-   <div class="landing-thumbs-view" id="landingThumbsView" style="display:none;">
-       <div class="landing-thumbs-grid" id="landingThumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
-       <div style="text-align:center; margin-top:20px;">
-           <a href="#" id="landingBackToSingleView">Back to Image</a>
-       </div>
-   </div>
-
 .landing-thumbs-grid img {
     border-radius: 2px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
@@ -604,6 +626,100 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.10);
 }
     /* --- End of new CSS --- */
+    .menu-topnav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            margin-top: 0;
+            letter-spacing: 0.01em;
+        }
+        .menu-topnav-link {
+            color: #222;
+            text-decoration: none;
+            opacity: 0.7;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 2px 4px;
+            border-radius: 2px;
+            transition: background 0.2s, color 0.2s, opacity 0.2s;
+        }
+        .menu-topnav-link.active {
+            opacity: 1;
+            font-weight: 500;
+            color: #000;
+        }
+        .menu-topnav-link:hover {
+            background: #f5f5f5;
+            color: #000;
+            opacity: 1;
+        }
+        .menu-topnav-sep {
+            color: #bbb;
+            font-size: 12px;
+            margin: 0 2px;
+        }
+        .menu-work-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+        .menu-work-list li {
+            margin: 10px 0;
+        }
+        .menu-work-list a {
+            color: #222;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+        .menu-work-list a:hover {
+            color: #888;
+        }
+        #menuInfoContent {
+            font-size: 13px;
+            color: #222;
+            margin-bottom: 24px;
+        }
+        .menu-info-bio {
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+        .menu-info-books {
+            margin-bottom: 18px;
+        }
+        .menu-info-links {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .menu-info-links a {
+            color: #222;
+            text-decoration: none;
+            margin: 0 4px;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+        .menu-info-links a:hover {
+            color: #888;
+            text-decoration: underline;
+        }
+        @media (max-width: 700px) {
+            .menu-topnav {
+                font-size: 11px;
+                gap: 8px;
+            }
+            .menu-work-list a {
+                font-size: 13px;
+            }
+            #menuInfoContent {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -616,30 +732,46 @@
 
     <!-- Side Menu -->
     <div class="side-menu" id="sideMenu">
-        <nav>
-            <ul>
-                <li><a href="#" onclick="showSection('landing')">Home</a></li>
-                <li>
-                    <a href="#" onclick="toggleWorkSubmenu()">Work</a>
-                    <ul class="work-submenu" id="workSubmenu">
-                        <li><a href="#" onclick="showSection('portraits-i')">Portraits I</a></li>
-                        <li><a href="#" onclick="showSection('portraits-ii')">Portraits II</a></li>
-                        <li><a href="#" onclick="showSection('travel')">Travel</a></li>
-                        <li><a href="#" onclick="showSection('portfolio-one-of-many')">Portfolio - one of many</a></li>
-                        <li><a href="#" onclick="showSection('portfolio-best-medicine')">Portfolio - the best medicine</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" onclick="showSection('books')">Books</a></li>
-                <li><a href="#" onclick="showSection('process')">Process</a></li>
-                <li><a href="#" class="external" onclick="openExternal('https://your-shopify-store.com')">Shop</a></li>
-                <li><a href="#" onclick="showSection('info')">Info</a></li>
+        <div class="menu-topnav">
+            <a href="#" id="menuWork" class="menu-topnav-link active">Work</a>
+            <span class="menu-topnav-sep">/</span>
+            <a href="#" id="menuInfo" class="menu-topnav-link">Info</a>
+            <span class="menu-topnav-sep">/</span>
+            <a href="#" id="menuProcess" class="menu-topnav-link">Process</a>
+        </div>
+        <div id="menuMainLinks">
+            <ul class="menu-work-list">
+                <li><a href="#" onclick="showSection('portraits-i')">Portraits I</a></li>
+                <li><a href="#" onclick="showSection('portraits-ii')">Portraits II</a></li>
+                <li><a href="#" onclick="showSection('travel')">Travel</a></li>
+                <li><a href="#" onclick="showSection('portfolio-one-of-many')">Portfolio - one of many</a></li>
+                <li><a href="#" onclick="showSection('portfolio-best-medicine')">Portfolio - the best medicine</a></li>
             </ul>
-        </nav>
+        </div>
+        <div id="menuInfoContent" style="display:none;">
+            <div class="menu-info-bio">
+                Wesley Verhoeve is an Amsterdam-based photographer, curator and writer.<br><br>
+                His photography, rooted in human stories of craft and community, has been featured in The New York Times, National Geographic Traveler, Wired, and Het Parool.<br><br>
+                As the founding curator of the Projected series at ICP in New York, he organized 96 exhibitions showcasing over 300 photographers from 53 countries.<br><br>
+                He also publishes Process, a weekly newsletter on photography and creative work.
+            </div>
+            <div class="menu-info-books">
+                <strong>Books</strong><br><br>
+                2025 The Best Medicine (New Style)<br>
+                2024 NOTICE Journal, Volume One (New Style)<br>
+                2021 NOTICE (New Style)
+            </div>
+            <div class="menu-info-links">
+                <a href="mailto:hello@wesley.co" target="_blank">Contact</a> -
+                <a href="https://www.instagram.com/wesley" target="_blank">Instagram</a> -
+                <a href="#" id="workshopsLink">Workshops</a> -
+                <a href="https://www.readprocess.co" target="_blank">Newsletter</a>
+            </div>
+        </div>
         
         <div class="menu-info">
             <p>Available for commissions</p>
             <p>Print inquiries welcome</p>
-            <p>Based in [Your Location]</p>
         </div>
     </div>
 
@@ -669,18 +801,6 @@
         </div>
       </div>
     </div>
-    <!-- You can now have your h1, subtitle, bio, links, etc. here -->
-    <h1>Wesley Verhoeve</h1>
-    <p class="subtitle">Photographer capturing life through light and shadow</p>
-    <div class="bio">
-      <p>Specializing in portrait and travel photography, I seek to tell stories that connect us to the human experience. Each image is crafted with intention, drawing viewers into moments both intimate and expansive.</p>
-    </div>
-    <div class="links">
-      <a href="#">Instagram</a>
-      <a href="#">Exhibitions</a>
-      <a href="#">Contact</a>
-      <a href="#">Prints</a>
-    </div>
   </section>
   <!-- ...other sections... -->
 </div>
@@ -708,30 +828,86 @@
 </section>
 
         <section class="gallery" id="portraits-ii">
-            <h2>Portraits II</h2>
-            <div class="gallery-grid" id="portraitsiiGrid">
-                <!-- Photos will be loaded here -->
+            <div class="single-image-view" id="singleImageViewII" style="display:none;">
+                <img id="mainGalleryImageII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkII">Index</a> ———
+                    <a href="#" id="thumbsLinkII">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnII">&larr;</button>
+                    <span id="imageCounterII"></span>
+                    <button id="nextImageBtnII">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewII" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridII" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewII">Back to Image</a>
+                </div>
             </div>
         </section>
 
         <section class="gallery" id="travel">
-            <h2>Travel</h2>
-            <div class="gallery-grid" id="travelGrid">
-                <!-- Photos will be loaded here -->
+            <div class="single-image-view" id="singleImageViewTravel" style="display:none;">
+                <img id="mainGalleryImageTravel" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkTravel">Index</a> ———
+                    <a href="#" id="thumbsLinkTravel">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnTravel">&larr;</button>
+                    <span id="imageCounterTravel"></span>
+                    <button id="nextImageBtnTravel">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewTravel" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridTravel" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewTravel">Back to Image</a>
+                </div>
             </div>
         </section>
 
         <section class="gallery" id="portfolio-one-of-many">
-            <h2>Portfolio - one of many</h2>
-            <div class="gallery-grid" id="portfolioneofmanyGrid">
-                <!-- Photos will be loaded here -->
+            <div class="single-image-view" id="singleImageViewOneOfMany" style="display:none;">
+                <img id="mainGalleryImageOneOfMany" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkOneOfMany">Index</a> ———
+                    <a href="#" id="thumbsLinkOneOfMany">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnOneOfMany">&larr;</button>
+                    <span id="imageCounterOneOfMany"></span>
+                    <button id="nextImageBtnOneOfMany">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewOneOfMany" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridOneOfMany" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewOneOfMany">Back to Image</a>
+                </div>
             </div>
         </section>
 
         <section class="gallery" id="portfolio-best-medicine">
-            <h2>Portfolio - the best medicine</h2>
-            <div class="gallery-grid" id="portfoliobestmedicineGrid">
-                <!-- Photos will be loaded here -->
+            <div class="single-image-view" id="singleImageViewBestMedicine" style="display:none;">
+                <img id="mainGalleryImageBestMedicine" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkBestMedicine">Index</a> ———
+                    <a href="#" id="thumbsLinkBestMedicine">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnBestMedicine">&larr;</button>
+                    <span id="imageCounterBestMedicine"></span>
+                    <button id="nextImageBtnBestMedicine">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewBestMedicine" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridBestMedicine" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewBestMedicine">Back to Image</a>
+                </div>
             </div>
         </section>
 
@@ -780,45 +956,14 @@
                 </div>
             </div>
         </section>
-
-        <!-- Counter -->
-        <div class="counter" id="counter">00 : 00 : 00 : 00</div>
     </div>
 
+    <script src="gallery-config.js"></script>
     <script>
         // Gallery configuration with naming conventions
-        const galleryConfig = {
-            'portraits-i': {
-                folder: 'work/portraits I/',
-                prefix: 'image_',
-                maxImages: 50, // Will try image_001.jpg through image_050.jpg
-                extensions: ['jpg', 'jpeg', 'png', 'webp']
-            },
-            'portraits-ii': {
-                folder: 'work/portraits II/',
-                prefix: 'image_',
-                maxImages: 50,
-                extensions: ['jpg', 'jpeg', 'png', 'webp']
-            },
-            'travel': {
-                folder: 'work/travel/',
-                prefix: 'travel_',
-                maxImages: 50,
-                extensions: ['jpg', 'jpeg', 'png', 'webp']
-            },
-            'portfolio-one-of-many': {
-                folder: 'work/portfolio - one of many/',
-                prefix: 'portfolio_',
-                maxImages: 30,
-                extensions: ['jpg', 'jpeg', 'png', 'webp']
-            },
-            'portfolio-best-medicine': {
-                folder: 'work/portfolio - the best medicine/',
-                prefix: 'medicine_',
-                maxImages: 30,
-                extensions: ['jpg', 'jpeg', 'png', 'webp']
-            }
-        };
+        // REMOVED: const galleryConfig = { ... } (now in gallery-config.js)
+        // REMOVED: const portraitsIImages = [ ... ] (now in gallery-config.js)
+        // Use window.galleryConfig and window.portraitsIImages instead
 
         // Generate possible image paths based on naming convention
         function generateImagePaths(config) {
@@ -841,7 +986,7 @@
             console.log("Loading photos for:", galleryName);
             
             const grid = document.getElementById(gridId);
-            const config = galleryConfig[galleryName];
+            const config = window.galleryConfig[galleryName];
             
             if (!grid) {
                 console.error("Grid not found:", gridId);
@@ -971,7 +1116,7 @@
             }
             
             // Load photos for gallery sections
-            if (galleryConfig[sectionName]) {
+            if (window.galleryConfig[sectionName]) {
                 const gridId = sectionName.replace(/-/g, '').toLowerCase() + 'Grid';
                 loadPhotosFromFolder(sectionName, gridId);
             }
@@ -1077,14 +1222,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // --- Portraits I Gallery Data ---
-const portraitsIImages = [
-    'work/portraits I/image_001.jpg',
-    'work/portraits I/image_002.jpg',
-    'work/portraits I/image_003.jpg',
-    'work/portraits I/image_004.jpg',
-    'work/portraits I/image_005.jpg'
-    // Add more as needed
-];
+// REMOVED: const portraitsIImages = [ ... ] (entire array)
+// Use window.galleryConfig['portraits-i'] as the image array
 let currentImageIndex = 0;
 
 // --- DOM Elements for Portraits I ---
@@ -1099,14 +1238,18 @@ const thumbsLink = document.getElementById('thumbsLink');
 const backToSingleView = document.getElementById('backToSingleView');
 const indexLink = document.getElementById('indexLink');
 
+function getPortraitsIImages() {
+    return window.galleryConfig && window.galleryConfig['portraits-i'] ? window.galleryConfig['portraits-i'] : [];
+}
+
 // --- Make the main image clickable to go to next image ---
 if (mainGalleryImage) {
     mainGalleryImage.style.cursor = "pointer";
     mainGalleryImage.onclick = function() {
-        if (currentImageIndex < portraitsIImages.length - 1) {
+        const images = getPortraitsIImages();
+        if (currentImageIndex < images.length - 1) {
             showSingleImageView(currentImageIndex + 1);
         } else {
-            // Optionally, loop back to the first image:
             showSingleImageView(0);
         }
     };
@@ -1114,15 +1257,18 @@ if (mainGalleryImage) {
 
 // --- Functions for Portraits I ---
 function showSingleImageView(index) {
+    const images = getPortraitsIImages();
+    if (!images.length) return;
     currentImageIndex = index;
-    mainGalleryImage.src = portraitsIImages[index];
-    imageCounter.textContent = `${index + 1} / ${portraitsIImages.length}`;
+    mainGalleryImage.src = images[index];
+    imageCounter.textContent = `${index + 1} / ${images.length}`;
     singleImageView.style.display = 'block';
     thumbsView.style.display = 'none';
 }
 function showThumbsView() {
+    const images = getPortraitsIImages();
     thumbsGrid.innerHTML = '';
-    portraitsIImages.forEach((src, idx) => {
+    images.forEach((src, idx) => {
         const thumb = document.createElement('img');
         thumb.src = src;
         thumb.style.width = '120px';
@@ -1140,7 +1286,8 @@ if (prevImageBtn && nextImageBtn && thumbsLink && backToSingleView && indexLink)
         if (currentImageIndex > 0) showSingleImageView(currentImageIndex - 1);
     };
     nextImageBtn.onclick = () => {
-        if (currentImageIndex < portraitsIImages.length - 1) showSingleImageView(currentImageIndex + 1);
+        const images = getPortraitsIImages();
+        if (currentImageIndex < images.length - 1) showSingleImageView(currentImageIndex + 1);
     };
     thumbsLink.onclick = (e) => {
         e.preventDefault();
@@ -1165,7 +1312,10 @@ document.addEventListener('keydown', (e) => {
 
 // --- Initialize Portraits I Gallery ---
 function startPortraitsIGallery() {
-    showSingleImageView(0);
+    const images = getPortraitsIImages();
+    if (images.length > 0) {
+        showSingleImageView(0);
+    }
 }
 
 // --- Update showSection for Portraits I ---
@@ -1195,6 +1345,442 @@ showSection = function(sectionName) {
     closeMenu();
 };
 
+// Add JS for Portraits II below Portraits I logic
+// --- Portraits II Gallery Data ---
+let currentImageIndexII = 0;
+const singleImageViewII = document.getElementById('singleImageViewII');
+const mainGalleryImageII = document.getElementById('mainGalleryImageII');
+const imageCounterII = document.getElementById('imageCounterII');
+const prevImageBtnII = document.getElementById('prevImageBtnII');
+const nextImageBtnII = document.getElementById('nextImageBtnII');
+const thumbsViewII = document.getElementById('thumbsViewII');
+const thumbsGridII = document.getElementById('thumbsGridII');
+const thumbsLinkII = document.getElementById('thumbsLinkII');
+const backToSingleViewII = document.getElementById('backToSingleViewII');
+const indexLinkII = document.getElementById('indexLinkII');
+
+function getPortraitsIIImages() {
+    return window.galleryConfig && window.galleryConfig['portraits-ii'] ? window.galleryConfig['portraits-ii'] : [];
+}
+
+if (mainGalleryImageII) {
+    mainGalleryImageII.style.cursor = "pointer";
+    mainGalleryImageII.onclick = function() {
+        const images = getPortraitsIIImages();
+        if (currentImageIndexII < images.length - 1) {
+            showSingleImageViewII(currentImageIndexII + 1);
+        } else {
+            showSingleImageViewII(0);
+        }
+    };
+}
+
+function showSingleImageViewII(index) {
+    const images = getPortraitsIIImages();
+    if (!images.length) return;
+    currentImageIndexII = index;
+    mainGalleryImageII.src = images[index];
+    imageCounterII.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewII.style.display = 'block';
+    thumbsViewII.style.display = 'none';
+}
+function showThumbsViewII() {
+    const images = getPortraitsIIImages();
+    thumbsGridII.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewII(idx);
+        thumbsGridII.appendChild(thumb);
+    });
+    singleImageViewII.style.display = 'none';
+    thumbsViewII.style.display = 'block';
+}
+if (prevImageBtnII && nextImageBtnII && thumbsLinkII && backToSingleViewII && indexLinkII) {
+    prevImageBtnII.onclick = () => {
+        if (currentImageIndexII > 0) showSingleImageViewII(currentImageIndexII - 1);
+    };
+    nextImageBtnII.onclick = () => {
+        const images = getPortraitsIIImages();
+        if (currentImageIndexII < images.length - 1) showSingleImageViewII(currentImageIndexII + 1);
+    };
+    thumbsLinkII.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewII();
+    };
+    backToSingleViewII.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewII(currentImageIndexII);
+    };
+    indexLinkII.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewII && singleImageViewII.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnII.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnII.onclick();
+    }
+});
+function startPortraitsIIGallery() {
+    const images = getPortraitsIIImages();
+    if (images.length > 0) {
+        showSingleImageViewII(0);
+    }
+}
+// Update showSection for Portraits II
+const originalShowSectionII = showSection;
+showSection = function(sectionName) {
+    // Hide all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none';
+    });
+    // Show selected section
+    const targetSection = document.getElementById(sectionName);
+    if (targetSection) {
+        if (sectionName === 'landing') {
+            targetSection.style.display = 'flex';
+        } else {
+            targetSection.style.display = 'block';
+            targetSection.classList.add('active');
+        }
+    }
+    // Portraits I: show single image view
+    if (sectionName === 'portraits-i') {
+        startPortraitsIGallery();
+    }
+    // Portraits II: show single image view
+    if (sectionName === 'portraits-ii') {
+        startPortraitsIIGallery();
+    }
+    // Close menu
+    closeMenu();
+};
+
+// Add JS for Travel
+let currentImageIndexTravel = 0;
+const singleImageViewTravel = document.getElementById('singleImageViewTravel');
+const mainGalleryImageTravel = document.getElementById('mainGalleryImageTravel');
+const imageCounterTravel = document.getElementById('imageCounterTravel');
+const prevImageBtnTravel = document.getElementById('prevImageBtnTravel');
+const nextImageBtnTravel = document.getElementById('nextImageBtnTravel');
+const thumbsViewTravel = document.getElementById('thumbsViewTravel');
+const thumbsGridTravel = document.getElementById('thumbsGridTravel');
+const thumbsLinkTravel = document.getElementById('thumbsLinkTravel');
+const backToSingleViewTravel = document.getElementById('backToSingleViewTravel');
+const indexLinkTravel = document.getElementById('indexLinkTravel');
+function getTravelImages() {
+    return window.galleryConfig && window.galleryConfig['travel'] ? window.galleryConfig['travel'] : [];
+}
+if (mainGalleryImageTravel) {
+    mainGalleryImageTravel.style.cursor = "pointer";
+    mainGalleryImageTravel.onclick = function() {
+        const images = getTravelImages();
+        if (currentImageIndexTravel < images.length - 1) {
+            showSingleImageViewTravel(currentImageIndexTravel + 1);
+        } else {
+            showSingleImageViewTravel(0);
+        }
+    };
+}
+function showSingleImageViewTravel(index) {
+    const images = getTravelImages();
+    if (!images.length) return;
+    currentImageIndexTravel = index;
+    mainGalleryImageTravel.src = images[index];
+    imageCounterTravel.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewTravel.style.display = 'block';
+    thumbsViewTravel.style.display = 'none';
+}
+function showThumbsViewTravel() {
+    const images = getTravelImages();
+    thumbsGridTravel.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewTravel(idx);
+        thumbsGridTravel.appendChild(thumb);
+    });
+    singleImageViewTravel.style.display = 'none';
+    thumbsViewTravel.style.display = 'block';
+}
+if (prevImageBtnTravel && nextImageBtnTravel && thumbsLinkTravel && backToSingleViewTravel && indexLinkTravel) {
+    prevImageBtnTravel.onclick = () => {
+        if (currentImageIndexTravel > 0) showSingleImageViewTravel(currentImageIndexTravel - 1);
+    };
+    nextImageBtnTravel.onclick = () => {
+        const images = getTravelImages();
+        if (currentImageIndexTravel < images.length - 1) showSingleImageViewTravel(currentImageIndexTravel + 1);
+    };
+    thumbsLinkTravel.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewTravel();
+    };
+    backToSingleViewTravel.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewTravel(currentImageIndexTravel);
+    };
+    indexLinkTravel.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewTravel && singleImageViewTravel.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnTravel.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnTravel.onclick();
+    }
+});
+function startTravelGallery() {
+    const images = getTravelImages();
+    if (images.length > 0) {
+        showSingleImageViewTravel(0);
+    }
+}
+// Add JS for Portfolio - one of many
+let currentImageIndexOneOfMany = 0;
+const singleImageViewOneOfMany = document.getElementById('singleImageViewOneOfMany');
+const mainGalleryImageOneOfMany = document.getElementById('mainGalleryImageOneOfMany');
+const imageCounterOneOfMany = document.getElementById('imageCounterOneOfMany');
+const prevImageBtnOneOfMany = document.getElementById('prevImageBtnOneOfMany');
+const nextImageBtnOneOfMany = document.getElementById('nextImageBtnOneOfMany');
+const thumbsViewOneOfMany = document.getElementById('thumbsViewOneOfMany');
+const thumbsGridOneOfMany = document.getElementById('thumbsGridOneOfMany');
+const thumbsLinkOneOfMany = document.getElementById('thumbsLinkOneOfMany');
+const backToSingleViewOneOfMany = document.getElementById('backToSingleViewOneOfMany');
+const indexLinkOneOfMany = document.getElementById('indexLinkOneOfMany');
+function getOneOfManyImages() {
+    return window.galleryConfig && window.galleryConfig['portfolio-one-of-many'] ? window.galleryConfig['portfolio-one-of-many'] : [];
+}
+if (mainGalleryImageOneOfMany) {
+    mainGalleryImageOneOfMany.style.cursor = "pointer";
+    mainGalleryImageOneOfMany.onclick = function() {
+        const images = getOneOfManyImages();
+        if (currentImageIndexOneOfMany < images.length - 1) {
+            showSingleImageViewOneOfMany(currentImageIndexOneOfMany + 1);
+        } else {
+            showSingleImageViewOneOfMany(0);
+        }
+    };
+}
+function showSingleImageViewOneOfMany(index) {
+    const images = getOneOfManyImages();
+    if (!images.length) return;
+    currentImageIndexOneOfMany = index;
+    mainGalleryImageOneOfMany.src = images[index];
+    imageCounterOneOfMany.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewOneOfMany.style.display = 'block';
+    thumbsViewOneOfMany.style.display = 'none';
+}
+function showThumbsViewOneOfMany() {
+    const images = getOneOfManyImages();
+    thumbsGridOneOfMany.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewOneOfMany(idx);
+        thumbsGridOneOfMany.appendChild(thumb);
+    });
+    singleImageViewOneOfMany.style.display = 'none';
+    thumbsViewOneOfMany.style.display = 'block';
+}
+if (prevImageBtnOneOfMany && nextImageBtnOneOfMany && thumbsLinkOneOfMany && backToSingleViewOneOfMany && indexLinkOneOfMany) {
+    prevImageBtnOneOfMany.onclick = () => {
+        if (currentImageIndexOneOfMany > 0) showSingleImageViewOneOfMany(currentImageIndexOneOfMany - 1);
+    };
+    nextImageBtnOneOfMany.onclick = () => {
+        const images = getOneOfManyImages();
+        if (currentImageIndexOneOfMany < images.length - 1) showSingleImageViewOneOfMany(currentImageIndexOneOfMany + 1);
+    };
+    thumbsLinkOneOfMany.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewOneOfMany();
+    };
+    backToSingleViewOneOfMany.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewOneOfMany(currentImageIndexOneOfMany);
+    };
+    indexLinkOneOfMany.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewOneOfMany && singleImageViewOneOfMany.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnOneOfMany.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnOneOfMany.onclick();
+    }
+});
+function startOneOfManyGallery() {
+    const images = getOneOfManyImages();
+    if (images.length > 0) {
+        showSingleImageViewOneOfMany(0);
+    }
+}
+// Add JS for Portfolio - the best medicine
+let currentImageIndexBestMedicine = 0;
+const singleImageViewBestMedicine = document.getElementById('singleImageViewBestMedicine');
+const mainGalleryImageBestMedicine = document.getElementById('mainGalleryImageBestMedicine');
+const imageCounterBestMedicine = document.getElementById('imageCounterBestMedicine');
+const prevImageBtnBestMedicine = document.getElementById('prevImageBtnBestMedicine');
+const nextImageBtnBestMedicine = document.getElementById('nextImageBtnBestMedicine');
+const thumbsViewBestMedicine = document.getElementById('thumbsViewBestMedicine');
+const thumbsGridBestMedicine = document.getElementById('thumbsGridBestMedicine');
+const thumbsLinkBestMedicine = document.getElementById('thumbsLinkBestMedicine');
+const backToSingleViewBestMedicine = document.getElementById('backToSingleViewBestMedicine');
+const indexLinkBestMedicine = document.getElementById('indexLinkBestMedicine');
+function getBestMedicineImages() {
+    return window.galleryConfig && window.galleryConfig['portfolio-best-medicine'] ? window.galleryConfig['portfolio-best-medicine'] : [];
+}
+if (mainGalleryImageBestMedicine) {
+    mainGalleryImageBestMedicine.style.cursor = "pointer";
+    mainGalleryImageBestMedicine.onclick = function() {
+        const images = getBestMedicineImages();
+        if (currentImageIndexBestMedicine < images.length - 1) {
+            showSingleImageViewBestMedicine(currentImageIndexBestMedicine + 1);
+        } else {
+            showSingleImageViewBestMedicine(0);
+        }
+    };
+}
+function showSingleImageViewBestMedicine(index) {
+    const images = getBestMedicineImages();
+    if (!images.length) return;
+    currentImageIndexBestMedicine = index;
+    mainGalleryImageBestMedicine.src = images[index];
+    imageCounterBestMedicine.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewBestMedicine.style.display = 'block';
+    thumbsViewBestMedicine.style.display = 'none';
+}
+function showThumbsViewBestMedicine() {
+    const images = getBestMedicineImages();
+    thumbsGridBestMedicine.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewBestMedicine(idx);
+        thumbsGridBestMedicine.appendChild(thumb);
+    });
+    singleImageViewBestMedicine.style.display = 'none';
+    thumbsViewBestMedicine.style.display = 'block';
+}
+if (prevImageBtnBestMedicine && nextImageBtnBestMedicine && thumbsLinkBestMedicine && backToSingleViewBestMedicine && indexLinkBestMedicine) {
+    prevImageBtnBestMedicine.onclick = () => {
+        if (currentImageIndexBestMedicine > 0) showSingleImageViewBestMedicine(currentImageIndexBestMedicine - 1);
+    };
+    nextImageBtnBestMedicine.onclick = () => {
+        const images = getBestMedicineImages();
+        if (currentImageIndexBestMedicine < images.length - 1) showSingleImageViewBestMedicine(currentImageIndexBestMedicine + 1);
+    };
+    thumbsLinkBestMedicine.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewBestMedicine();
+    };
+    backToSingleViewBestMedicine.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewBestMedicine(currentImageIndexBestMedicine);
+    };
+    indexLinkBestMedicine.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewBestMedicine && singleImageViewBestMedicine.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnBestMedicine.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnBestMedicine.onclick();
+    }
+});
+function startBestMedicineGallery() {
+    const images = getBestMedicineImages();
+    if (images.length > 0) {
+        showSingleImageViewBestMedicine(0);
+    }
+}
+// Update showSection for all galleries
+const originalShowSectionAll = showSection;
+showSection = function(sectionName) {
+    // Hide all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none';
+    });
+    // Show selected section
+    const targetSection = document.getElementById(sectionName);
+    if (targetSection) {
+        if (sectionName === 'landing') {
+            targetSection.style.display = 'flex';
+        } else {
+            targetSection.style.display = 'block';
+            targetSection.classList.add('active');
+        }
+    }
+    if (sectionName === 'portraits-i') {
+        startPortraitsIGallery();
+    }
+    if (sectionName === 'portraits-ii') {
+        startPortraitsIIGallery();
+    }
+    if (sectionName === 'travel') {
+        startTravelGallery();
+    }
+    if (sectionName === 'portfolio-one-of-many') {
+        startOneOfManyGallery();
+    }
+    if (sectionName === 'portfolio-best-medicine') {
+        startBestMedicineGallery();
+    }
+    closeMenu();
+};
+
+// Sidebar menu toggle logic for Work/Info/Process
+(function() {
+    const menuWork = document.getElementById('menuWork');
+    const menuInfo = document.getElementById('menuInfo');
+    const menuProcess = document.getElementById('menuProcess');
+    const menuMainLinks = document.getElementById('menuMainLinks');
+    const menuInfoContent = document.getElementById('menuInfoContent');
+    // Only Work and Info are functional for now
+    function setActiveMenu(tab) {
+        menuWork.classList.remove('active');
+        menuInfo.classList.remove('active');
+        menuProcess.classList.remove('active');
+        if (tab === 'work') menuWork.classList.add('active');
+        if (tab === 'info') menuInfo.classList.add('active');
+        if (tab === 'process') menuProcess.classList.add('active');
+    }
+    menuWork.onclick = function(e) {
+        e.preventDefault();
+        setActiveMenu('work');
+        menuMainLinks.style.display = '';
+        menuInfoContent.style.display = 'none';
+    };
+    menuInfo.onclick = function(e) {
+        e.preventDefault();
+        setActiveMenu('info');
+        menuMainLinks.style.display = 'none';
+        menuInfoContent.style.display = '';
+    };
+    menuProcess.onclick = function(e) {
+        e.preventDefault();
+        setActiveMenu('process');
+        // Placeholder: could show process info or hide both for now
+        menuMainLinks.style.display = 'none';
+        menuInfoContent.style.display = 'none';
+    };
+})();
 
 
     </script>
