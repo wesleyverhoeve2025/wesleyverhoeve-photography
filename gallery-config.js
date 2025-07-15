@@ -6,6 +6,33 @@ window.galleryConfig = {
         "work/landing/landing_003.JPG",
         "work/landing/landing_004.JPG"
     ],
+    "portfolio-ams:centre": [
+        "work/portfolio - ams:centre/edit_hasselblad_500cm_process_0112.jpg",
+        "work/portfolio - ams:centre/edit_ig_hasselblad_500cm_process_0029.jpg",
+        "work/portfolio - ams:centre/edit_ig_hasselblad_500cm_process_0080.jpg",
+        "work/portfolio - ams:centre/edit_ig_hasselblad_500cm_process_0107.jpg",
+        "work/portfolio - ams:centre/edit_ig_hasselblad_500cm_process_0109.jpg"
+    ],
+    "portfolio-njv1": [
+        "work/portfolio - njv1/web_verhoeve_wesley_005_038.jpg",
+        "work/portfolio - njv1/web_verhoeve_wesley_006_289.jpg",
+        "work/portfolio - njv1/web_verhoeve_wesley_006_299.jpg",
+        "work/portfolio - njv1/web_verhoeve_wesley_007_338.jpg"
+    ],
+    "portfolio-notice": [
+        "work/portfolio - notice/web_byardiso__v0a3965.jpg",
+        "work/portfolio - notice/web_byardiso_dscf4033 copy.jpg",
+        "work/portfolio - notice/web_byardiso_dscf4220.jpg",
+        "work/portfolio - notice/web_byardiso_dscf4428.jpg",
+        "work/portfolio - notice/web_edit_2_hood_dscf8595.jpg"
+    ],
+    "portfolio-notice-ii": [
+        "work/portfolio - notice II/web_hood_c_dscf8994.jpg",
+        "work/portfolio - notice II/web_hood_dscf0026.jpg",
+        "work/portfolio - notice II/web_hood_dscf0070.jpg",
+        "work/portfolio - notice II/web_hood_dscf0131.jpg",
+        "work/portfolio - notice II/web_hood_dscf0505.jpg"
+    ],
     "portfolio-one-of-many": [
         "work/portfolio - one of many/20220909_portfolio_oomredux_wesleyverhoeve for ig 336a4642.JPG",
         "work/portfolio - one of many/20220909_portfolio_oomredux_wesleyverhoevedavidamsden_336a9758.JPG",
@@ -13,10 +40,11 @@ window.galleryConfig = {
         "work/portfolio - one of many/20220909_portfolio_oomredux_wesleyverhoeveerin connelly_336a1211.JPG"
     ],
     "portfolio-the-best-medicine": [
-        "work/portfolio - the best medicine/20220909_portfolio_oomredux_wesleyverhoevebecca_336a1307.JPG",
-        "work/portfolio - the best medicine/20220909_portfolio_oomredux_wesleyverhoevebenclemmons_336a1917.JPG",
-        "work/portfolio - the best medicine/20220909_portfolio_oomredux_wesleyverhoevebergerfohr re-edit.JPG",
-        "work/portfolio - the best medicine/20220909_portfolio_oomredux_wesleyverhoevebrooks 336a1186.JPG"
+        "work/portfolio - the best medicine/web_edit_wesley verhoeve-189.jpg",
+        "work/portfolio - the best medicine/web_edit_wesley verhoeve-190.jpg",
+        "work/portfolio - the best medicine/web_edit_wesley verhoeve-191.jpg",
+        "work/portfolio - the best medicine/web_edit_wesley verhoeve-192.jpg",
+        "work/portfolio - the best medicine/web_edit_wesley verhoeve-193.jpg"
     ],
     "portraits-i": [
         "work/portraits I/image_001.jpg",
@@ -32,6 +60,30 @@ window.galleryConfig = {
         "work/portraits II/image_002.jpg",
         "work/portraits II/image_008.jpg",
         "work/portraits II/image_009.jpg"
+    ],
+    "portraits-iii": [
+        "work/portraits III/05d073aa50380f6d662803ef4fc9b613-medium.jpg",
+        "work/portraits III/2x3-24.jpg",
+        "work/portraits III/da52d9113992fc8554969eeb77766945-medium.jpg",
+        "work/portraits III/web_@wesley_isabella_v0a0355.jpg",
+        "work/portraits III/web_erik__v0a7881.jpg"
+    ],
+    "portraits-iv": [
+        "work/portraits IV/web_erik__v0a7888.jpg",
+        "work/portraits IV/web_terrence_dscf2115.jpg",
+        "work/portraits IV/wesley_portfolio2020_COREENSIMPSON_06710008.jpg",
+        "work/portraits IV/wesley_portfolio2020_EMILYDAVIDSON_02050009.jpg"
+    ],
+    "recent": [
+        "work/recent/perzia_ig_1_edit_bw_9d5a0952_2.jpg",
+        "work/recent/perzia_ig_1b_9d5a0952.jpg",
+        "work/recent/perzia_ig_1c_9D5A0952.jpg",
+        "work/recent/perzia_ig_1d_9D5A0952.jpg",
+        "work/recent/perzia_ig_1e_9D5A0952.jpg",
+        "work/recent/perzia_ig_1f_9D5A0952.jpg",
+        "work/recent/perzia_ig_1g_9D5A0952.jpg",
+        "work/recent/perzia_ig_1h_9D5A0952.jpg",
+        "work/recent/perzia_ig_1j_9D5A0952.jpg"
     ],
     "travel": [
         "work/travel/20220909_portfolio_travel_wesleyverhoeve_2016-03-04-11.29.53.jpg",

@@ -748,11 +748,18 @@
         </div>
         <div id="menuMainLinks">
             <ul class="menu-work-list">
+                <li><a href="#" onclick="showSection('recent')">Recent</a></li>
                 <li><a href="#" onclick="showSection('portraits-i')">Portraits I</a></li>
                 <li><a href="#" onclick="showSection('portraits-ii')">Portraits II</a></li>
-                <li><a href="#" onclick="showSection('travel')">Travel</a></li>
+                <li><a href="#" onclick="showSection('portraits-iii')">Portraits III</a></li>
+                <li><a href="#" onclick="showSection('portraits-iv')">Portraits IV</a></li>
+                <li><a href="#" onclick="showSection('portfolio-ams:centre')">Portfolio - AMS/Centre</a></li>
+                <li><a href="#" onclick="showSection('portfolio-notice')">Portfolio - NOTICE</a></li>
+                <li><a href="#" onclick="showSection('portfolio-notice-ii')">Portfolio - NOTICE II</a></li>
+                <li><a href="#" onclick="showSection('portfolio-njv1')">Portfolio - NJV1</a></li>
                 <li><a href="#" onclick="showSection('portfolio-one-of-many')">Portfolio - one of many</a></li>
-                <li><a href="#" onclick="showSection('portfolio-best-medicine')">Portfolio - the best medicine</a></li>
+                <li><a href="#" onclick="showSection('portfolio-the-best-medicine')">Portfolio - the best medicine</a></li>
+                <li><a href="#" onclick="showSection('travel')">Travel</a></li>
             </ul>
         </div>
         <div id="menuInfoContent" style="display:none;">
@@ -813,6 +820,27 @@
 </div>
 
         <!-- Gallery Sections -->
+   <section class="gallery" id="recent">
+    <div class="single-image-view" id="singleImageViewRecent" style="display:none;">
+        <img id="mainGalleryImageRecent" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+       <div class="gallery-links" style="text-align:center;">
+            <a href="#" id="indexLinkRecent">Index</a> ———
+            <a href="#" id="thumbsLinkRecent">Thumbnails</a>
+        </div>
+        <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+            <button id="prevImageBtnRecent">&larr;</button>
+            <span id="imageCounterRecent"></span>
+            <button id="nextImageBtnRecent">&rarr;</button>
+        </div>
+    </div>
+    <div class="thumbs-view" id="thumbsViewRecent" style="display:none;">
+        <div class="thumbs-grid" id="thumbsGridRecent" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+        <div style="text-align:center; margin-top:20px;">
+            <a href="#" id="backToSingleViewRecent">Back to Image</a>
+        </div>
+    </div>
+</section>
+
    <section class="gallery" id="portraits-i">
     <div class="single-image-view" id="singleImageView" style="display:none;">
         <img id="mainGalleryImage" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
@@ -851,6 +879,27 @@
                 <div class="thumbs-grid" id="thumbsGridII" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
                     <a href="#" id="backToSingleViewII">Back to Image</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="portraits-iii">
+            <div class="single-image-view" id="singleImageViewPortraitsIII" style="display:none;">
+                <img id="mainGalleryImagePortraitsIII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkPortraitsIII">Index</a> ———
+                    <a href="#" id="thumbsLinkPortraitsIII">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnPortraitsIII">&larr;</button>
+                    <span id="imageCounterPortraitsIII"></span>
+                    <button id="nextImageBtnPortraitsIII">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewPortraitsIII" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridPortraitsIII" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewPortraitsIII">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -897,7 +946,7 @@
             </div>
         </section>
 
-        <section class="gallery" id="portfolio-best-medicine">
+        <section class="gallery" id="portfolio-the-best-medicine">
             <div class="single-image-view" id="singleImageViewBestMedicine" style="display:none;">
                 <img id="mainGalleryImageBestMedicine" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
                 <div class="gallery-links" style="text-align:center;">
@@ -960,6 +1009,111 @@
                     <p>Add your full biography here. This is where you can tell your story, share your artistic vision, and connect with visitors on a personal level.</p>
                     <p>You can include information about your background, training, exhibitions, awards, and what drives your photographic practice.</p>
                     <p>This section helps potential clients and galleries understand who you are beyond your images.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="portfolio-ams:centre">
+            <div class="single-image-view" id="singleImageViewAmsCentre" style="display:none;">
+                <img id="mainGalleryImageAmsCentre" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkAmsCentre">Index</a> ———
+                    <a href="#" id="thumbsLinkAmsCentre">Thumbnails</a>
+    </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnAmsCentre">&larr;</button>
+                    <span id="imageCounterAmsCentre"></span>
+                    <button id="nextImageBtnAmsCentre">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewAmsCentre" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridAmsCentre" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewAmsCentre">Back to Image</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="portfolio-notice">
+            <div class="single-image-view" id="singleImageViewNotice" style="display:none;">
+                <img id="mainGalleryImageNotice" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkNotice">Index</a> ———
+                    <a href="#" id="thumbsLinkNotice">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnNotice">&larr;</button>
+                    <span id="imageCounterNotice"></span>
+                    <button id="nextImageBtnNotice">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewNotice" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridNotice" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewNotice">Back to Image</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="portfolio-notice-ii">
+            <div class="single-image-view" id="singleImageViewNoticeII" style="display:none;">
+                <img id="mainGalleryImageNoticeII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkNoticeII">Index</a> ———
+                    <a href="#" id="thumbsLinkNoticeII">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnNoticeII">&larr;</button>
+                    <span id="imageCounterNoticeII"></span>
+                    <button id="nextImageBtnNoticeII">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewNoticeII" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridNoticeII" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewNoticeII">Back to Image</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="portraits-iv">
+            <div class="single-image-view" id="singleImageViewPortraitsIV" style="display:none;">
+                <img id="mainGalleryImagePortraitsIV" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkPortraitsIV">Index</a> ———
+                    <a href="#" id="thumbsLinkPortraitsIV">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnPortraitsIV">&larr;</button>
+                    <span id="imageCounterPortraitsIV"></span>
+                    <button id="nextImageBtnPortraitsIV">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewPortraitsIV" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridPortraitsIV" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewPortraitsIV">Back to Image</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="portfolio-njv1">
+            <div class="single-image-view" id="singleImageViewNjv1" style="display:none;">
+                <img id="mainGalleryImageNjv1" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                <div class="gallery-links" style="text-align:center;">
+                    <a href="#" id="indexLinkNjv1">Index</a> ———
+                    <a href="#" id="thumbsLinkNjv1">Thumbnails</a>
+                </div>
+                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
+                    <button id="prevImageBtnNjv1">&larr;</button>
+                    <span id="imageCounterNjv1"></span>
+                    <button id="nextImageBtnNjv1">&rarr;</button>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewNjv1" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridNjv1" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewNjv1">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1321,7 +1475,7 @@ document.addEventListener('keydown', (e) => {
 function startPortraitsIGallery() {
     const images = getPortraitsIImages();
     if (images.length > 0) {
-        showSingleImageView(0);
+    showSingleImageView(0);
     }
 }
 
@@ -1469,7 +1623,7 @@ showSection = function(sectionName) {
     closeMenu();
 };
 
-// Add JS for Travel
+// Add JS for Travel gallery (single-image and thumbs view, navigation, keyboard support)
 let currentImageIndexTravel = 0;
 const singleImageViewTravel = document.getElementById('singleImageViewTravel');
 const mainGalleryImageTravel = document.getElementById('mainGalleryImageTravel');
@@ -1646,7 +1800,7 @@ const thumbsLinkBestMedicine = document.getElementById('thumbsLinkBestMedicine')
 const backToSingleViewBestMedicine = document.getElementById('backToSingleViewBestMedicine');
 const indexLinkBestMedicine = document.getElementById('indexLinkBestMedicine');
 function getBestMedicineImages() {
-    return window.galleryConfig && window.galleryConfig['portfolio-best-medicine'] ? window.galleryConfig['portfolio-best-medicine'] : [];
+    return window.galleryConfig && window.galleryConfig['portfolio-the-best-medicine'] ? window.galleryConfig['portfolio-the-best-medicine'] : [];
 }
 if (mainGalleryImageBestMedicine) {
     mainGalleryImageBestMedicine.style.cursor = "pointer";
@@ -1715,6 +1869,88 @@ function startBestMedicineGallery() {
         showSingleImageViewBestMedicine(0);
     }
 }
+// Add JS for Recent gallery (single-image and thumbs view, navigation, keyboard support)
+let currentImageIndexRecent = 0;
+const singleImageViewRecent = document.getElementById('singleImageViewRecent');
+const mainGalleryImageRecent = document.getElementById('mainGalleryImageRecent');
+const imageCounterRecent = document.getElementById('imageCounterRecent');
+const prevImageBtnRecent = document.getElementById('prevImageBtnRecent');
+const nextImageBtnRecent = document.getElementById('nextImageBtnRecent');
+const thumbsViewRecent = document.getElementById('thumbsViewRecent');
+const thumbsGridRecent = document.getElementById('thumbsGridRecent');
+const thumbsLinkRecent = document.getElementById('thumbsLinkRecent');
+const backToSingleViewRecent = document.getElementById('backToSingleViewRecent');
+const indexLinkRecent = document.getElementById('indexLinkRecent');
+function getRecentImages() {
+    return window.galleryConfig && window.galleryConfig['recent'] ? window.galleryConfig['recent'] : [];
+}
+if (mainGalleryImageRecent) {
+    mainGalleryImageRecent.style.cursor = "pointer";
+    mainGalleryImageRecent.onclick = function() {
+        const images = getRecentImages();
+        if (currentImageIndexRecent < images.length - 1) {
+            showSingleImageViewRecent(currentImageIndexRecent + 1);
+        } else {
+            showSingleImageViewRecent(0);
+        }
+    };
+}
+function showSingleImageViewRecent(index) {
+    const images = getRecentImages();
+    if (!images.length) return;
+    currentImageIndexRecent = index;
+    mainGalleryImageRecent.src = images[index];
+    imageCounterRecent.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewRecent.style.display = 'block';
+    thumbsViewRecent.style.display = 'none';
+}
+function showThumbsViewRecent() {
+    const images = getRecentImages();
+    thumbsGridRecent.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewRecent(idx);
+        thumbsGridRecent.appendChild(thumb);
+    });
+    singleImageViewRecent.style.display = 'none';
+    thumbsViewRecent.style.display = 'block';
+}
+if (prevImageBtnRecent && nextImageBtnRecent && thumbsLinkRecent && backToSingleViewRecent && indexLinkRecent) {
+    prevImageBtnRecent.onclick = () => {
+        if (currentImageIndexRecent > 0) showSingleImageViewRecent(currentImageIndexRecent - 1);
+    };
+    nextImageBtnRecent.onclick = () => {
+        const images = getRecentImages();
+        if (currentImageIndexRecent < images.length - 1) showSingleImageViewRecent(currentImageIndexRecent + 1);
+    };
+    thumbsLinkRecent.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewRecent();
+    };
+    backToSingleViewRecent.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewRecent(currentImageIndexRecent);
+    };
+    indexLinkRecent.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewRecent && singleImageViewRecent.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnRecent.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnRecent.onclick();
+    }
+});
+function startRecentGallery() {
+    const images = getRecentImages();
+    if (images.length > 0) {
+        showSingleImageViewRecent(0);
+    }
+}
 // Update showSection for all galleries
 const originalShowSectionAll = showSection;
 showSection = function(sectionName) {
@@ -1734,11 +1970,17 @@ showSection = function(sectionName) {
             targetSection.classList.add('active');
         }
     }
+    if (sectionName === 'recent') {
+        startRecentGallery();
+    }
     if (sectionName === 'portraits-i') {
         startPortraitsIGallery();
     }
     if (sectionName === 'portraits-ii') {
         startPortraitsIIGallery();
+    }
+    if (sectionName === 'portraits-iii') {
+        startPortraitsIIIGallery();
     }
     if (sectionName === 'travel') {
         startTravelGallery();
@@ -1746,11 +1988,113 @@ showSection = function(sectionName) {
     if (sectionName === 'portfolio-one-of-many') {
         startOneOfManyGallery();
     }
-    if (sectionName === 'portfolio-best-medicine') {
+    if (sectionName === 'portfolio-the-best-medicine') {
         startBestMedicineGallery();
     }
+    if (sectionName === 'portfolio-ams:centre') {
+        startAmsCentreGallery();
+    }
+    if (sectionName === 'portfolio-notice') {
+        startNoticeGallery();
+    }
+    if (sectionName === 'portfolio-notice-ii') {
+        startNoticeIIGallery();
+    }
+    if (sectionName === 'portraits-iv') {
+        startPortraitsIVGallery();
+    }
+    if (sectionName === 'portfolio-njv1') {
+        startNjv1Gallery();
+    }
+    // ... (repeat for each new gallery)
     closeMenu();
 };
+
+// Add JS logic for each new gallery, matching the pattern of Portfolio I
+// --- Portraits III Gallery Data ---
+let currentImageIndexPortraitsIII = 0;
+const singleImageViewPortraitsIII = document.getElementById('singleImageViewPortraitsIII');
+const mainGalleryImagePortraitsIII = document.getElementById('mainGalleryImagePortraitsIII');
+const imageCounterPortraitsIII = document.getElementById('imageCounterPortraitsIII');
+const prevImageBtnPortraitsIII = document.getElementById('prevImageBtnPortraitsIII');
+const nextImageBtnPortraitsIII = document.getElementById('nextImageBtnPortraitsIII');
+const thumbsViewPortraitsIII = document.getElementById('thumbsViewPortraitsIII');
+const thumbsGridPortraitsIII = document.getElementById('thumbsGridPortraitsIII');
+const thumbsLinkPortraitsIII = document.getElementById('thumbsLinkPortraitsIII');
+const backToSingleViewPortraitsIII = document.getElementById('backToSingleViewPortraitsIII');
+const indexLinkPortraitsIII = document.getElementById('indexLinkPortraitsIII');
+function getPortraitsIIIImages() {
+    return window.galleryConfig && window.galleryConfig['portraits-iii'] ? window.galleryConfig['portraits-iii'] : [];
+}
+if (mainGalleryImagePortraitsIII) {
+    mainGalleryImagePortraitsIII.style.cursor = "pointer";
+    mainGalleryImagePortraitsIII.onclick = function() {
+        const images = getPortraitsIIIImages();
+        if (currentImageIndexPortraitsIII < images.length - 1) {
+            showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII + 1);
+        } else {
+            showSingleImageViewPortraitsIII(0);
+        }
+    };
+}
+function showSingleImageViewPortraitsIII(index) {
+    const images = getPortraitsIIIImages();
+    if (!images.length) return;
+    currentImageIndexPortraitsIII = index;
+    mainGalleryImagePortraitsIII.src = images[index];
+    imageCounterPortraitsIII.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewPortraitsIII.style.display = 'block';
+    thumbsViewPortraitsIII.style.display = 'none';
+}
+function showThumbsViewPortraitsIII() {
+    const images = getPortraitsIIIImages();
+    thumbsGridPortraitsIII.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewPortraitsIII(idx);
+        thumbsGridPortraitsIII.appendChild(thumb);
+    });
+    singleImageViewPortraitsIII.style.display = 'none';
+    thumbsViewPortraitsIII.style.display = 'block';
+}
+if (prevImageBtnPortraitsIII && nextImageBtnPortraitsIII && thumbsLinkPortraitsIII && backToSingleViewPortraitsIII && indexLinkPortraitsIII) {
+    prevImageBtnPortraitsIII.onclick = () => {
+        if (currentImageIndexPortraitsIII > 0) showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII - 1);
+    };
+    nextImageBtnPortraitsIII.onclick = () => {
+        const images = getPortraitsIIIImages();
+        if (currentImageIndexPortraitsIII < images.length - 1) showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII + 1);
+    };
+    thumbsLinkPortraitsIII.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewPortraitsIII();
+    };
+    backToSingleViewPortraitsIII.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII);
+    };
+    indexLinkPortraitsIII.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewPortraitsIII && singleImageViewPortraitsIII.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnPortraitsIII.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnPortraitsIII.onclick();
+    }
+});
+function startPortraitsIIIGallery() {
+    const images = getPortraitsIIIImages();
+    if (images.length > 0) {
+        showSingleImageViewPortraitsIII(0);
+    }
+}
+// Repeat for Portraits IV, Portfolio - AMS/Centre, Portfolio - NOTICE, Portfolio - NOTICE II, Portfolio - NJV1
+// ... (repeat the above pattern for each new gallery, using the correct config key and element IDs)
 
 // Sidebar menu toggle logic for Work/Info/Process
 (function() {
@@ -1783,6 +2127,420 @@ showSection = function(sectionName) {
     // menuProcess now links out, so no JS handler needed
 })();
 
+// --- Portfolio - AMS/Centre Gallery Data ---
+let currentImageIndexAmsCentre = 0;
+const singleImageViewAmsCentre = document.getElementById('singleImageViewAmsCentre');
+const mainGalleryImageAmsCentre = document.getElementById('mainGalleryImageAmsCentre');
+const imageCounterAmsCentre = document.getElementById('imageCounterAmsCentre');
+const prevImageBtnAmsCentre = document.getElementById('prevImageBtnAmsCentre');
+const nextImageBtnAmsCentre = document.getElementById('nextImageBtnAmsCentre');
+const thumbsViewAmsCentre = document.getElementById('thumbsViewAmsCentre');
+const thumbsGridAmsCentre = document.getElementById('thumbsGridAmsCentre');
+const thumbsLinkAmsCentre = document.getElementById('thumbsLinkAmsCentre');
+const backToSingleViewAmsCentre = document.getElementById('backToSingleViewAmsCentre');
+const indexLinkAmsCentre = document.getElementById('indexLinkAmsCentre');
+function getAmsCentreImages() {
+    return window.galleryConfig && window.galleryConfig['portfolio-ams:centre'] ? window.galleryConfig['portfolio-ams:centre'] : [];
+}
+if (mainGalleryImageAmsCentre) {
+    mainGalleryImageAmsCentre.style.cursor = "pointer";
+    mainGalleryImageAmsCentre.onclick = function() {
+        const images = getAmsCentreImages();
+        if (currentImageIndexAmsCentre < images.length - 1) {
+            showSingleImageViewAmsCentre(currentImageIndexAmsCentre + 1);
+        } else {
+            showSingleImageViewAmsCentre(0);
+        }
+    };
+}
+function showSingleImageViewAmsCentre(index) {
+    const images = getAmsCentreImages();
+    if (!images.length) return;
+    currentImageIndexAmsCentre = index;
+    mainGalleryImageAmsCentre.src = images[index];
+    imageCounterAmsCentre.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewAmsCentre.style.display = 'block';
+    thumbsViewAmsCentre.style.display = 'none';
+}
+function showThumbsViewAmsCentre() {
+    const images = getAmsCentreImages();
+    thumbsGridAmsCentre.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewAmsCentre(idx);
+        thumbsGridAmsCentre.appendChild(thumb);
+    });
+    singleImageViewAmsCentre.style.display = 'none';
+    thumbsViewAmsCentre.style.display = 'block';
+}
+if (prevImageBtnAmsCentre && nextImageBtnAmsCentre && thumbsLinkAmsCentre && backToSingleViewAmsCentre && indexLinkAmsCentre) {
+    prevImageBtnAmsCentre.onclick = () => {
+        if (currentImageIndexAmsCentre > 0) showSingleImageViewAmsCentre(currentImageIndexAmsCentre - 1);
+    };
+    nextImageBtnAmsCentre.onclick = () => {
+        const images = getAmsCentreImages();
+        if (currentImageIndexAmsCentre < images.length - 1) showSingleImageViewAmsCentre(currentImageIndexAmsCentre + 1);
+    };
+    thumbsLinkAmsCentre.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewAmsCentre();
+    };
+    backToSingleViewAmsCentre.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewAmsCentre(currentImageIndexAmsCentre);
+    };
+    indexLinkAmsCentre.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewAmsCentre && singleImageViewAmsCentre.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnAmsCentre.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnAmsCentre.onclick();
+    }
+});
+function startAmsCentreGallery() {
+    const images = getAmsCentreImages();
+    if (images.length > 0) {
+        showSingleImageViewAmsCentre(0);
+    }
+}
+
+// --- Portfolio - NOTICE Gallery Data ---
+let currentImageIndexNotice = 0;
+const singleImageViewNotice = document.getElementById('singleImageViewNotice');
+const mainGalleryImageNotice = document.getElementById('mainGalleryImageNotice');
+const imageCounterNotice = document.getElementById('imageCounterNotice');
+const prevImageBtnNotice = document.getElementById('prevImageBtnNotice');
+const nextImageBtnNotice = document.getElementById('nextImageBtnNotice');
+const thumbsViewNotice = document.getElementById('thumbsViewNotice');
+const thumbsGridNotice = document.getElementById('thumbsGridNotice');
+const thumbsLinkNotice = document.getElementById('thumbsLinkNotice');
+const backToSingleViewNotice = document.getElementById('backToSingleViewNotice');
+const indexLinkNotice = document.getElementById('indexLinkNotice');
+function getNoticeImages() {
+    return window.galleryConfig && window.galleryConfig['portfolio-notice'] ? window.galleryConfig['portfolio-notice'] : [];
+}
+if (mainGalleryImageNotice) {
+    mainGalleryImageNotice.style.cursor = "pointer";
+    mainGalleryImageNotice.onclick = function() {
+        const images = getNoticeImages();
+        if (currentImageIndexNotice < images.length - 1) {
+            showSingleImageViewNotice(currentImageIndexNotice + 1);
+        } else {
+            showSingleImageViewNotice(0);
+        }
+    };
+}
+function showSingleImageViewNotice(index) {
+    const images = getNoticeImages();
+    if (!images.length) return;
+    currentImageIndexNotice = index;
+    mainGalleryImageNotice.src = images[index];
+    imageCounterNotice.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewNotice.style.display = 'block';
+    thumbsViewNotice.style.display = 'none';
+}
+function showThumbsViewNotice() {
+    const images = getNoticeImages();
+    thumbsGridNotice.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewNotice(idx);
+        thumbsGridNotice.appendChild(thumb);
+    });
+    singleImageViewNotice.style.display = 'none';
+    thumbsViewNotice.style.display = 'block';
+}
+if (prevImageBtnNotice && nextImageBtnNotice && thumbsLinkNotice && backToSingleViewNotice && indexLinkNotice) {
+    prevImageBtnNotice.onclick = () => {
+        if (currentImageIndexNotice > 0) showSingleImageViewNotice(currentImageIndexNotice - 1);
+    };
+    nextImageBtnNotice.onclick = () => {
+        const images = getNoticeImages();
+        if (currentImageIndexNotice < images.length - 1) showSingleImageViewNotice(currentImageIndexNotice + 1);
+    };
+    thumbsLinkNotice.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewNotice();
+    };
+    backToSingleViewNotice.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewNotice(currentImageIndexNotice);
+    };
+    indexLinkNotice.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewNotice && singleImageViewNotice.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnNotice.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnNotice.onclick();
+    }
+});
+function startNoticeGallery() {
+    const images = getNoticeImages();
+    if (images.length > 0) {
+        showSingleImageViewNotice(0);
+    }
+}
+
+// --- Portfolio - NOTICE II Gallery Data ---
+let currentImageIndexNoticeII = 0;
+const singleImageViewNoticeII = document.getElementById('singleImageViewNoticeII');
+const mainGalleryImageNoticeII = document.getElementById('mainGalleryImageNoticeII');
+const imageCounterNoticeII = document.getElementById('imageCounterNoticeII');
+const prevImageBtnNoticeII = document.getElementById('prevImageBtnNoticeII');
+const nextImageBtnNoticeII = document.getElementById('nextImageBtnNoticeII');
+const thumbsViewNoticeII = document.getElementById('thumbsViewNoticeII');
+const thumbsGridNoticeII = document.getElementById('thumbsGridNoticeII');
+const thumbsLinkNoticeII = document.getElementById('thumbsLinkNoticeII');
+const backToSingleViewNoticeII = document.getElementById('backToSingleViewNoticeII');
+const indexLinkNoticeII = document.getElementById('indexLinkNoticeII');
+function getNoticeIIImages() {
+    return window.galleryConfig && window.galleryConfig['portfolio-notice-ii'] ? window.galleryConfig['portfolio-notice-ii'] : [];
+}
+if (mainGalleryImageNoticeII) {
+    mainGalleryImageNoticeII.style.cursor = "pointer";
+    mainGalleryImageNoticeII.onclick = function() {
+        const images = getNoticeIIImages();
+        if (currentImageIndexNoticeII < images.length - 1) {
+            showSingleImageViewNoticeII(currentImageIndexNoticeII + 1);
+        } else {
+            showSingleImageViewNoticeII(0);
+        }
+    };
+}
+function showSingleImageViewNoticeII(index) {
+    const images = getNoticeIIImages();
+    if (!images.length) return;
+    currentImageIndexNoticeII = index;
+    mainGalleryImageNoticeII.src = images[index];
+    imageCounterNoticeII.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewNoticeII.style.display = 'block';
+    thumbsViewNoticeII.style.display = 'none';
+}
+function showThumbsViewNoticeII() {
+    const images = getNoticeIIImages();
+    thumbsGridNoticeII.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewNoticeII(idx);
+        thumbsGridNoticeII.appendChild(thumb);
+    });
+    singleImageViewNoticeII.style.display = 'none';
+    thumbsViewNoticeII.style.display = 'block';
+}
+if (prevImageBtnNoticeII && nextImageBtnNoticeII && thumbsLinkNoticeII && backToSingleViewNoticeII && indexLinkNoticeII) {
+    prevImageBtnNoticeII.onclick = () => {
+        if (currentImageIndexNoticeII > 0) showSingleImageViewNoticeII(currentImageIndexNoticeII - 1);
+    };
+    nextImageBtnNoticeII.onclick = () => {
+        const images = getNoticeIIImages();
+        if (currentImageIndexNoticeII < images.length - 1) showSingleImageViewNoticeII(currentImageIndexNoticeII + 1);
+    };
+    thumbsLinkNoticeII.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewNoticeII();
+    };
+    backToSingleViewNoticeII.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewNoticeII(currentImageIndexNoticeII);
+    };
+    indexLinkNoticeII.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewNoticeII && singleImageViewNoticeII.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnNoticeII.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnNoticeII.onclick();
+    }
+});
+function startNoticeIIGallery() {
+    const images = getNoticeIIImages();
+    if (images.length > 0) {
+        showSingleImageViewNoticeII(0);
+    }
+}
+
+// --- Portraits IV Gallery Data ---
+let currentImageIndexPortraitsIV = 0;
+const singleImageViewPortraitsIV = document.getElementById('singleImageViewPortraitsIV');
+const mainGalleryImagePortraitsIV = document.getElementById('mainGalleryImagePortraitsIV');
+const imageCounterPortraitsIV = document.getElementById('imageCounterPortraitsIV');
+const prevImageBtnPortraitsIV = document.getElementById('prevImageBtnPortraitsIV');
+const nextImageBtnPortraitsIV = document.getElementById('nextImageBtnPortraitsIV');
+const thumbsViewPortraitsIV = document.getElementById('thumbsViewPortraitsIV');
+const thumbsGridPortraitsIV = document.getElementById('thumbsGridPortraitsIV');
+const thumbsLinkPortraitsIV = document.getElementById('thumbsLinkPortraitsIV');
+const backToSingleViewPortraitsIV = document.getElementById('backToSingleViewPortraitsIV');
+const indexLinkPortraitsIV = document.getElementById('indexLinkPortraitsIV');
+function getPortraitsIVImages() {
+    return window.galleryConfig && window.galleryConfig['portraits-iv'] ? window.galleryConfig['portraits-iv'] : [];
+}
+if (mainGalleryImagePortraitsIV) {
+    mainGalleryImagePortraitsIV.style.cursor = "pointer";
+    mainGalleryImagePortraitsIV.onclick = function() {
+        const images = getPortraitsIVImages();
+        if (currentImageIndexPortraitsIV < images.length - 1) {
+            showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV + 1);
+        } else {
+            showSingleImageViewPortraitsIV(0);
+        }
+    };
+}
+function showSingleImageViewPortraitsIV(index) {
+    const images = getPortraitsIVImages();
+    if (!images.length) return;
+    currentImageIndexPortraitsIV = index;
+    mainGalleryImagePortraitsIV.src = images[index];
+    imageCounterPortraitsIV.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewPortraitsIV.style.display = 'block';
+    thumbsViewPortraitsIV.style.display = 'none';
+}
+function showThumbsViewPortraitsIV() {
+    const images = getPortraitsIVImages();
+    thumbsGridPortraitsIV.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewPortraitsIV(idx);
+        thumbsGridPortraitsIV.appendChild(thumb);
+    });
+    singleImageViewPortraitsIV.style.display = 'none';
+    thumbsViewPortraitsIV.style.display = 'block';
+}
+if (prevImageBtnPortraitsIV && nextImageBtnPortraitsIV && thumbsLinkPortraitsIV && backToSingleViewPortraitsIV && indexLinkPortraitsIV) {
+    prevImageBtnPortraitsIV.onclick = () => {
+        if (currentImageIndexPortraitsIV > 0) showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV - 1);
+    };
+    nextImageBtnPortraitsIV.onclick = () => {
+        const images = getPortraitsIVImages();
+        if (currentImageIndexPortraitsIV < images.length - 1) showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV + 1);
+    };
+    thumbsLinkPortraitsIV.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewPortraitsIV();
+    };
+    backToSingleViewPortraitsIV.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV);
+    };
+    indexLinkPortraitsIV.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewPortraitsIV && singleImageViewPortraitsIV.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnPortraitsIV.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnPortraitsIV.onclick();
+    }
+});
+function startPortraitsIVGallery() {
+    const images = getPortraitsIVImages();
+    if (images.length > 0) {
+        showSingleImageViewPortraitsIV(0);
+    }
+}
+
+// --- Portfolio - NJV1 Gallery Data ---
+let currentImageIndexNjv1 = 0;
+const singleImageViewNjv1 = document.getElementById('singleImageViewNjv1');
+const mainGalleryImageNjv1 = document.getElementById('mainGalleryImageNjv1');
+const imageCounterNjv1 = document.getElementById('imageCounterNjv1');
+const prevImageBtnNjv1 = document.getElementById('prevImageBtnNjv1');
+const nextImageBtnNjv1 = document.getElementById('nextImageBtnNjv1');
+const thumbsViewNjv1 = document.getElementById('thumbsViewNjv1');
+const thumbsGridNjv1 = document.getElementById('thumbsGridNjv1');
+const thumbsLinkNjv1 = document.getElementById('thumbsLinkNjv1');
+const backToSingleViewNjv1 = document.getElementById('backToSingleViewNjv1');
+const indexLinkNjv1 = document.getElementById('indexLinkNjv1');
+function getNjv1Images() {
+    return window.galleryConfig && window.galleryConfig['portfolio-njv1'] ? window.galleryConfig['portfolio-njv1'] : [];
+}
+if (mainGalleryImageNjv1) {
+    mainGalleryImageNjv1.style.cursor = "pointer";
+    mainGalleryImageNjv1.onclick = function() {
+        const images = getNjv1Images();
+        if (currentImageIndexNjv1 < images.length - 1) {
+            showSingleImageViewNjv1(currentImageIndexNjv1 + 1);
+        } else {
+            showSingleImageViewNjv1(0);
+        }
+    };
+}
+function showSingleImageViewNjv1(index) {
+    const images = getNjv1Images();
+    if (!images.length) return;
+    currentImageIndexNjv1 = index;
+    mainGalleryImageNjv1.src = images[index];
+    imageCounterNjv1.textContent = `${index + 1} / ${images.length}`;
+    singleImageViewNjv1.style.display = 'block';
+    thumbsViewNjv1.style.display = 'none';
+}
+function showThumbsViewNjv1() {
+    const images = getNjv1Images();
+    thumbsGridNjv1.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.width = '120px';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewNjv1(idx);
+        thumbsGridNjv1.appendChild(thumb);
+    });
+    singleImageViewNjv1.style.display = 'none';
+    thumbsViewNjv1.style.display = 'block';
+}
+if (prevImageBtnNjv1 && nextImageBtnNjv1 && thumbsLinkNjv1 && backToSingleViewNjv1 && indexLinkNjv1) {
+    prevImageBtnNjv1.onclick = () => {
+        if (currentImageIndexNjv1 > 0) showSingleImageViewNjv1(currentImageIndexNjv1 - 1);
+    };
+    nextImageBtnNjv1.onclick = () => {
+        const images = getNjv1Images();
+        if (currentImageIndexNjv1 < images.length - 1) showSingleImageViewNjv1(currentImageIndexNjv1 + 1);
+    };
+    thumbsLinkNjv1.onclick = (e) => {
+        e.preventDefault();
+        showThumbsViewNjv1();
+    };
+    backToSingleViewNjv1.onclick = (e) => {
+        e.preventDefault();
+        showSingleImageViewNjv1(currentImageIndexNjv1);
+    };
+    indexLinkNjv1.onclick = (e) => {
+        e.preventDefault();
+        toggleMenu();
+    };
+}
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewNjv1 && singleImageViewNjv1.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnNjv1.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnNjv1.onclick();
+    }
+});
+function startNjv1Gallery() {
+    const images = getNjv1Images();
+    if (images.length > 0) {
+        showSingleImageViewNjv1(0);
+    }
+}
 
     </script>
 </body>
