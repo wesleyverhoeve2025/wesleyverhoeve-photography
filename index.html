@@ -463,7 +463,8 @@
     }
 
     .gallery-links a,
-    #backToSingleView {
+    #backToSingleView,
+    .back-to-image-link {
         font-family: inherit;
         font-size: 0.8em;
         color: #222;
@@ -474,7 +475,8 @@
         transition: color 0.2s;
     }
     .gallery-links a:hover,
-    #backToSingleView:hover {
+    #backToSingleView:hover,
+    .back-to-image-link:hover {
         color: #888;
         text-decoration: underline;
     }
@@ -803,6 +805,113 @@
             text-align: center;
             flex: 1 1 auto;
         }
+
+        .book-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .book-row {
+            display: flex;
+            align-items: baseline;
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+        .book-year {
+            display: inline-block;
+            width: 38px;
+            min-width: 38px;
+            text-align: left;
+            font-variant-numeric: tabular-nums;
+            color: #444;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+        .book-title {
+            flex: 1 1 auto;
+            font-style: italic;
+            color: #222;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+        .book-publisher {
+            color: #aaa;
+            font-size: 11px;
+            font-weight: 400;
+            margin-left: 2px;
+        }
+        .book-preview {
+            color: #aaa;
+            font-size: 11px;
+            font-style: normal;
+            margin-left: 2px;
+        }
+        .book-list-grid {
+            display: grid;
+            grid-template-columns: 38px 1fr 80px;
+            row-gap: 2px;
+            column-gap: 10px;
+        }
+        .book-row-grid {
+            display: contents;
+        }
+        .book-year-grid {
+            text-align: right;
+            color: #777;
+            font-size: 10px;
+            font-variant-numeric: tabular-nums;
+            font-weight: 400;
+            padding-right: 6px;
+            width: 38px;
+            min-width: 38px;
+            box-sizing: border-box;
+        }
+        .book-title-grid {
+            font-style: italic;
+            color: #000;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            padding-right: 8px;
+        }
+        .book-publisher-grid {
+            color: #777;
+            font-size: 10px;
+            font-variant: small-caps;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-align: right;
+            width: 80px;
+            min-width: 80px;
+            box-sizing: border-box;
+            padding-left: 2px;
+        }
+
+        .side-menu,
+        .menu-info,
+        .menu-info-bio,
+        .menu-info-books,
+        .menu-info-links {
+            line-height: 1.7;
+        }
+
+        .menu-info-bio,
+        .menu-info-books,
+        .book-list-grid,
+        .menu-info,
+        .menu-info-links {
+            font-size: 11px;
+        }
+
+        .books-header {
+            font-variant: small-caps;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -841,17 +950,36 @@
         <div id="menuInfoContent" style="display:none;">
             <div class="menu-info-bio">
                 Wesley Verhoeve is an Amsterdam-based photographer, curator and writer.<br><br>
-                His photography, rooted in human stories of craft and community, has been featured in The New York Times, National Geographic Traveler, Wired, and Het Parool.<br><br>
-                As the founding curator of the Projected series at ICP in New York, he organized 96 exhibitions showcasing over 300 photographers from 53 countries.<br><br>
-                He also publishes Process, a weekly newsletter on photography and creative work.
+                His photography, rooted in human stories of craft and community, has been featured in the New York Times, National Geographic, and Wired.<br><br>
+                As the founding curator of the Projected series at ICP in New York City, he organized 96 exhibitions showcasing 312 photographers from 53 countries.<br><br>
+                He publishes Process, a weekly newsletter on photography and creative work.
             </div>
             <div class="menu-info-books">
-                <strong>Books</strong><br><br>
-                2025 The Best Medicine (<em>New Style</em>)<br>
-                2024 NOTICE Journal, Vol. 1 (<em>New Style</em>)<br>
-                2021 NOTICE (<em>New Style</em>)
+                <span class="books-header">Books</span><br><br>
+                <div class="book-list-grid">
+                    <div class="book-row-grid">
+                        <div class="book-year-grid">2025</div>
+                        <div class="book-title-grid"><em>The Best Medicine</em></div>
+                        <div class="book-publisher-grid">New Style</div>
+                    </div>
+                    <div class="book-row-grid">
+                        <div class="book-year-grid">2025</div>
+                        <div class="book-title-grid"><em>Creatives In</em> Preview</div>
+                        <div class="book-publisher-grid">New Style</div>
+                    </div>
+                    <div class="book-row-grid">
+                        <div class="book-year-grid">2024</div>
+                        <div class="book-title-grid"><em>NOTICE Journal, Vol. 1</em></div>
+                        <div class="book-publisher-grid">New Style</div>
+                    </div>
+                    <div class="book-row-grid">
+                        <div class="book-year-grid">2021</div>
+                        <div class="book-title-grid"><em>NOTICE</em></div>
+                        <div class="book-publisher-grid">New Style</div>
+                    </div>
+                </div>
             </div>
-            <div class="menu-info-links" style="margin-top: 36px;">
+            <div class="menu-info-links" style="margin-top: 48px;">
                 <a href="mailto:hello@wesley.co" target="_blank">Contact</a> -
                 <a href="https://www.instagram.com/wesley" target="_blank">Instagram</a> -
                 <a href="#" id="mentoringLink">Mentoring</a>
@@ -861,7 +989,7 @@
         <div class="menu-info">
             <p>Available for commissions</p>
             <p>Print inquiries welcome</p>
-            <p>Licensing via Stills</p>
+            <p>Licensing via <a href="https://www.stills.com/artists/wesley-verhoeve/1985" target="_blank" rel="noopener">Stills</a></p>
         </div>
     </div>
 
@@ -890,7 +1018,7 @@
     <div class="thumbs-view" id="thumbsViewRecent" style="display:none;">
         <div class="thumbs-grid" id="thumbsGridRecent" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
         <div style="text-align:center; margin-top:20px;">
-            <a href="#" id="backToSingleViewRecent">Back to Image</a>
+            <a href="#" id="backToSingleViewRecent" class="back-to-image-link">Back to Image</a>
     </div>
     </div>
   </section>
@@ -912,7 +1040,7 @@
     <div class="thumbs-view" id="thumbsView" style="display:none;">
         <div class="thumbs-grid" id="thumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
         <div style="text-align:center; margin-top:20px;">
-            <a href="#" id="backToSingleView">Back to Image</a>
+            <a href="#" id="backToSingleView" class="back-to-image-link">Back to Image</a>
         </div>
     </div>
 </section>
@@ -934,7 +1062,7 @@
             <div class="thumbs-view" id="thumbsViewII" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridII" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewII">Back to Image</a>
+                    <a href="#" id="backToSingleViewII" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -956,7 +1084,7 @@
             <div class="thumbs-view" id="thumbsViewPortraitsIII" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridPortraitsIII" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewPortraitsIII">Back to Image</a>
+                    <a href="#" id="backToSingleViewPortraitsIII" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -983,7 +1111,7 @@
             <div class="thumbs-view" id="thumbsViewTravel" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridTravel" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewTravel">Back to Image</a>
+                    <a href="#" id="backToSingleViewTravel" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1010,7 +1138,7 @@
             <div class="thumbs-view" id="thumbsViewOneOfMany" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridOneOfMany" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewOneOfMany">Back to Image</a>
+                    <a href="#" id="backToSingleViewOneOfMany" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1037,7 +1165,7 @@
             <div class="thumbs-view" id="thumbsViewBestMedicine" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridBestMedicine" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewBestMedicine">Back to Image</a>
+                    <a href="#" id="backToSingleViewBestMedicine" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1105,7 +1233,7 @@
             <div class="thumbs-view" id="thumbsViewAmsCentre" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridAmsCentre" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewAmsCentre">Back to Image</a>
+                    <a href="#" id="backToSingleViewAmsCentre" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1127,7 +1255,7 @@
             <div class="thumbs-view" id="thumbsViewNotice" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridNotice" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewNotice">Back to Image</a>
+                    <a href="#" id="backToSingleViewNotice" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1149,7 +1277,7 @@
             <div class="thumbs-view" id="thumbsViewNoticeII" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridNoticeII" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewNoticeII">Back to Image</a>
+                    <a href="#" id="backToSingleViewNoticeII" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1171,7 +1299,7 @@
             <div class="thumbs-view" id="thumbsViewPortraitsIV" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridPortraitsIV" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewPortraitsIV">Back to Image</a>
+                    <a href="#" id="backToSingleViewPortraitsIV" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1193,7 +1321,7 @@
             <div class="thumbs-view" id="thumbsViewNjv1" style="display:none;">
                 <div class="thumbs-grid" id="thumbsGridNjv1" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
-                    <a href="#" id="backToSingleViewNjv1">Back to Image</a>
+                    <a href="#" id="backToSingleViewNjv1" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -1378,8 +1506,6 @@ let currentImageIndex = 0;
 const singleImageView = document.getElementById('singleImageView');
 const mainGalleryImage = document.getElementById('mainGalleryImage');
 const imageCounter = document.getElementById('imageCounter');
-const prevImageBtn = document.getElementById('prevImageBtn');
-const nextImageBtn = document.getElementById('nextImageBtn');
 const thumbsView = document.getElementById('thumbsView');
 const thumbsGrid = document.getElementById('thumbsGrid');
 const thumbsLink = document.getElementById('thumbsLink');
@@ -1404,8 +1530,8 @@ function setupFloatingTitlePortraitsI() {
             const rect = imageContainer.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            floatingTitle.style.left = (x + 10) + 'px';
-            floatingTitle.style.top = (y - 30) + 'px';
+            floatingTitle.style.left = (x - floatingTitle.offsetWidth / 2) + 'px';
+            floatingTitle.style.top = (y - floatingTitle.offsetHeight - 2) + 'px';
             floatingTitle.style.opacity = '1';
             const imgRect = mainImage.getBoundingClientRect();
             const imgX = e.clientX - imgRect.left;
@@ -1467,46 +1593,31 @@ function showThumbsView() {
     const images = getPortraitsIImages();
     thumbsGrid.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageView(idx);
-        thumbsGrid.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGrid.appendChild(thumbWrapper);
     });
     singleImageView.style.display = 'none';
     thumbsView.style.display = 'block';
 }
 
 // --- Event Listeners for Portraits I ---
-if (prevImageBtn && nextImageBtn && thumbsLink && backToSingleView && indexLink) {
-    prevImageBtn.onclick = () => {
-        if (currentImageIndex > 0) showSingleImageView(currentImageIndex - 1);
-    };
-    nextImageBtn.onclick = () => {
-        const images = getPortraitsIImages();
-        if (currentImageIndex < images.length - 1) showSingleImageView(currentImageIndex + 1);
-    };
-    thumbsLink.onclick = (e) => {
-        e.preventDefault();
-        showThumbsView();
-    };
-    backToSingleView.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageView(currentImageIndex);
-    };
-    indexLink.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
-}
-// Optional: Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (singleImageView && singleImageView.style.display === 'block') {
-        if (e.key === 'ArrowLeft') prevImageBtn.onclick();
-        if (e.key === 'ArrowRight') nextImageBtn.onclick();
-    }
-});
+if (thumbsLink) thumbsLink.onclick = (e) => { e.preventDefault(); showThumbsView(); };
+if (backToSingleView) backToSingleView.onclick = (e) => { e.preventDefault(); showSingleImageView(currentImageIndex); };
+if (indexLink) indexLink.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 
 // --- Initialize Portraits I Gallery ---
 function startPortraitsIGallery() {
@@ -1549,8 +1660,6 @@ let currentImageIndexII = 0;
 const singleImageViewII = document.getElementById('singleImageViewII');
 const mainGalleryImageII = document.getElementById('mainGalleryImageII');
 const imageCounterII = document.getElementById('imageCounterII');
-const prevImageBtnII = document.getElementById('prevImageBtnII');
-const nextImageBtnII = document.getElementById('nextImageBtnII');
 const thumbsViewII = document.getElementById('thumbsViewII');
 const thumbsGridII = document.getElementById('thumbsGridII');
 const thumbsLinkII = document.getElementById('thumbsLinkII');
@@ -1575,8 +1684,8 @@ function setupFloatingTitlePortraitsII() {
             const rect = imageContainer.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            floatingTitle.style.left = (x + 10) + 'px';
-            floatingTitle.style.top = (y - 30) + 'px';
+            floatingTitle.style.left = (x - floatingTitle.offsetWidth / 2) + 'px';
+            floatingTitle.style.top = (y - floatingTitle.offsetHeight - 2) + 'px';
             floatingTitle.style.opacity = '1';
             const imgRect = mainImage.getBoundingClientRect();
             const imgX = e.clientX - imgRect.left;
@@ -1636,36 +1745,30 @@ function showThumbsViewII() {
     const images = getPortraitsIIImages();
     thumbsGridII.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewII(idx);
-        thumbsGridII.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridII.appendChild(thumbWrapper);
     });
     singleImageViewII.style.display = 'none';
     thumbsViewII.style.display = 'block';
 }
-if (prevImageBtnII && nextImageBtnII && thumbsLinkII && backToSingleViewII && indexLinkII) {
-    prevImageBtnII.onclick = () => {
-        if (currentImageIndexII > 0) showSingleImageViewII(currentImageIndexII - 1);
-    };
-    nextImageBtnII.onclick = () => {
-        const images = getPortraitsIIImages();
-        if (currentImageIndexII < images.length - 1) showSingleImageViewII(currentImageIndexII + 1);
-    };
-    thumbsLinkII.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewII();
-    };
-    backToSingleViewII.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewII(currentImageIndexII);
-    };
-    indexLinkII.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkII && backToSingleViewII && indexLinkII) {
+    thumbsLinkII.onclick = (e) => { e.preventDefault(); showThumbsViewII(); };
+    backToSingleViewII.onclick = (e) => { e.preventDefault(); showSingleImageViewII(currentImageIndexII); };
+    indexLinkII.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 document.addEventListener('keydown', (e) => {
     if (singleImageViewII && singleImageViewII.style.display === 'block') {
@@ -1715,8 +1818,6 @@ let currentImageIndexTravel = 0;
 const singleImageViewTravel = document.getElementById('singleImageViewTravel');
 const mainGalleryImageTravel = document.getElementById('mainGalleryImageTravel');
 const imageCounterTravel = document.getElementById('imageCounterTravel');
-const prevImageBtnTravel = document.getElementById('prevImageBtnTravel');
-const nextImageBtnTravel = document.getElementById('nextImageBtnTravel');
 const thumbsViewTravel = document.getElementById('thumbsViewTravel');
 const thumbsGridTravel = document.getElementById('thumbsGridTravel');
 const thumbsLinkTravel = document.getElementById('thumbsLinkTravel');
@@ -1740,8 +1841,8 @@ function setupFloatingTitleTravel() {
             const rect = imageContainer.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            floatingTitleTravel.style.left = (x + 10) + 'px';
-            floatingTitleTravel.style.top = (y - 30) + 'px';
+            floatingTitleTravel.style.left = (x - floatingTitleTravel.offsetWidth / 2) + 'px';
+            floatingTitleTravel.style.top = (y - floatingTitleTravel.offsetHeight - 2) + 'px';
             floatingTitleTravel.style.opacity = '1';
             const imgRect = mainImage.getBoundingClientRect();
             const imgX = e.clientX - imgRect.left;
@@ -1803,36 +1904,30 @@ function showThumbsViewTravel() {
     const images = getTravelImages();
     thumbsGridTravel.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewTravel(idx);
-        thumbsGridTravel.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridTravel.appendChild(thumbWrapper);
     });
     singleImageViewTravel.style.display = 'none';
     thumbsViewTravel.style.display = 'block';
 }
-if (prevImageBtnTravel && nextImageBtnTravel && thumbsLinkTravel && backToSingleViewTravel && indexLinkTravel) {
-    prevImageBtnTravel.onclick = () => {
-        if (currentImageIndexTravel > 0) showSingleImageViewTravel(currentImageIndexTravel - 1);
-    };
-    nextImageBtnTravel.onclick = () => {
-        const images = getTravelImages();
-        if (currentImageIndexTravel < images.length - 1) showSingleImageViewTravel(currentImageIndexTravel + 1);
-    };
-    thumbsLinkTravel.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewTravel();
-    };
-    backToSingleViewTravel.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewTravel(currentImageIndexTravel);
-    };
-    indexLinkTravel.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkTravel && backToSingleViewTravel && indexLinkTravel) {
+    thumbsLinkTravel.onclick = (e) => { e.preventDefault(); showThumbsViewTravel(); };
+    backToSingleViewTravel.onclick = (e) => { e.preventDefault(); showSingleImageViewTravel(currentImageIndexTravel); };
+    indexLinkTravel.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 document.addEventListener('keydown', (e) => {
     if (singleImageViewTravel && singleImageViewTravel.style.display === 'block') {
@@ -1851,8 +1946,6 @@ let currentImageIndexOneOfMany = 0;
 const singleImageViewOneOfMany = document.getElementById('singleImageViewOneOfMany');
 const mainGalleryImageOneOfMany = document.getElementById('mainGalleryImageOneOfMany');
 const imageCounterOneOfMany = document.getElementById('imageCounterOneOfMany');
-const prevImageBtnOneOfMany = document.getElementById('prevImageBtnOneOfMany');
-const nextImageBtnOneOfMany = document.getElementById('nextImageBtnOneOfMany');
 const thumbsViewOneOfMany = document.getElementById('thumbsViewOneOfMany');
 const thumbsGridOneOfMany = document.getElementById('thumbsGridOneOfMany');
 const thumbsLinkOneOfMany = document.getElementById('thumbsLinkOneOfMany');
@@ -1876,8 +1969,8 @@ function setupFloatingTitleOneOfMany() {
             const rect = imageContainer.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            floatingTitleOneOfMany.style.left = (x + 10) + 'px';
-            floatingTitleOneOfMany.style.top = (y - 30) + 'px';
+            floatingTitleOneOfMany.style.left = (x - floatingTitleOneOfMany.offsetWidth / 2) + 'px';
+            floatingTitleOneOfMany.style.top = (y - floatingTitleOneOfMany.offsetHeight - 2) + 'px';
             floatingTitleOneOfMany.style.opacity = '1';
             const imgRect = mainImage.getBoundingClientRect();
             const imgX = e.clientX - imgRect.left;
@@ -1939,36 +2032,30 @@ function showThumbsViewOneOfMany() {
     const images = getOneOfManyImages();
     thumbsGridOneOfMany.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewOneOfMany(idx);
-        thumbsGridOneOfMany.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridOneOfMany.appendChild(thumbWrapper);
     });
     singleImageViewOneOfMany.style.display = 'none';
     thumbsViewOneOfMany.style.display = 'block';
 }
-if (prevImageBtnOneOfMany && nextImageBtnOneOfMany && thumbsLinkOneOfMany && backToSingleViewOneOfMany && indexLinkOneOfMany) {
-    prevImageBtnOneOfMany.onclick = () => {
-        if (currentImageIndexOneOfMany > 0) showSingleImageViewOneOfMany(currentImageIndexOneOfMany - 1);
-    };
-    nextImageBtnOneOfMany.onclick = () => {
-        const images = getOneOfManyImages();
-        if (currentImageIndexOneOfMany < images.length - 1) showSingleImageViewOneOfMany(currentImageIndexOneOfMany + 1);
-    };
-    thumbsLinkOneOfMany.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewOneOfMany();
-    };
-    backToSingleViewOneOfMany.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewOneOfMany(currentImageIndexOneOfMany);
-    };
-    indexLinkOneOfMany.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkOneOfMany && backToSingleViewOneOfMany && indexLinkOneOfMany) {
+    thumbsLinkOneOfMany.onclick = (e) => { e.preventDefault(); showThumbsViewOneOfMany(); };
+    backToSingleViewOneOfMany.onclick = (e) => { e.preventDefault(); showSingleImageViewOneOfMany(currentImageIndexOneOfMany); };
+    indexLinkOneOfMany.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 document.addEventListener('keydown', (e) => {
     if (singleImageViewOneOfMany && singleImageViewOneOfMany.style.display === 'block') {
@@ -1987,8 +2074,6 @@ let currentImageIndexBestMedicine = 0;
 const singleImageViewBestMedicine = document.getElementById('singleImageViewBestMedicine');
 const mainGalleryImageBestMedicine = document.getElementById('mainGalleryImageBestMedicine');
 const imageCounterBestMedicine = document.getElementById('imageCounterBestMedicine');
-const prevImageBtnBestMedicine = document.getElementById('prevImageBtnBestMedicine');
-const nextImageBtnBestMedicine = document.getElementById('nextImageBtnBestMedicine');
 const thumbsViewBestMedicine = document.getElementById('thumbsViewBestMedicine');
 const thumbsGridBestMedicine = document.getElementById('thumbsGridBestMedicine');
 const thumbsLinkBestMedicine = document.getElementById('thumbsLinkBestMedicine');
@@ -2012,8 +2097,8 @@ function setupFloatingTitleBestMedicine() {
             const rect = imageContainer.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            floatingTitleBestMedicine.style.left = (x + 10) + 'px';
-            floatingTitleBestMedicine.style.top = (y - 30) + 'px';
+            floatingTitleBestMedicine.style.left = (x - floatingTitleBestMedicine.offsetWidth / 2) + 'px';
+            floatingTitleBestMedicine.style.top = (y - floatingTitleBestMedicine.offsetHeight - 2) + 'px';
             floatingTitleBestMedicine.style.opacity = '1';
             const imgRect = mainImage.getBoundingClientRect();
             const imgX = e.clientX - imgRect.left;
@@ -2074,36 +2159,30 @@ function showThumbsViewBestMedicine() {
     const images = getBestMedicineImages();
     thumbsGridBestMedicine.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewBestMedicine(idx);
-        thumbsGridBestMedicine.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridBestMedicine.appendChild(thumbWrapper);
     });
     singleImageViewBestMedicine.style.display = 'none';
     thumbsViewBestMedicine.style.display = 'block';
 }
-if (prevImageBtnBestMedicine && nextImageBtnBestMedicine && thumbsLinkBestMedicine && backToSingleViewBestMedicine && indexLinkBestMedicine) {
-    prevImageBtnBestMedicine.onclick = () => {
-        if (currentImageIndexBestMedicine > 0) showSingleImageViewBestMedicine(currentImageIndexBestMedicine - 1);
-    };
-    nextImageBtnBestMedicine.onclick = () => {
-        const images = getBestMedicineImages();
-        if (currentImageIndexBestMedicine < images.length - 1) showSingleImageViewBestMedicine(currentImageIndexBestMedicine + 1);
-    };
-    thumbsLinkBestMedicine.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewBestMedicine();
-    };
-    backToSingleViewBestMedicine.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewBestMedicine(currentImageIndexBestMedicine);
-    };
-    indexLinkBestMedicine.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkBestMedicine && backToSingleViewBestMedicine && indexLinkBestMedicine) {
+    thumbsLinkBestMedicine.onclick = (e) => { e.preventDefault(); showThumbsViewBestMedicine(); };
+    backToSingleViewBestMedicine.onclick = (e) => { e.preventDefault(); showSingleImageViewBestMedicine(currentImageIndexBestMedicine); };
+    indexLinkBestMedicine.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 document.addEventListener('keydown', (e) => {
     if (singleImageViewBestMedicine && singleImageViewBestMedicine.style.display === 'block') {
@@ -2122,8 +2201,6 @@ let currentImageIndexRecent = 0;
 const singleImageViewRecent = document.getElementById('singleImageViewRecent');
 const mainGalleryImageRecent = document.getElementById('mainGalleryImageRecent');
 const imageCounterRecent = document.getElementById('imageCounterRecent');
-const prevImageBtnRecent = document.getElementById('prevImageBtnRecent');
-const nextImageBtnRecent = document.getElementById('nextImageBtnRecent');
 const thumbsViewRecent = document.getElementById('thumbsViewRecent');
 const thumbsGridRecent = document.getElementById('thumbsGridRecent');
 const thumbsLinkRecent = document.getElementById('thumbsLinkRecent');
@@ -2148,8 +2225,8 @@ function setupFloatingTitleRecent() {
             const rect = imageContainer.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            floatingTitle.style.left = (x + 10) + 'px';
-            floatingTitle.style.top = (y - 30) + 'px';
+            floatingTitle.style.left = (x - floatingTitleRecent.offsetWidth / 2) + 'px';
+            floatingTitle.style.top = (y - floatingTitleRecent.offsetHeight - 2) + 'px';
             floatingTitle.style.opacity = '1';
             const imgRect = mainImage.getBoundingClientRect();
             const imgX = e.clientX - imgRect.left;
@@ -2211,41 +2288,31 @@ function showThumbsViewRecent() {
     const images = getRecentImages();
     thumbsGridRecent.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewRecent(idx);
-        thumbsGridRecent.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridRecent.appendChild(thumbWrapper);
     });
     singleImageViewRecent.style.display = 'none';
     thumbsViewRecent.style.display = 'block';
 }
 
-if (prevImageBtnRecent && nextImageBtnRecent && thumbsLinkRecent && backToSingleViewRecent && indexLinkRecent) {
-    prevImageBtnRecent.onclick = () => {
-        if (currentImageIndexRecent > 0) showSingleImageViewRecent(currentImageIndexRecent - 1);
-    };
-    nextImageBtnRecent.onclick = () => {
-        const images = getRecentImages();
-        if (currentImageIndexRecent < images.length - 1) {
-            showSingleImageViewRecent(currentImageIndexRecent + 1);
-        } else {
-            showSingleImageViewRecent(0);
-        }
-    };
-    thumbsLinkRecent.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewRecent();
-    };
-    backToSingleViewRecent.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewRecent(currentImageIndexRecent);
-    };
-    indexLinkRecent.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkRecent && backToSingleViewRecent && indexLinkRecent) {
+    thumbsLinkRecent.onclick = (e) => { e.preventDefault(); showThumbsViewRecent(); };
+    backToSingleViewRecent.onclick = (e) => { e.preventDefault(); showSingleImageViewRecent(currentImageIndexRecent); };
+    indexLinkRecent.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 
 document.addEventListener('keydown', (e) => {
@@ -2326,8 +2393,6 @@ let currentImageIndexPortraitsIII = 0;
 const singleImageViewPortraitsIII = document.getElementById('singleImageViewPortraitsIII');
 const mainGalleryImagePortraitsIII = document.getElementById('mainGalleryImagePortraitsIII');
 const imageCounterPortraitsIII = document.getElementById('imageCounterPortraitsIII');
-const prevImageBtnPortraitsIII = document.getElementById('prevImageBtnPortraitsIII');
-const nextImageBtnPortraitsIII = document.getElementById('nextImageBtnPortraitsIII');
 const thumbsViewPortraitsIII = document.getElementById('thumbsViewPortraitsIII');
 const thumbsGridPortraitsIII = document.getElementById('thumbsGridPortraitsIII');
 const thumbsLinkPortraitsIII = document.getElementById('thumbsLinkPortraitsIII');
@@ -2353,8 +2418,8 @@ function setupFloatingTitlePortraitsIII() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            floatingTitlePortraitsIII.style.left = (x + 10) + 'px';
-            floatingTitlePortraitsIII.style.top = (y - 30) + 'px';
+            floatingTitlePortraitsIII.style.left = (x - floatingTitlePortraitsIII.offsetWidth / 2) + 'px';
+            floatingTitlePortraitsIII.style.top = (y - floatingTitlePortraitsIII.offsetHeight - 2) + 'px';
             floatingTitlePortraitsIII.style.opacity = '1';
             
             const imgRect = mainImage.getBoundingClientRect();
@@ -2417,37 +2482,31 @@ function showThumbsViewPortraitsIII() {
     const images = getPortraitsIIIImages();
     thumbsGridPortraitsIII.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewPortraitsIII(idx);
-        thumbsGridPortraitsIII.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridPortraitsIII.appendChild(thumbWrapper);
     });
     singleImageViewPortraitsIII.style.display = 'none';
     thumbsViewPortraitsIII.style.display = 'block';
 }
 
-if (prevImageBtnPortraitsIII && nextImageBtnPortraitsIII && thumbsLinkPortraitsIII && backToSingleViewPortraitsIII && indexLinkPortraitsIII) {
-    prevImageBtnPortraitsIII.onclick = () => {
-        if (currentImageIndexPortraitsIII > 0) showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII - 1);
-    };
-    nextImageBtnPortraitsIII.onclick = () => {
-        const images = getPortraitsIIIImages();
-        if (currentImageIndexPortraitsIII < images.length - 1) showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII + 1);
-    };
-    thumbsLinkPortraitsIII.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewPortraitsIII();
-    };
-    backToSingleViewPortraitsIII.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII);
-    };
-    indexLinkPortraitsIII.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkPortraitsIII && backToSingleViewPortraitsIII && indexLinkPortraitsIII) {
+    thumbsLinkPortraitsIII.onclick = (e) => { e.preventDefault(); showThumbsViewPortraitsIII(); };
+    backToSingleViewPortraitsIII.onclick = (e) => { e.preventDefault(); showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII); };
+    indexLinkPortraitsIII.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 
 document.addEventListener('keydown', (e) => {
@@ -2501,8 +2560,6 @@ let currentImageIndexAmsCentre = 0;
 const singleImageViewAmsCentre = document.getElementById('singleImageViewAmsCentre');
 const mainGalleryImageAmsCentre = document.getElementById('mainGalleryImageAmsCentre');
 const imageCounterAmsCentre = document.getElementById('imageCounterAmsCentre');
-const prevImageBtnAmsCentre = document.getElementById('prevImageBtnAmsCentre');
-const nextImageBtnAmsCentre = document.getElementById('nextImageBtnAmsCentre');
 const thumbsViewAmsCentre = document.getElementById('thumbsViewAmsCentre');
 const thumbsGridAmsCentre = document.getElementById('thumbsGridAmsCentre');
 const thumbsLinkAmsCentre = document.getElementById('thumbsLinkAmsCentre');
@@ -2528,8 +2585,8 @@ function setupFloatingTitleAmsCentre() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            floatingTitleAmsCentre.style.left = (x + 10) + 'px';
-            floatingTitleAmsCentre.style.top = (y - 30) + 'px';
+            floatingTitleAmsCentre.style.left = (x - floatingTitleAmsCentre.offsetWidth / 2) + 'px';
+            floatingTitleAmsCentre.style.top = (y - floatingTitleAmsCentre.offsetHeight - 2) + 'px';
             floatingTitleAmsCentre.style.opacity = '1';
             
             const imgRect = mainImage.getBoundingClientRect();
@@ -2592,37 +2649,31 @@ function showThumbsViewAmsCentre() {
     const images = getAmsCentreImages();
     thumbsGridAmsCentre.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewAmsCentre(idx);
-        thumbsGridAmsCentre.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridAmsCentre.appendChild(thumbWrapper);
     });
     singleImageViewAmsCentre.style.display = 'none';
     thumbsViewAmsCentre.style.display = 'block';
 }
 
-if (prevImageBtnAmsCentre && nextImageBtnAmsCentre && thumbsLinkAmsCentre && backToSingleViewAmsCentre && indexLinkAmsCentre) {
-    prevImageBtnAmsCentre.onclick = () => {
-        if (currentImageIndexAmsCentre > 0) showSingleImageViewAmsCentre(currentImageIndexAmsCentre - 1);
-    };
-    nextImageBtnAmsCentre.onclick = () => {
-        const images = getAmsCentreImages();
-        if (currentImageIndexAmsCentre < images.length - 1) showSingleImageViewAmsCentre(currentImageIndexAmsCentre + 1);
-    };
-    thumbsLinkAmsCentre.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewAmsCentre();
-    };
-    backToSingleViewAmsCentre.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewAmsCentre(currentImageIndexAmsCentre);
-    };
-    indexLinkAmsCentre.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkAmsCentre && backToSingleViewAmsCentre && indexLinkAmsCentre) {
+    thumbsLinkAmsCentre.onclick = (e) => { e.preventDefault(); showThumbsViewAmsCentre(); };
+    backToSingleViewAmsCentre.onclick = (e) => { e.preventDefault(); showSingleImageViewAmsCentre(currentImageIndexAmsCentre); };
+    indexLinkAmsCentre.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 
 document.addEventListener('keydown', (e) => {
@@ -2644,8 +2695,6 @@ let currentImageIndexNotice = 0;
 const singleImageViewNotice = document.getElementById('singleImageViewNotice');
 const mainGalleryImageNotice = document.getElementById('mainGalleryImageNotice');
 const imageCounterNotice = document.getElementById('imageCounterNotice');
-const prevImageBtnNotice = document.getElementById('prevImageBtnNotice');
-const nextImageBtnNotice = document.getElementById('nextImageBtnNotice');
 const thumbsViewNotice = document.getElementById('thumbsViewNotice');
 const thumbsGridNotice = document.getElementById('thumbsGridNotice');
 const thumbsLinkNotice = document.getElementById('thumbsLinkNotice');
@@ -2671,8 +2720,8 @@ function setupFloatingTitleNotice() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            floatingTitleNotice.style.left = (x + 10) + 'px';
-            floatingTitleNotice.style.top = (y - 30) + 'px';
+            floatingTitleNotice.style.left = (x - floatingTitleNotice.offsetWidth / 2) + 'px';
+            floatingTitleNotice.style.top = (y - floatingTitleNotice.offsetHeight - 2) + 'px';
             floatingTitleNotice.style.opacity = '1';
             
             const imgRect = mainImage.getBoundingClientRect();
@@ -2735,37 +2784,31 @@ function showThumbsViewNotice() {
     const images = getNoticeImages();
     thumbsGridNotice.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewNotice(idx);
-        thumbsGridNotice.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridNotice.appendChild(thumbWrapper);
     });
     singleImageViewNotice.style.display = 'none';
     thumbsViewNotice.style.display = 'block';
 }
 
-if (prevImageBtnNotice && nextImageBtnNotice && thumbsLinkNotice && backToSingleViewNotice && indexLinkNotice) {
-    prevImageBtnNotice.onclick = () => {
-        if (currentImageIndexNotice > 0) showSingleImageViewNotice(currentImageIndexNotice - 1);
-    };
-    nextImageBtnNotice.onclick = () => {
-        const images = getNoticeImages();
-        if (currentImageIndexNotice < images.length - 1) showSingleImageViewNotice(currentImageIndexNotice + 1);
-    };
-    thumbsLinkNotice.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewNotice();
-    };
-    backToSingleViewNotice.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewNotice(currentImageIndexNotice);
-    };
-    indexLinkNotice.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkNotice && backToSingleViewNotice && indexLinkNotice) {
+    thumbsLinkNotice.onclick = (e) => { e.preventDefault(); showThumbsViewNotice(); };
+    backToSingleViewNotice.onclick = (e) => { e.preventDefault(); showSingleImageViewNotice(currentImageIndexNotice); };
+    indexLinkNotice.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 
 document.addEventListener('keydown', (e) => {
@@ -2787,8 +2830,6 @@ let currentImageIndexNoticeII = 0;
 const singleImageViewNoticeII = document.getElementById('singleImageViewNoticeII');
 const mainGalleryImageNoticeII = document.getElementById('mainGalleryImageNoticeII');
 const imageCounterNoticeII = document.getElementById('imageCounterNoticeII');
-const prevImageBtnNoticeII = document.getElementById('prevImageBtnNoticeII');
-const nextImageBtnNoticeII = document.getElementById('nextImageBtnNoticeII');
 const thumbsViewNoticeII = document.getElementById('thumbsViewNoticeII');
 const thumbsGridNoticeII = document.getElementById('thumbsGridNoticeII');
 const thumbsLinkNoticeII = document.getElementById('thumbsLinkNoticeII');
@@ -2814,8 +2855,8 @@ function setupFloatingTitleNoticeII() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            floatingTitleNoticeII.style.left = (x + 10) + 'px';
-            floatingTitleNoticeII.style.top = (y - 30) + 'px';
+            floatingTitleNoticeII.style.left = (x - floatingTitleNoticeII.offsetWidth / 2) + 'px';
+            floatingTitleNoticeII.style.top = (y - floatingTitleNoticeII.offsetHeight - 2) + 'px';
             floatingTitleNoticeII.style.opacity = '1';
             
             const imgRect = mainImage.getBoundingClientRect();
@@ -2878,37 +2919,31 @@ function showThumbsViewNoticeII() {
     const images = getNoticeIIImages();
     thumbsGridNoticeII.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewNoticeII(idx);
-        thumbsGridNoticeII.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridNoticeII.appendChild(thumbWrapper);
     });
     singleImageViewNoticeII.style.display = 'none';
     thumbsViewNoticeII.style.display = 'block';
 }
 
-if (prevImageBtnNoticeII && nextImageBtnNoticeII && thumbsLinkNoticeII && backToSingleViewNoticeII && indexLinkNoticeII) {
-    prevImageBtnNoticeII.onclick = () => {
-        if (currentImageIndexNoticeII > 0) showSingleImageViewNoticeII(currentImageIndexNoticeII - 1);
-    };
-    nextImageBtnNoticeII.onclick = () => {
-        const images = getNoticeIIImages();
-        if (currentImageIndexNoticeII < images.length - 1) showSingleImageViewNoticeII(currentImageIndexNoticeII + 1);
-    };
-    thumbsLinkNoticeII.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewNoticeII();
-    };
-    backToSingleViewNoticeII.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewNoticeII(currentImageIndexNoticeII);
-    };
-    indexLinkNoticeII.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkNoticeII && backToSingleViewNoticeII && indexLinkNoticeII) {
+    thumbsLinkNoticeII.onclick = (e) => { e.preventDefault(); showThumbsViewNoticeII(); };
+    backToSingleViewNoticeII.onclick = (e) => { e.preventDefault(); showSingleImageViewNoticeII(currentImageIndexNoticeII); };
+    indexLinkNoticeII.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 
 document.addEventListener('keydown', (e) => {
@@ -2930,8 +2965,6 @@ let currentImageIndexPortraitsIV = 0;
 const singleImageViewPortraitsIV = document.getElementById('singleImageViewPortraitsIV');
 const mainGalleryImagePortraitsIV = document.getElementById('mainGalleryImagePortraitsIV');
 const imageCounterPortraitsIV = document.getElementById('imageCounterPortraitsIV');
-const prevImageBtnPortraitsIV = document.getElementById('prevImageBtnPortraitsIV');
-const nextImageBtnPortraitsIV = document.getElementById('nextImageBtnPortraitsIV');
 const thumbsViewPortraitsIV = document.getElementById('thumbsViewPortraitsIV');
 const thumbsGridPortraitsIV = document.getElementById('thumbsGridPortraitsIV');
 const thumbsLinkPortraitsIV = document.getElementById('thumbsLinkPortraitsIV');
@@ -2957,8 +2990,8 @@ function setupFloatingTitlePortraitsIV() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            floatingTitlePortraitsIV.style.left = (x + 10) + 'px';
-            floatingTitlePortraitsIV.style.top = (y - 30) + 'px';
+            floatingTitlePortraitsIV.style.left = (x - floatingTitlePortraitsIV.offsetWidth / 2) + 'px';
+            floatingTitlePortraitsIV.style.top = (y - floatingTitlePortraitsIV.offsetHeight - 2) + 'px';
             floatingTitlePortraitsIV.style.opacity = '1';
             
             const imgRect = mainImage.getBoundingClientRect();
@@ -3021,37 +3054,31 @@ function showThumbsViewPortraitsIV() {
     const images = getPortraitsIVImages();
     thumbsGridPortraitsIV.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewPortraitsIV(idx);
-        thumbsGridPortraitsIV.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridPortraitsIV.appendChild(thumbWrapper);
     });
     singleImageViewPortraitsIV.style.display = 'none';
     thumbsViewPortraitsIV.style.display = 'block';
 }
 
-if (prevImageBtnPortraitsIV && nextImageBtnPortraitsIV && thumbsLinkPortraitsIV && backToSingleViewPortraitsIV && indexLinkPortraitsIV) {
-    prevImageBtnPortraitsIV.onclick = () => {
-        if (currentImageIndexPortraitsIV > 0) showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV - 1);
-    };
-    nextImageBtnPortraitsIV.onclick = () => {
-        const images = getPortraitsIVImages();
-        if (currentImageIndexPortraitsIV < images.length - 1) showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV + 1);
-    };
-    thumbsLinkPortraitsIV.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewPortraitsIV();
-    };
-    backToSingleViewPortraitsIV.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV);
-    };
-    indexLinkPortraitsIV.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkPortraitsIV && backToSingleViewPortraitsIV && indexLinkPortraitsIV) {
+    thumbsLinkPortraitsIV.onclick = (e) => { e.preventDefault(); showThumbsViewPortraitsIV(); };
+    backToSingleViewPortraitsIV.onclick = (e) => { e.preventDefault(); showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV); };
+    indexLinkPortraitsIV.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 
 document.addEventListener('keydown', (e) => {
@@ -3073,8 +3100,6 @@ let currentImageIndexNjv1 = 0;
 const singleImageViewNjv1 = document.getElementById('singleImageViewNjv1');
 const mainGalleryImageNjv1 = document.getElementById('mainGalleryImageNjv1');
 const imageCounterNjv1 = document.getElementById('imageCounterNjv1');
-const prevImageBtnNjv1 = document.getElementById('prevImageBtnNjv1');
-const nextImageBtnNjv1 = document.getElementById('nextImageBtnNjv1');
 const thumbsViewNjv1 = document.getElementById('thumbsViewNjv1');
 const thumbsGridNjv1 = document.getElementById('thumbsGridNjv1');
 const thumbsLinkNjv1 = document.getElementById('thumbsLinkNjv1');
@@ -3100,8 +3125,8 @@ function setupFloatingTitleNjv1() {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            floatingTitleNjv1.style.left = (x + 10) + 'px';
-            floatingTitleNjv1.style.top = (y - 30) + 'px';
+            floatingTitleNjv1.style.left = (x - floatingTitleNjv1.offsetWidth / 2) + 'px';
+            floatingTitleNjv1.style.top = (y - floatingTitleNjv1.offsetHeight - 2) + 'px';
             floatingTitleNjv1.style.opacity = '1';
             
             const imgRect = mainImage.getBoundingClientRect();
@@ -3164,37 +3189,31 @@ function showThumbsViewNjv1() {
     const images = getNjv1Images();
     thumbsGridNjv1.innerHTML = '';
     images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.style.width = '120px';
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
         thumb.style.cursor = 'pointer';
         thumb.onclick = () => showSingleImageViewNjv1(idx);
-        thumbsGridNjv1.appendChild(thumb);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridNjv1.appendChild(thumbWrapper);
     });
     singleImageViewNjv1.style.display = 'none';
     thumbsViewNjv1.style.display = 'block';
 }
 
-if (prevImageBtnNjv1 && nextImageBtnNjv1 && thumbsLinkNjv1 && backToSingleViewNjv1 && indexLinkNjv1) {
-    prevImageBtnNjv1.onclick = () => {
-        if (currentImageIndexNjv1 > 0) showSingleImageViewNjv1(currentImageIndexNjv1 - 1);
-    };
-    nextImageBtnNjv1.onclick = () => {
-        const images = getNjv1Images();
-        if (currentImageIndexNjv1 < images.length - 1) showSingleImageViewNjv1(currentImageIndexNjv1 + 1);
-    };
-    thumbsLinkNjv1.onclick = (e) => {
-        e.preventDefault();
-        showThumbsViewNjv1();
-    };
-    backToSingleViewNjv1.onclick = (e) => {
-        e.preventDefault();
-        showSingleImageViewNjv1(currentImageIndexNjv1);
-    };
-    indexLinkNjv1.onclick = (e) => {
-        e.preventDefault();
-        toggleMenu();
-    };
+if (thumbsLinkNjv1 && backToSingleViewNjv1 && indexLinkNjv1) {
+    thumbsLinkNjv1.onclick = (e) => { e.preventDefault(); showThumbsViewNjv1(); };
+    backToSingleViewNjv1.onclick = (e) => { e.preventDefault(); showSingleImageViewNjv1(currentImageIndexNjv1); };
+    indexLinkNjv1.onclick = (e) => { e.preventDefault(); toggleMenu(); };
 }
 
 document.addEventListener('keydown', (e) => {
