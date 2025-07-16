@@ -727,6 +727,82 @@
                 font-size: 12px;
             }
         }
+
+        #landingSlideshowImage {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            margin: auto;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0;
+            box-shadow: none;
+            background: none;
+        }
+
+        /* Add or update CSS for gallery-links and gallery-controls to match sidebar menu bar */
+        .gallery-links, .gallery-controls {
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #222;
+            letter-spacing: 0.06em;
+            margin-top: 12px;
+            margin-bottom: 0;
+        }
+        .gallery-links a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            transition: color 0.2s;
+        }
+        .gallery-links a:hover {
+            color: #888;
+        }
+        .menu-topnav-sep {
+            color: #bbb;
+            margin: 0 7px;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            vertical-align: middle;
+        }
+
+        /* Add or update CSS for new gallery-controls layout */
+        .gallery-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 18px auto;
+            padding: 0 8px;
+            position: relative;
+            top: 0;
+        }
+        .gallery-controls .arrow-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #222;
+            cursor: pointer;
+            padding: 0 8px;
+            transition: color 0.2s;
+        }
+        .gallery-controls .arrow-btn:hover {
+            color: #888;
+        }
+        .gallery-controls .image-counter {
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #222;
+            letter-spacing: 0.06em;
+            text-align: center;
+            flex: 1 1 auto;
+        }
     </style>
 </head>
 <body>
@@ -749,18 +825,18 @@
         <div id="menuMainLinks">
             <ul class="menu-work-list">
                 <li><a href="#" onclick="showSection('recent')">Recent</a></li>
-                <li><a href="#" onclick="showSection('portraits-i')">Portraits I</a></li>
-                <li><a href="#" onclick="showSection('portraits-ii')">Portraits II</a></li>
+                        <li><a href="#" onclick="showSection('portraits-i')">Portraits I</a></li>
+                        <li><a href="#" onclick="showSection('portraits-ii')">Portraits II</a></li>
                 <li><a href="#" onclick="showSection('portraits-iii')">Portraits III</a></li>
                 <li><a href="#" onclick="showSection('portraits-iv')">Portraits IV</a></li>
                 <li><a href="#" onclick="showSection('portfolio-ams:centre')">Portfolio - AMS/Centre</a></li>
                 <li><a href="#" onclick="showSection('portfolio-notice')">Portfolio - NOTICE</a></li>
                 <li><a href="#" onclick="showSection('portfolio-notice-ii')">Portfolio - NOTICE II</a></li>
                 <li><a href="#" onclick="showSection('portfolio-njv1')">Portfolio - NJV1</a></li>
-                <li><a href="#" onclick="showSection('portfolio-one-of-many')">Portfolio - one of many</a></li>
+                        <li><a href="#" onclick="showSection('portfolio-one-of-many')">Portfolio - one of many</a></li>
                 <li><a href="#" onclick="showSection('portfolio-the-best-medicine')">Portfolio - the best medicine</a></li>
                 <li><a href="#" onclick="showSection('travel')">Travel</a></li>
-            </ul>
+                    </ul>
         </div>
         <div id="menuInfoContent" style="display:none;">
             <div class="menu-info-bio">
@@ -794,64 +870,43 @@
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
-  <!-- Landing Page -->
-  <section class="landing" id="landing">
-    <div class="landing-slideshow">
-      <img id="landingSlideshowImage" src="" alt="Slideshow">
-      <div class="landing-controls">
-        <button id="landingPrevBtn">&larr;</button>
-        <span id="landingImageCounter"></span>
-        <button id="landingNextBtn">&rarr;</button>
-      </div>
-      <div class="landing-links" style="text-align:center; margin-top: 4px;">
-        <a href="#" id="landingIndexLink">Index</a> |
-        <a href="#" id="landingThumbsLink">Thumbnails</a>
-      </div>
-      <!-- Thumbnails view goes INSIDE .landing-slideshow, here: -->
-      <div class="landing-thumbs-view" id="landingThumbsView" style="display:none;">
-        <div class="landing-thumbs-grid" id="landingThumbsGrid" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
-        <div style="text-align:center; margin-top:20px;">
-          <a href="#" id="landingBackToSingleView">Back to Image</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ...other sections... -->
-</div>
+    <!-- Removed landing section. Recent gallery is now the landing view. -->
 
         <!-- Gallery Sections -->
    <section class="gallery" id="recent">
     <div class="single-image-view" id="singleImageViewRecent" style="display:none;">
-        <img id="mainGalleryImageRecent" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-       <div class="gallery-links" style="text-align:center;">
-            <a href="#" id="indexLinkRecent">Index</a> ———
-            <a href="#" id="thumbsLinkRecent">Thumbnails</a>
+        <div class="image-container" style="position: relative;">
+            <img id="mainGalleryImageRecent" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+            <div class="floating-title" id="floatingTitleRecent" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                <span id="floatingTitleTextRecent">Recent</span>
+                <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                <span id="floatingTitleCounterRecent">1/9</span>
+      </div>
+      </div>
+        <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+            <a href="#" id="indexLinkRecent">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkRecent">Thumbnails</a>
         </div>
-        <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-            <button id="prevImageBtnRecent">&larr;</button>
-            <span id="imageCounterRecent"></span>
-            <button id="nextImageBtnRecent">&rarr;</button>
-        </div>
-    </div>
+      </div>
     <div class="thumbs-view" id="thumbsViewRecent" style="display:none;">
         <div class="thumbs-grid" id="thumbsGridRecent" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
         <div style="text-align:center; margin-top:20px;">
             <a href="#" id="backToSingleViewRecent">Back to Image</a>
-        </div>
     </div>
-</section>
+    </div>
+  </section>
 
    <section class="gallery" id="portraits-i">
     <div class="single-image-view" id="singleImageView" style="display:none;">
+        <div class="image-container" style="position: relative;">
         <img id="mainGalleryImage" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-       <div class="gallery-links" style="text-align:center;">
-            <a href="#" id="indexLink">Index</a> ———
-            <a href="#" id="thumbsLink">Thumbnails</a>
+            <div class="floating-title" id="floatingTitlePortraitsI" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                <span id="floatingTitleTextPortraitsI">Portraits I</span>
+                <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                <span id="floatingTitleCounterPortraitsI">1/7</span>
         </div>
-        <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-            <button id="prevImageBtn">&larr;</button>
-            <span id="imageCounter"></span>
-            <button id="nextImageBtn">&rarr;</button>
+        </div>
+        <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+            <a href="#" id="indexLink">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLink">Thumbnails</a>
         </div>
     </div>
     <div class="thumbs-view" id="thumbsView" style="display:none;">
@@ -864,15 +919,16 @@
 
         <section class="gallery" id="portraits-ii">
             <div class="single-image-view" id="singleImageViewII" style="display:none;">
-                <img id="mainGalleryImageII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkII">Index</a> ———
-                    <a href="#" id="thumbsLinkII">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitlePortraitsII" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextPortraitsII">Portraits II</span>
+                        <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterPortraitsII">1/4</span>
+                    </div>
                 </div>
-                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnII">&larr;</button>
-                    <span id="imageCounterII"></span>
-                    <button id="nextImageBtnII">&rarr;</button>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkII">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkII">Thumbnails</a>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewII" style="display:none;">
@@ -885,15 +941,16 @@
 
         <section class="gallery" id="portraits-iii">
             <div class="single-image-view" id="singleImageViewPortraitsIII" style="display:none;">
-                <img id="mainGalleryImagePortraitsIII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkPortraitsIII">Index</a> ———
-                    <a href="#" id="thumbsLinkPortraitsIII">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImagePortraitsIII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitlePortraitsIII" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextPortraitsIII">Portraits III</span>
+                        <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterPortraitsIII">1/5</span>
+                    </div>
                 </div>
-                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnPortraitsIII">&larr;</button>
-                    <span id="imageCounterPortraitsIII"></span>
-                    <button id="nextImageBtnPortraitsIII">&rarr;</button>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkPortraitsIII">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkPortraitsIII">Thumbnails</a>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewPortraitsIII" style="display:none;">
@@ -906,15 +963,21 @@
 
         <section class="gallery" id="travel">
             <div class="single-image-view" id="singleImageViewTravel" style="display:none;">
-                <img id="mainGalleryImageTravel" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkTravel">Index</a> ———
-                    <a href="#" id="thumbsLinkTravel">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageTravel" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleTravel" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextTravel">Travel</span>
+                        <span class="floating-title-sep" id="floatingTitleSepTravel" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterTravel">1/3</span>
+                    </div>
+                </div>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkTravel">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkTravel">Thumbnails</a>
                 </div>
                 <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnTravel">&larr;</button>
-                    <span id="imageCounterTravel"></span>
-                    <button id="nextImageBtnTravel">&rarr;</button>
+                    <button id="prevImageBtnTravel" style="display:none;">&larr;</button>
+                    <span id="imageCounterTravel" style="display:none;"></span>
+                    <button id="nextImageBtnTravel" style="display:none;">&rarr;</button>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewTravel" style="display:none;">
@@ -927,15 +990,21 @@
 
         <section class="gallery" id="portfolio-one-of-many">
             <div class="single-image-view" id="singleImageViewOneOfMany" style="display:none;">
-                <img id="mainGalleryImageOneOfMany" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkOneOfMany">Index</a> ———
-                    <a href="#" id="thumbsLinkOneOfMany">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageOneOfMany" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleOneOfMany" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextOneOfMany">Portfolio - one of many</span>
+                        <span class="floating-title-sep" id="floatingTitleSepOneOfMany" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterOneOfMany">1/4</span>
+                    </div>
+                </div>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkOneOfMany">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkOneOfMany">Thumbnails</a>
                 </div>
                 <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnOneOfMany">&larr;</button>
-                    <span id="imageCounterOneOfMany"></span>
-                    <button id="nextImageBtnOneOfMany">&rarr;</button>
+                    <button id="prevImageBtnOneOfMany" style="display:none;">&larr;</button>
+                    <span id="imageCounterOneOfMany" style="display:none;"></span>
+                    <button id="nextImageBtnOneOfMany" style="display:none;">&rarr;</button>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewOneOfMany" style="display:none;">
@@ -948,15 +1017,21 @@
 
         <section class="gallery" id="portfolio-the-best-medicine">
             <div class="single-image-view" id="singleImageViewBestMedicine" style="display:none;">
-                <img id="mainGalleryImageBestMedicine" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkBestMedicine">Index</a> ———
-                    <a href="#" id="thumbsLinkBestMedicine">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageBestMedicine" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleBestMedicine" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextBestMedicine">Portfolio - the best medicine</span>
+                        <span class="floating-title-sep" id="floatingTitleSepBestMedicine" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterBestMedicine">1/5</span>
+                    </div>
+                </div>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkBestMedicine">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkBestMedicine">Thumbnails</a>
                 </div>
                 <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnBestMedicine">&larr;</button>
-                    <span id="imageCounterBestMedicine"></span>
-                    <button id="nextImageBtnBestMedicine">&rarr;</button>
+                    <button id="prevImageBtnBestMedicine" style="display:none;">&larr;</button>
+                    <span id="imageCounterBestMedicine" style="display:none;"></span>
+                    <button id="nextImageBtnBestMedicine" style="display:none;">&rarr;</button>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewBestMedicine" style="display:none;">
@@ -1015,15 +1090,16 @@
 
         <section class="gallery" id="portfolio-ams:centre">
             <div class="single-image-view" id="singleImageViewAmsCentre" style="display:none;">
-                <img id="mainGalleryImageAmsCentre" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkAmsCentre">Index</a> ———
-                    <a href="#" id="thumbsLinkAmsCentre">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageAmsCentre" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleAmsCentre" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextAmsCentre">Portfolio - AMS/Centre</span>
+                        <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterAmsCentre">1/5</span>
     </div>
-                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnAmsCentre">&larr;</button>
-                    <span id="imageCounterAmsCentre"></span>
-                    <button id="nextImageBtnAmsCentre">&rarr;</button>
+                </div>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkAmsCentre">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkAmsCentre">Thumbnails</a>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewAmsCentre" style="display:none;">
@@ -1036,15 +1112,16 @@
 
         <section class="gallery" id="portfolio-notice">
             <div class="single-image-view" id="singleImageViewNotice" style="display:none;">
-                <img id="mainGalleryImageNotice" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkNotice">Index</a> ———
-                    <a href="#" id="thumbsLinkNotice">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageNotice" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleNotice" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextNotice">Portfolio - NOTICE</span>
+                        <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterNotice">1/5</span>
+                    </div>
                 </div>
-                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnNotice">&larr;</button>
-                    <span id="imageCounterNotice"></span>
-                    <button id="nextImageBtnNotice">&rarr;</button>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkNotice">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkNotice">Thumbnails</a>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewNotice" style="display:none;">
@@ -1057,15 +1134,16 @@
 
         <section class="gallery" id="portfolio-notice-ii">
             <div class="single-image-view" id="singleImageViewNoticeII" style="display:none;">
-                <img id="mainGalleryImageNoticeII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkNoticeII">Index</a> ———
-                    <a href="#" id="thumbsLinkNoticeII">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageNoticeII" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleNoticeII" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextNoticeII">Portfolio - NOTICE II</span>
+                        <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterNoticeII">1/5</span>
+                    </div>
                 </div>
-                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnNoticeII">&larr;</button>
-                    <span id="imageCounterNoticeII"></span>
-                    <button id="nextImageBtnNoticeII">&rarr;</button>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkNoticeII">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkNoticeII">Thumbnails</a>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewNoticeII" style="display:none;">
@@ -1078,15 +1156,16 @@
 
         <section class="gallery" id="portraits-iv">
             <div class="single-image-view" id="singleImageViewPortraitsIV" style="display:none;">
-                <img id="mainGalleryImagePortraitsIV" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkPortraitsIV">Index</a> ———
-                    <a href="#" id="thumbsLinkPortraitsIV">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImagePortraitsIV" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitlePortraitsIV" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextPortraitsIV">Portraits IV</span>
+                        <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterPortraitsIV">1/4</span>
+                    </div>
                 </div>
-                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnPortraitsIV">&larr;</button>
-                    <span id="imageCounterPortraitsIV"></span>
-                    <button id="nextImageBtnPortraitsIV">&rarr;</button>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkPortraitsIV">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkPortraitsIV">Thumbnails</a>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewPortraitsIV" style="display:none;">
@@ -1099,15 +1178,16 @@
 
         <section class="gallery" id="portfolio-njv1">
             <div class="single-image-view" id="singleImageViewNjv1" style="display:none;">
-                <img id="mainGalleryImageNjv1" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
-                <div class="gallery-links" style="text-align:center;">
-                    <a href="#" id="indexLinkNjv1">Index</a> ———
-                    <a href="#" id="thumbsLinkNjv1">Thumbnails</a>
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageNjv1" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleNjv1" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextNjv1">Portfolio - NJV1</span>
+                        <span class="floating-title-sep" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterNjv1">1/4</span>
+                    </div>
                 </div>
-                <div class="gallery-controls" style="text-align:center; margin-top:20px;">
-                    <button id="prevImageBtnNjv1">&larr;</button>
-                    <span id="imageCounterNjv1"></span>
-                    <button id="nextImageBtnNjv1">&rarr;</button>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkNjv1">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkNjv1">Thumbnails</a>
                 </div>
             </div>
             <div class="thumbs-view" id="thumbsViewNjv1" style="display:none;">
@@ -1286,100 +1366,7 @@
             closeMenu();
         }
 document.addEventListener('DOMContentLoaded', function() {
-    // Landing slideshow and thumbnails
-    const landingImages = [
-        'work/landing/landing_001.jpg',
-        'work/landing/landing_002.jpg',
-        'work/landing/landing_003.jpg'
-        // Add more as needed
-    ];
-    let landingCurrentIndex = 0;
-    const landingSlideshowImage = document.getElementById('landingSlideshowImage');
-    const landingPrevBtn = document.getElementById('landingPrevBtn');
-    const landingNextBtn = document.getElementById('landingNextBtn');
-    const landingImageCounter = document.getElementById('landingImageCounter');
-       const landingThumbsLink = document.getElementById('landingThumbsLink');
-   const landingThumbsView = document.getElementById('landingThumbsView');
-   const landingThumbsGrid = document.getElementById('landingThumbsGrid');
-   const landingBackToSingleView = document.getElementById('landingBackToSingleView');
-   // ... rest of the code as previously provided ...
-    const landingControls = document.querySelector('.landing-controls');
-    const landingLinks = document.querySelector('.landing-links');
-    const landingIndexLink = document.getElementById('landingIndexLink');
-
-    function showLandingImage(index) {
-        landingCurrentIndex = index;
-        landingSlideshowImage.src = landingImages[index];
-        landingImageCounter.textContent = `${index + 1} / ${landingImages.length}`;
-    }
-    function showLandingThumbsView() {
-        landingThumbsGrid.innerHTML = '';
-        landingImages.forEach((src, idx) => {
-            const thumb = document.createElement('img');
-            thumb.src = src;
-            thumb.style.width = '120px';
-            thumb.style.cursor = 'pointer';
-            thumb.onclick = () => {
-                showLandingImage(idx);
-                landingThumbsView.style.display = 'none';
-                landingSlideshowImage.style.display = 'block';
-                landingControls.style.display = 'block';
-                landingLinks.style.display = 'block';
-            };
-            landingThumbsGrid.appendChild(thumb);
-        });
-        landingThumbsView.style.display = 'block';
-        landingSlideshowImage.style.display = 'none';
-        landingControls.style.display = 'none';
-        landingLinks.style.display = 'none';
-    }
-    function showLandingSingleImageView() {
-        landingThumbsView.style.display = 'none';
-        landingSlideshowImage.style.display = 'block';
-        landingControls.style.display = 'block';
-        landingLinks.style.display = 'block';
-    }
-       if (landingThumbsLink) {
-       landingThumbsLink.onclick = function(e) {
-           e.preventDefault();
-           showLandingThumbsView();
-       };
-   }
-   if (landingBackToSingleView) {
-       landingBackToSingleView.onclick = function(e) {
-           e.preventDefault();
-           showLandingSingleImageView();
-       };
-   }
-    if (landingImages.length > 0) {
-        showLandingImage(0);
-    }
-    if (landingSlideshowImage) {
-        landingSlideshowImage.style.cursor = "pointer";
-        landingSlideshowImage.onclick = function() {
-            if (landingCurrentIndex < landingImages.length - 1) {
-                showLandingImage(landingCurrentIndex + 1);
-            } else {
-                showLandingImage(0);
-            }
-        };
-    }
-    if (landingPrevBtn && landingNextBtn) {
-        landingPrevBtn.onclick = function() {
-            if (landingCurrentIndex > 0) showLandingImage(landingCurrentIndex - 1);
-            else showLandingImage(landingImages.length - 1);
-        };
-        landingNextBtn.onclick = function() {
-            if (landingCurrentIndex < landingImages.length - 1) showLandingImage(landingCurrentIndex + 1);
-            else showLandingImage(0);
-        };
-    }
-    if (landingIndexLink) {
-        landingIndexLink.onclick = function(e) {
-            e.preventDefault();
-            toggleMenu();
-        };
-    }
+    showSection('recent');
 });
 
 // --- Portraits I Gallery Data ---
@@ -1398,9 +1385,55 @@ const thumbsGrid = document.getElementById('thumbsGrid');
 const thumbsLink = document.getElementById('thumbsLink');
 const backToSingleView = document.getElementById('backToSingleView');
 const indexLink = document.getElementById('indexLink');
+const floatingTitlePortraitsI = document.getElementById('floatingTitlePortraitsI');
 
 function getPortraitsIImages() {
     return window.galleryConfig && window.galleryConfig['portraits-i'] ? window.galleryConfig['portraits-i'] : [];
+}
+
+// Mouse tracking for floating title - Portraits I
+function setupFloatingTitlePortraitsI() {
+    const imageContainer = document.querySelector('#singleImageView .image-container');
+    const mainImage = document.getElementById('mainGalleryImage');
+    const floatingTitle = document.getElementById('floatingTitlePortraitsI');
+    const floatingTitleSep = floatingTitle ? floatingTitle.querySelector('.floating-title-sep') : null;
+    if (imageContainer && floatingTitle && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            floatingTitle.style.left = (x + 10) + 'px';
+            floatingTitle.style.top = (y - 30) + 'px';
+            floatingTitle.style.opacity = '1';
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    if (brightness < 128) {
+                        floatingTitle.style.color = '#ffffff';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                    } else {
+                        floatingTitle.style.color = '#000000';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitle.style.color = '#ffffff';
+                    if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                }
+            }
+        });
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitle.style.opacity = '0';
+        });
+    }
 }
 
 // --- Make the main image clickable to go to next image ---
@@ -1422,9 +1455,13 @@ function showSingleImageView(index) {
     if (!images.length) return;
     currentImageIndex = index;
     mainGalleryImage.src = images[index];
-    imageCounter.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterPortraitsI');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageView.style.display = 'block';
     thumbsView.style.display = 'none';
+    setupFloatingTitlePortraitsI();
 }
 function showThumbsView() {
     const images = getPortraitsIImages();
@@ -1519,9 +1556,55 @@ const thumbsGridII = document.getElementById('thumbsGridII');
 const thumbsLinkII = document.getElementById('thumbsLinkII');
 const backToSingleViewII = document.getElementById('backToSingleViewII');
 const indexLinkII = document.getElementById('indexLinkII');
+const floatingTitlePortraitsII = document.getElementById('floatingTitlePortraitsII');
 
 function getPortraitsIIImages() {
     return window.galleryConfig && window.galleryConfig['portraits-ii'] ? window.galleryConfig['portraits-ii'] : [];
+}
+
+// Mouse tracking for floating title - Portraits II
+function setupFloatingTitlePortraitsII() {
+    const imageContainer = document.querySelector('#singleImageViewII .image-container');
+    const mainImage = document.getElementById('mainGalleryImageII');
+    const floatingTitle = document.getElementById('floatingTitlePortraitsII');
+    const floatingTitleSep = floatingTitle ? floatingTitle.querySelector('.floating-title-sep') : null;
+    if (imageContainer && floatingTitle && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            floatingTitle.style.left = (x + 10) + 'px';
+            floatingTitle.style.top = (y - 30) + 'px';
+            floatingTitle.style.opacity = '1';
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    if (brightness < 128) {
+                        floatingTitle.style.color = '#ffffff';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                    } else {
+                        floatingTitle.style.color = '#000000';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitle.style.color = '#ffffff';
+                    if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                }
+            }
+        });
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitle.style.opacity = '0';
+        });
+    }
 }
 
 if (mainGalleryImageII) {
@@ -1541,9 +1624,13 @@ function showSingleImageViewII(index) {
     if (!images.length) return;
     currentImageIndexII = index;
     mainGalleryImageII.src = images[index];
-    imageCounterII.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterPortraitsII');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewII.style.display = 'block';
     thumbsViewII.style.display = 'none';
+    setupFloatingTitlePortraitsII();
 }
 function showThumbsViewII() {
     const images = getPortraitsIIImages();
@@ -1635,9 +1722,56 @@ const thumbsGridTravel = document.getElementById('thumbsGridTravel');
 const thumbsLinkTravel = document.getElementById('thumbsLinkTravel');
 const backToSingleViewTravel = document.getElementById('backToSingleViewTravel');
 const indexLinkTravel = document.getElementById('indexLinkTravel');
+const floatingTitleTravel = document.getElementById('floatingTitleTravel');
+
 function getTravelImages() {
     return window.galleryConfig && window.galleryConfig['travel'] ? window.galleryConfig['travel'] : [];
 }
+
+// Mouse tracking for floating title - Travel
+function setupFloatingTitleTravel() {
+    const imageContainer = document.querySelector('#singleImageViewTravel .image-container');
+    const mainImage = document.getElementById('mainGalleryImageTravel');
+    const floatingTitleSep = document.getElementById('floatingTitleSepTravel');
+    if (imageContainer && floatingTitleTravel && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            floatingTitleTravel.style.left = (x + 10) + 'px';
+            floatingTitleTravel.style.top = (y - 30) + 'px';
+            floatingTitleTravel.style.opacity = '1';
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    if (brightness < 128) {
+                        floatingTitleTravel.style.color = '#ffffff';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                    } else {
+                        floatingTitleTravel.style.color = '#000000';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleTravel.style.color = '#ffffff';
+                    if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                }
+            }
+        });
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleTravel.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageTravel) {
     mainGalleryImageTravel.style.cursor = "pointer";
     mainGalleryImageTravel.onclick = function() {
@@ -1649,15 +1783,22 @@ if (mainGalleryImageTravel) {
         }
     };
 }
+
 function showSingleImageViewTravel(index) {
     const images = getTravelImages();
     if (!images.length) return;
     currentImageIndexTravel = index;
     mainGalleryImageTravel.src = images[index];
-    imageCounterTravel.textContent = `${index + 1} / ${images.length}`;
+    // Update floating title and counter
+    const titleText = document.getElementById('floatingTitleTextTravel');
+    const titleCounter = document.getElementById('floatingTitleCounterTravel');
+    if (titleText) titleText.textContent = 'Travel';
+    if (titleCounter) titleCounter.textContent = `${index + 1}/${images.length}`;
     singleImageViewTravel.style.display = 'block';
     thumbsViewTravel.style.display = 'none';
+    setupFloatingTitleTravel();
 }
+
 function showThumbsViewTravel() {
     const images = getTravelImages();
     thumbsGridTravel.innerHTML = '';
@@ -1717,9 +1858,56 @@ const thumbsGridOneOfMany = document.getElementById('thumbsGridOneOfMany');
 const thumbsLinkOneOfMany = document.getElementById('thumbsLinkOneOfMany');
 const backToSingleViewOneOfMany = document.getElementById('backToSingleViewOneOfMany');
 const indexLinkOneOfMany = document.getElementById('indexLinkOneOfMany');
+const floatingTitleOneOfMany = document.getElementById('floatingTitleOneOfMany');
+
 function getOneOfManyImages() {
     return window.galleryConfig && window.galleryConfig['portfolio-one-of-many'] ? window.galleryConfig['portfolio-one-of-many'] : [];
 }
+
+// Mouse tracking for floating title - Portfolio - one of many
+function setupFloatingTitleOneOfMany() {
+    const imageContainer = document.querySelector('#singleImageViewOneOfMany .image-container');
+    const mainImage = document.getElementById('mainGalleryImageOneOfMany');
+    const floatingTitleSep = document.getElementById('floatingTitleSepOneOfMany');
+    if (imageContainer && floatingTitleOneOfMany && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            floatingTitleOneOfMany.style.left = (x + 10) + 'px';
+            floatingTitleOneOfMany.style.top = (y - 30) + 'px';
+            floatingTitleOneOfMany.style.opacity = '1';
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    if (brightness < 128) {
+                        floatingTitleOneOfMany.style.color = '#ffffff';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                    } else {
+                        floatingTitleOneOfMany.style.color = '#000000';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleOneOfMany.style.color = '#ffffff';
+                    if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                }
+            }
+        });
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleOneOfMany.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageOneOfMany) {
     mainGalleryImageOneOfMany.style.cursor = "pointer";
     mainGalleryImageOneOfMany.onclick = function() {
@@ -1731,15 +1919,22 @@ if (mainGalleryImageOneOfMany) {
         }
     };
 }
+
 function showSingleImageViewOneOfMany(index) {
     const images = getOneOfManyImages();
     if (!images.length) return;
     currentImageIndexOneOfMany = index;
     mainGalleryImageOneOfMany.src = images[index];
-    imageCounterOneOfMany.textContent = `${index + 1} / ${images.length}`;
+    // Update floating title and counter
+    const titleText = document.getElementById('floatingTitleTextOneOfMany');
+    const titleCounter = document.getElementById('floatingTitleCounterOneOfMany');
+    if (titleText) titleText.textContent = 'Portfolio - one of many';
+    if (titleCounter) titleCounter.textContent = `${index + 1}/${images.length}`;
     singleImageViewOneOfMany.style.display = 'block';
     thumbsViewOneOfMany.style.display = 'none';
+    setupFloatingTitleOneOfMany();
 }
+
 function showThumbsViewOneOfMany() {
     const images = getOneOfManyImages();
     thumbsGridOneOfMany.innerHTML = '';
@@ -1799,9 +1994,56 @@ const thumbsGridBestMedicine = document.getElementById('thumbsGridBestMedicine')
 const thumbsLinkBestMedicine = document.getElementById('thumbsLinkBestMedicine');
 const backToSingleViewBestMedicine = document.getElementById('backToSingleViewBestMedicine');
 const indexLinkBestMedicine = document.getElementById('indexLinkBestMedicine');
+const floatingTitleBestMedicine = document.getElementById('floatingTitleBestMedicine');
+
 function getBestMedicineImages() {
     return window.galleryConfig && window.galleryConfig['portfolio-the-best-medicine'] ? window.galleryConfig['portfolio-the-best-medicine'] : [];
 }
+
+// Mouse tracking for floating title - Portfolio - the best medicine
+function setupFloatingTitleBestMedicine() {
+    const imageContainer = document.querySelector('#singleImageViewBestMedicine .image-container');
+    const mainImage = document.getElementById('mainGalleryImageBestMedicine');
+    const floatingTitleSep = document.getElementById('floatingTitleSepBestMedicine');
+    if (imageContainer && floatingTitleBestMedicine && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            floatingTitleBestMedicine.style.left = (x + 10) + 'px';
+            floatingTitleBestMedicine.style.top = (y - 30) + 'px';
+            floatingTitleBestMedicine.style.opacity = '1';
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    if (brightness < 128) {
+                        floatingTitleBestMedicine.style.color = '#ffffff';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                    } else {
+                        floatingTitleBestMedicine.style.color = '#000000';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleBestMedicine.style.color = '#ffffff';
+                    if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                }
+            }
+        });
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleBestMedicine.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageBestMedicine) {
     mainGalleryImageBestMedicine.style.cursor = "pointer";
     mainGalleryImageBestMedicine.onclick = function() {
@@ -1813,14 +2055,20 @@ if (mainGalleryImageBestMedicine) {
         }
     };
 }
+
 function showSingleImageViewBestMedicine(index) {
     const images = getBestMedicineImages();
     if (!images.length) return;
     currentImageIndexBestMedicine = index;
     mainGalleryImageBestMedicine.src = images[index];
-    imageCounterBestMedicine.textContent = `${index + 1} / ${images.length}`;
+    // Update floating title and counter
+    const titleText = document.getElementById('floatingTitleTextBestMedicine');
+    const titleCounter = document.getElementById('floatingTitleCounterBestMedicine');
+    if (titleText) titleText.textContent = 'Portfolio - the best medicine';
+    if (titleCounter) titleCounter.textContent = `${index + 1}/${images.length}`;
     singleImageViewBestMedicine.style.display = 'block';
     thumbsViewBestMedicine.style.display = 'none';
+    setupFloatingTitleBestMedicine();
 }
 function showThumbsViewBestMedicine() {
     const images = getBestMedicineImages();
@@ -1881,9 +2129,57 @@ const thumbsGridRecent = document.getElementById('thumbsGridRecent');
 const thumbsLinkRecent = document.getElementById('thumbsLinkRecent');
 const backToSingleViewRecent = document.getElementById('backToSingleViewRecent');
 const indexLinkRecent = document.getElementById('indexLinkRecent');
+const floatingTitleRecent = document.getElementById('floatingTitleRecent');
+
 function getRecentImages() {
     return window.galleryConfig && window.galleryConfig['recent'] ? window.galleryConfig['recent'] : [];
 }
+
+// Mouse tracking for floating title
+function setupFloatingTitleRecent() {
+    const imageContainer = document.querySelector('#singleImageViewRecent .image-container');
+    const mainImage = document.getElementById('mainGalleryImageRecent');
+    const floatingTitle = document.getElementById('floatingTitleRecent');
+    const floatingTitleSep = floatingTitle ? floatingTitle.querySelector('.floating-title-sep') : null;
+    if (imageContainer && floatingTitle && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            floatingTitle.style.left = (x + 10) + 'px';
+            floatingTitle.style.top = (y - 30) + 'px';
+            floatingTitle.style.opacity = '1';
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    if (brightness < 128) {
+                        floatingTitle.style.color = '#ffffff';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                    } else {
+                        floatingTitle.style.color = '#000000';
+                        if (floatingTitleSep) floatingTitleSep.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitle.style.color = '#ffffff';
+                    if (floatingTitleSep) floatingTitleSep.style.color = '#ffffff';
+                }
+            }
+        });
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitle.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageRecent) {
     mainGalleryImageRecent.style.cursor = "pointer";
     mainGalleryImageRecent.onclick = function() {
@@ -1895,15 +2191,22 @@ if (mainGalleryImageRecent) {
         }
     };
 }
+
 function showSingleImageViewRecent(index) {
     const images = getRecentImages();
     if (!images.length) return;
     currentImageIndexRecent = index;
     mainGalleryImageRecent.src = images[index];
-    imageCounterRecent.textContent = `${index + 1} / ${images.length}`;
+    // Update the floating title counter
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterRecent');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewRecent.style.display = 'block';
     thumbsViewRecent.style.display = 'none';
+    setupFloatingTitleRecent();
 }
+
 function showThumbsViewRecent() {
     const images = getRecentImages();
     thumbsGridRecent.innerHTML = '';
@@ -1918,13 +2221,18 @@ function showThumbsViewRecent() {
     singleImageViewRecent.style.display = 'none';
     thumbsViewRecent.style.display = 'block';
 }
+
 if (prevImageBtnRecent && nextImageBtnRecent && thumbsLinkRecent && backToSingleViewRecent && indexLinkRecent) {
     prevImageBtnRecent.onclick = () => {
         if (currentImageIndexRecent > 0) showSingleImageViewRecent(currentImageIndexRecent - 1);
     };
     nextImageBtnRecent.onclick = () => {
         const images = getRecentImages();
-        if (currentImageIndexRecent < images.length - 1) showSingleImageViewRecent(currentImageIndexRecent + 1);
+        if (currentImageIndexRecent < images.length - 1) {
+            showSingleImageViewRecent(currentImageIndexRecent + 1);
+        } else {
+            showSingleImageViewRecent(0);
+        }
     };
     thumbsLinkRecent.onclick = (e) => {
         e.preventDefault();
@@ -1939,12 +2247,14 @@ if (prevImageBtnRecent && nextImageBtnRecent && thumbsLinkRecent && backToSingle
         toggleMenu();
     };
 }
+
 document.addEventListener('keydown', (e) => {
     if (singleImageViewRecent && singleImageViewRecent.style.display === 'block') {
         if (e.key === 'ArrowLeft') prevImageBtnRecent.onclick();
         if (e.key === 'ArrowRight') nextImageBtnRecent.onclick();
     }
 });
+
 function startRecentGallery() {
     const images = getRecentImages();
     if (images.length > 0) {
@@ -2023,9 +2333,60 @@ const thumbsGridPortraitsIII = document.getElementById('thumbsGridPortraitsIII')
 const thumbsLinkPortraitsIII = document.getElementById('thumbsLinkPortraitsIII');
 const backToSingleViewPortraitsIII = document.getElementById('backToSingleViewPortraitsIII');
 const indexLinkPortraitsIII = document.getElementById('indexLinkPortraitsIII');
+const floatingTitlePortraitsIII = document.getElementById('floatingTitlePortraitsIII');
+
 function getPortraitsIIIImages() {
     return window.galleryConfig && window.galleryConfig['portraits-iii'] ? window.galleryConfig['portraits-iii'] : [];
 }
+
+// Mouse tracking for floating title - Portraits III
+function setupFloatingTitlePortraitsIII() {
+    const imageContainer = document.querySelector('#singleImageViewPortraitsIII .image-container');
+    const mainImage = document.getElementById('mainGalleryImagePortraitsIII');
+    
+    if (imageContainer && floatingTitlePortraitsIII && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            floatingTitlePortraitsIII.style.left = (x + 10) + 'px';
+            floatingTitlePortraitsIII.style.top = (y - 30) + 'px';
+            floatingTitlePortraitsIII.style.opacity = '1';
+            
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    
+                    if (brightness < 128) {
+                        floatingTitlePortraitsIII.style.color = '#ffffff';
+                    } else {
+                        floatingTitlePortraitsIII.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitlePortraitsIII.style.color = '#ffffff';
+                }
+            }
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitlePortraitsIII.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImagePortraitsIII) {
     mainGalleryImagePortraitsIII.style.cursor = "pointer";
     mainGalleryImagePortraitsIII.onclick = function() {
@@ -2037,15 +2398,21 @@ if (mainGalleryImagePortraitsIII) {
         }
     };
 }
+
 function showSingleImageViewPortraitsIII(index) {
     const images = getPortraitsIIIImages();
     if (!images.length) return;
     currentImageIndexPortraitsIII = index;
     mainGalleryImagePortraitsIII.src = images[index];
-    imageCounterPortraitsIII.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterPortraitsIII');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewPortraitsIII.style.display = 'block';
     thumbsViewPortraitsIII.style.display = 'none';
+    setupFloatingTitlePortraitsIII();
 }
+
 function showThumbsViewPortraitsIII() {
     const images = getPortraitsIIIImages();
     thumbsGridPortraitsIII.innerHTML = '';
@@ -2060,6 +2427,7 @@ function showThumbsViewPortraitsIII() {
     singleImageViewPortraitsIII.style.display = 'none';
     thumbsViewPortraitsIII.style.display = 'block';
 }
+
 if (prevImageBtnPortraitsIII && nextImageBtnPortraitsIII && thumbsLinkPortraitsIII && backToSingleViewPortraitsIII && indexLinkPortraitsIII) {
     prevImageBtnPortraitsIII.onclick = () => {
         if (currentImageIndexPortraitsIII > 0) showSingleImageViewPortraitsIII(currentImageIndexPortraitsIII - 1);
@@ -2081,20 +2449,21 @@ if (prevImageBtnPortraitsIII && nextImageBtnPortraitsIII && thumbsLinkPortraitsI
         toggleMenu();
     };
 }
+
 document.addEventListener('keydown', (e) => {
     if (singleImageViewPortraitsIII && singleImageViewPortraitsIII.style.display === 'block') {
         if (e.key === 'ArrowLeft') prevImageBtnPortraitsIII.onclick();
         if (e.key === 'ArrowRight') nextImageBtnPortraitsIII.onclick();
     }
 });
+
 function startPortraitsIIIGallery() {
     const images = getPortraitsIIIImages();
     if (images.length > 0) {
         showSingleImageViewPortraitsIII(0);
     }
 }
-// Repeat for Portraits IV, Portfolio - AMS/Centre, Portfolio - NOTICE, Portfolio - NOTICE II, Portfolio - NJV1
-// ... (repeat the above pattern for each new gallery, using the correct config key and element IDs)
+// ... existing code ...
 
 // Sidebar menu toggle logic for Work/Info/Process
 (function() {
@@ -2139,9 +2508,60 @@ const thumbsGridAmsCentre = document.getElementById('thumbsGridAmsCentre');
 const thumbsLinkAmsCentre = document.getElementById('thumbsLinkAmsCentre');
 const backToSingleViewAmsCentre = document.getElementById('backToSingleViewAmsCentre');
 const indexLinkAmsCentre = document.getElementById('indexLinkAmsCentre');
+const floatingTitleAmsCentre = document.getElementById('floatingTitleAmsCentre');
+
 function getAmsCentreImages() {
     return window.galleryConfig && window.galleryConfig['portfolio-ams:centre'] ? window.galleryConfig['portfolio-ams:centre'] : [];
 }
+
+// Mouse tracking for floating title - Portfolio - AMS/Centre
+function setupFloatingTitleAmsCentre() {
+    const imageContainer = document.querySelector('#singleImageViewAmsCentre .image-container');
+    const mainImage = document.getElementById('mainGalleryImageAmsCentre');
+    
+    if (imageContainer && floatingTitleAmsCentre && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            floatingTitleAmsCentre.style.left = (x + 10) + 'px';
+            floatingTitleAmsCentre.style.top = (y - 30) + 'px';
+            floatingTitleAmsCentre.style.opacity = '1';
+            
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    
+                    if (brightness < 128) {
+                        floatingTitleAmsCentre.style.color = '#ffffff';
+                    } else {
+                        floatingTitleAmsCentre.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleAmsCentre.style.color = '#ffffff';
+                }
+            }
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleAmsCentre.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageAmsCentre) {
     mainGalleryImageAmsCentre.style.cursor = "pointer";
     mainGalleryImageAmsCentre.onclick = function() {
@@ -2153,15 +2573,21 @@ if (mainGalleryImageAmsCentre) {
         }
     };
 }
+
 function showSingleImageViewAmsCentre(index) {
     const images = getAmsCentreImages();
     if (!images.length) return;
     currentImageIndexAmsCentre = index;
     mainGalleryImageAmsCentre.src = images[index];
-    imageCounterAmsCentre.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterAmsCentre');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewAmsCentre.style.display = 'block';
     thumbsViewAmsCentre.style.display = 'none';
+    setupFloatingTitleAmsCentre();
 }
+
 function showThumbsViewAmsCentre() {
     const images = getAmsCentreImages();
     thumbsGridAmsCentre.innerHTML = '';
@@ -2176,6 +2602,7 @@ function showThumbsViewAmsCentre() {
     singleImageViewAmsCentre.style.display = 'none';
     thumbsViewAmsCentre.style.display = 'block';
 }
+
 if (prevImageBtnAmsCentre && nextImageBtnAmsCentre && thumbsLinkAmsCentre && backToSingleViewAmsCentre && indexLinkAmsCentre) {
     prevImageBtnAmsCentre.onclick = () => {
         if (currentImageIndexAmsCentre > 0) showSingleImageViewAmsCentre(currentImageIndexAmsCentre - 1);
@@ -2197,12 +2624,14 @@ if (prevImageBtnAmsCentre && nextImageBtnAmsCentre && thumbsLinkAmsCentre && bac
         toggleMenu();
     };
 }
+
 document.addEventListener('keydown', (e) => {
     if (singleImageViewAmsCentre && singleImageViewAmsCentre.style.display === 'block') {
         if (e.key === 'ArrowLeft') prevImageBtnAmsCentre.onclick();
         if (e.key === 'ArrowRight') nextImageBtnAmsCentre.onclick();
     }
 });
+
 function startAmsCentreGallery() {
     const images = getAmsCentreImages();
     if (images.length > 0) {
@@ -2222,9 +2651,60 @@ const thumbsGridNotice = document.getElementById('thumbsGridNotice');
 const thumbsLinkNotice = document.getElementById('thumbsLinkNotice');
 const backToSingleViewNotice = document.getElementById('backToSingleViewNotice');
 const indexLinkNotice = document.getElementById('indexLinkNotice');
+const floatingTitleNotice = document.getElementById('floatingTitleNotice');
+
 function getNoticeImages() {
     return window.galleryConfig && window.galleryConfig['portfolio-notice'] ? window.galleryConfig['portfolio-notice'] : [];
 }
+
+// Mouse tracking for floating title - Portfolio - NOTICE
+function setupFloatingTitleNotice() {
+    const imageContainer = document.querySelector('#singleImageViewNotice .image-container');
+    const mainImage = document.getElementById('mainGalleryImageNotice');
+    
+    if (imageContainer && floatingTitleNotice && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            floatingTitleNotice.style.left = (x + 10) + 'px';
+            floatingTitleNotice.style.top = (y - 30) + 'px';
+            floatingTitleNotice.style.opacity = '1';
+            
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    
+                    if (brightness < 128) {
+                        floatingTitleNotice.style.color = '#ffffff';
+                    } else {
+                        floatingTitleNotice.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleNotice.style.color = '#ffffff';
+                }
+            }
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleNotice.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageNotice) {
     mainGalleryImageNotice.style.cursor = "pointer";
     mainGalleryImageNotice.onclick = function() {
@@ -2236,15 +2716,21 @@ if (mainGalleryImageNotice) {
         }
     };
 }
+
 function showSingleImageViewNotice(index) {
     const images = getNoticeImages();
     if (!images.length) return;
     currentImageIndexNotice = index;
     mainGalleryImageNotice.src = images[index];
-    imageCounterNotice.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterNotice');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewNotice.style.display = 'block';
     thumbsViewNotice.style.display = 'none';
+    setupFloatingTitleNotice();
 }
+
 function showThumbsViewNotice() {
     const images = getNoticeImages();
     thumbsGridNotice.innerHTML = '';
@@ -2259,6 +2745,7 @@ function showThumbsViewNotice() {
     singleImageViewNotice.style.display = 'none';
     thumbsViewNotice.style.display = 'block';
 }
+
 if (prevImageBtnNotice && nextImageBtnNotice && thumbsLinkNotice && backToSingleViewNotice && indexLinkNotice) {
     prevImageBtnNotice.onclick = () => {
         if (currentImageIndexNotice > 0) showSingleImageViewNotice(currentImageIndexNotice - 1);
@@ -2280,12 +2767,14 @@ if (prevImageBtnNotice && nextImageBtnNotice && thumbsLinkNotice && backToSingle
         toggleMenu();
     };
 }
+
 document.addEventListener('keydown', (e) => {
     if (singleImageViewNotice && singleImageViewNotice.style.display === 'block') {
         if (e.key === 'ArrowLeft') prevImageBtnNotice.onclick();
         if (e.key === 'ArrowRight') nextImageBtnNotice.onclick();
     }
 });
+
 function startNoticeGallery() {
     const images = getNoticeImages();
     if (images.length > 0) {
@@ -2305,9 +2794,60 @@ const thumbsGridNoticeII = document.getElementById('thumbsGridNoticeII');
 const thumbsLinkNoticeII = document.getElementById('thumbsLinkNoticeII');
 const backToSingleViewNoticeII = document.getElementById('backToSingleViewNoticeII');
 const indexLinkNoticeII = document.getElementById('indexLinkNoticeII');
+const floatingTitleNoticeII = document.getElementById('floatingTitleNoticeII');
+
 function getNoticeIIImages() {
     return window.galleryConfig && window.galleryConfig['portfolio-notice-ii'] ? window.galleryConfig['portfolio-notice-ii'] : [];
 }
+
+// Mouse tracking for floating title - Portfolio - NOTICE II
+function setupFloatingTitleNoticeII() {
+    const imageContainer = document.querySelector('#singleImageViewNoticeII .image-container');
+    const mainImage = document.getElementById('mainGalleryImageNoticeII');
+    
+    if (imageContainer && floatingTitleNoticeII && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            floatingTitleNoticeII.style.left = (x + 10) + 'px';
+            floatingTitleNoticeII.style.top = (y - 30) + 'px';
+            floatingTitleNoticeII.style.opacity = '1';
+            
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    
+                    if (brightness < 128) {
+                        floatingTitleNoticeII.style.color = '#ffffff';
+                    } else {
+                        floatingTitleNoticeII.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleNoticeII.style.color = '#ffffff';
+                }
+            }
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleNoticeII.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageNoticeII) {
     mainGalleryImageNoticeII.style.cursor = "pointer";
     mainGalleryImageNoticeII.onclick = function() {
@@ -2319,15 +2859,21 @@ if (mainGalleryImageNoticeII) {
         }
     };
 }
+
 function showSingleImageViewNoticeII(index) {
     const images = getNoticeIIImages();
     if (!images.length) return;
     currentImageIndexNoticeII = index;
     mainGalleryImageNoticeII.src = images[index];
-    imageCounterNoticeII.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterNoticeII');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewNoticeII.style.display = 'block';
     thumbsViewNoticeII.style.display = 'none';
+    setupFloatingTitleNoticeII();
 }
+
 function showThumbsViewNoticeII() {
     const images = getNoticeIIImages();
     thumbsGridNoticeII.innerHTML = '';
@@ -2342,6 +2888,7 @@ function showThumbsViewNoticeII() {
     singleImageViewNoticeII.style.display = 'none';
     thumbsViewNoticeII.style.display = 'block';
 }
+
 if (prevImageBtnNoticeII && nextImageBtnNoticeII && thumbsLinkNoticeII && backToSingleViewNoticeII && indexLinkNoticeII) {
     prevImageBtnNoticeII.onclick = () => {
         if (currentImageIndexNoticeII > 0) showSingleImageViewNoticeII(currentImageIndexNoticeII - 1);
@@ -2363,12 +2910,14 @@ if (prevImageBtnNoticeII && nextImageBtnNoticeII && thumbsLinkNoticeII && backTo
         toggleMenu();
     };
 }
+
 document.addEventListener('keydown', (e) => {
     if (singleImageViewNoticeII && singleImageViewNoticeII.style.display === 'block') {
         if (e.key === 'ArrowLeft') prevImageBtnNoticeII.onclick();
         if (e.key === 'ArrowRight') nextImageBtnNoticeII.onclick();
     }
 });
+
 function startNoticeIIGallery() {
     const images = getNoticeIIImages();
     if (images.length > 0) {
@@ -2388,9 +2937,60 @@ const thumbsGridPortraitsIV = document.getElementById('thumbsGridPortraitsIV');
 const thumbsLinkPortraitsIV = document.getElementById('thumbsLinkPortraitsIV');
 const backToSingleViewPortraitsIV = document.getElementById('backToSingleViewPortraitsIV');
 const indexLinkPortraitsIV = document.getElementById('indexLinkPortraitsIV');
+const floatingTitlePortraitsIV = document.getElementById('floatingTitlePortraitsIV');
+
 function getPortraitsIVImages() {
     return window.galleryConfig && window.galleryConfig['portraits-iv'] ? window.galleryConfig['portraits-iv'] : [];
 }
+
+// Mouse tracking for floating title - Portraits IV
+function setupFloatingTitlePortraitsIV() {
+    const imageContainer = document.querySelector('#singleImageViewPortraitsIV .image-container');
+    const mainImage = document.getElementById('mainGalleryImagePortraitsIV');
+    
+    if (imageContainer && floatingTitlePortraitsIV && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            floatingTitlePortraitsIV.style.left = (x + 10) + 'px';
+            floatingTitlePortraitsIV.style.top = (y - 30) + 'px';
+            floatingTitlePortraitsIV.style.opacity = '1';
+            
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    
+                    if (brightness < 128) {
+                        floatingTitlePortraitsIV.style.color = '#ffffff';
+                    } else {
+                        floatingTitlePortraitsIV.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitlePortraitsIV.style.color = '#ffffff';
+                }
+            }
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitlePortraitsIV.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImagePortraitsIV) {
     mainGalleryImagePortraitsIV.style.cursor = "pointer";
     mainGalleryImagePortraitsIV.onclick = function() {
@@ -2402,15 +3002,21 @@ if (mainGalleryImagePortraitsIV) {
         }
     };
 }
+
 function showSingleImageViewPortraitsIV(index) {
     const images = getPortraitsIVImages();
     if (!images.length) return;
     currentImageIndexPortraitsIV = index;
     mainGalleryImagePortraitsIV.src = images[index];
-    imageCounterPortraitsIV.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterPortraitsIV');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewPortraitsIV.style.display = 'block';
     thumbsViewPortraitsIV.style.display = 'none';
+    setupFloatingTitlePortraitsIV();
 }
+
 function showThumbsViewPortraitsIV() {
     const images = getPortraitsIVImages();
     thumbsGridPortraitsIV.innerHTML = '';
@@ -2425,6 +3031,7 @@ function showThumbsViewPortraitsIV() {
     singleImageViewPortraitsIV.style.display = 'none';
     thumbsViewPortraitsIV.style.display = 'block';
 }
+
 if (prevImageBtnPortraitsIV && nextImageBtnPortraitsIV && thumbsLinkPortraitsIV && backToSingleViewPortraitsIV && indexLinkPortraitsIV) {
     prevImageBtnPortraitsIV.onclick = () => {
         if (currentImageIndexPortraitsIV > 0) showSingleImageViewPortraitsIV(currentImageIndexPortraitsIV - 1);
@@ -2446,12 +3053,14 @@ if (prevImageBtnPortraitsIV && nextImageBtnPortraitsIV && thumbsLinkPortraitsIV 
         toggleMenu();
     };
 }
+
 document.addEventListener('keydown', (e) => {
     if (singleImageViewPortraitsIV && singleImageViewPortraitsIV.style.display === 'block') {
         if (e.key === 'ArrowLeft') prevImageBtnPortraitsIV.onclick();
         if (e.key === 'ArrowRight') nextImageBtnPortraitsIV.onclick();
     }
 });
+
 function startPortraitsIVGallery() {
     const images = getPortraitsIVImages();
     if (images.length > 0) {
@@ -2471,9 +3080,60 @@ const thumbsGridNjv1 = document.getElementById('thumbsGridNjv1');
 const thumbsLinkNjv1 = document.getElementById('thumbsLinkNjv1');
 const backToSingleViewNjv1 = document.getElementById('backToSingleViewNjv1');
 const indexLinkNjv1 = document.getElementById('indexLinkNjv1');
+const floatingTitleNjv1 = document.getElementById('floatingTitleNjv1');
+
 function getNjv1Images() {
     return window.galleryConfig && window.galleryConfig['portfolio-njv1'] ? window.galleryConfig['portfolio-njv1'] : [];
 }
+
+// Mouse tracking for floating title - Portfolio - NJV1
+function setupFloatingTitleNjv1() {
+    const imageContainer = document.querySelector('#singleImageViewNjv1 .image-container');
+    const mainImage = document.getElementById('mainGalleryImageNjv1');
+    
+    if (imageContainer && floatingTitleNjv1 && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            floatingTitleNjv1.style.left = (x + 10) + 'px';
+            floatingTitleNjv1.style.top = (y - 30) + 'px';
+            floatingTitleNjv1.style.opacity = '1';
+            
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    
+                    if (brightness < 128) {
+                        floatingTitleNjv1.style.color = '#ffffff';
+                    } else {
+                        floatingTitleNjv1.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleNjv1.style.color = '#ffffff';
+                }
+            }
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleNjv1.style.opacity = '0';
+        });
+    }
+}
+
 if (mainGalleryImageNjv1) {
     mainGalleryImageNjv1.style.cursor = "pointer";
     mainGalleryImageNjv1.onclick = function() {
@@ -2485,15 +3145,21 @@ if (mainGalleryImageNjv1) {
         }
     };
 }
+
 function showSingleImageViewNjv1(index) {
     const images = getNjv1Images();
     if (!images.length) return;
     currentImageIndexNjv1 = index;
     mainGalleryImageNjv1.src = images[index];
-    imageCounterNjv1.textContent = `${index + 1} / ${images.length}`;
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterNjv1');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
     singleImageViewNjv1.style.display = 'block';
     thumbsViewNjv1.style.display = 'none';
+    setupFloatingTitleNjv1();
 }
+
 function showThumbsViewNjv1() {
     const images = getNjv1Images();
     thumbsGridNjv1.innerHTML = '';
@@ -2508,6 +3174,7 @@ function showThumbsViewNjv1() {
     singleImageViewNjv1.style.display = 'none';
     thumbsViewNjv1.style.display = 'block';
 }
+
 if (prevImageBtnNjv1 && nextImageBtnNjv1 && thumbsLinkNjv1 && backToSingleViewNjv1 && indexLinkNjv1) {
     prevImageBtnNjv1.onclick = () => {
         if (currentImageIndexNjv1 > 0) showSingleImageViewNjv1(currentImageIndexNjv1 - 1);
@@ -2529,12 +3196,14 @@ if (prevImageBtnNjv1 && nextImageBtnNjv1 && thumbsLinkNjv1 && backToSingleViewNj
         toggleMenu();
     };
 }
+
 document.addEventListener('keydown', (e) => {
     if (singleImageViewNjv1 && singleImageViewNjv1.style.display === 'block') {
         if (e.key === 'ArrowLeft') prevImageBtnNjv1.onclick();
         if (e.key === 'ArrowRight') nextImageBtnNjv1.onclick();
     }
 });
+
 function startNjv1Gallery() {
     const images = getNjv1Images();
     if (images.length > 0) {
