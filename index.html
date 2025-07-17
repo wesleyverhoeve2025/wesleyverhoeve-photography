@@ -964,7 +964,7 @@
                 Wesley Verhoeve is an Amsterdam-based photographer, curator and writer.<br><br>
                 His photography, rooted in human stories of craft and community, has been featured in the New York Times, National Geographic, and Wired.<br><br>
                 As the founding curator of the Projected series at ICP in New York City, he organized 96 exhibitions showcasing 312 photographers from 53 countries.<br><br>
-                He publishes <a href="#" onclick="showSection('process'); return false;">Process</a>, a weekly newsletter on photography and creative work.
+                He publishes <a href="#" onclick="openSidebarAndShowProcess(); return false;" style="color: #000; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s ease;">Process</a>, a weekly newsletter on photography and creative work.
             </div>
             <div class="menu-info-books">
                 <span class="books-header">Books</span><br><br>
@@ -1001,7 +1001,7 @@
         </div>
         <div id="menuProcessContent" style="display:none;">
             <div class="menu-info-bio" style="max-width: 310px; margin-bottom: 22px;">
-                <span style="font-variant: small-caps;"><a href="https://www.readprocess.co" target="_blank" rel="noopener" style="color: #000; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s ease;">Process</a> is a weekly publication</span> about photography and creative work, read by over 17,000 photographers and creatives in more than 145 countries.<br><br>
+                <span style="font-variant: small-caps;"><a href="#" onclick="openSidebarAndShowProcess(); return false;" style="color: #000; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s ease;">Process</a> is a weekly publication</span> about photography and creative work, read by over 17,000 photographers and creatives in more than 145 countries.<br><br>
                 Each issue shares thoughtful reflections and practical insights to help readers create meaningful work with clarity and intention.<br><br>
                 Beyond the newsletter, Process hosts regular Photo Walks in cities like Amsterdam, Berlin, London, and Paris, fostering real-life connections and creative community.<br><br>
                 Additional resources include the Process Workbook series and personalized mentorship sessions to support photographers at every stage of their projects.
@@ -3304,6 +3304,23 @@ function startNjv1Gallery() {
             document.getElementById('menuInfo').classList.remove('active');
         };
     });
+    </script>
+    <script>
+    function openSidebarAndShowProcess() {
+      const sideMenu = document.getElementById('sideMenu');
+      const overlay = document.getElementById('overlay');
+      const mainContent = document.getElementById('mainContent');
+      const menuToggle = document.querySelector('.menu-toggle');
+      // Open sidebar if not open
+      if (!sideMenu.classList.contains('active')) {
+        sideMenu.classList.add('active');
+        overlay.classList.add('active');
+        mainContent.classList.add('menu-open');
+        menuToggle.classList.add('active');
+      }
+      // Activate Process tab
+      showSection('process');
+    }
     </script>
 </body>
 </html>
