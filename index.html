@@ -957,6 +957,7 @@
                         <li><a href="#" onclick="showSection('portfolio-one-of-many')">Portfolio - one of many</a></li>
                 <li><a href="#" onclick="showSection('portfolio-the-best-medicine')">Portfolio - the best medicine</a></li>
                 <li><a href="#" onclick="showSection('travel')">Travel</a></li>
+                <li><a href="#" onclick="showSection('portfolio-amsterdam-analog-community')">Portfolio - Amsterdam Analog Community</a></li>
                     </ul>
         </div>
         <div id="menuInfoContent" style="display:none;">
@@ -1364,6 +1365,28 @@
                 <div class="thumbs-grid" id="thumbsGridNjv1" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
                 <div style="text-align:center; margin-top:20px;">
                     <a href="#" id="backToSingleViewNjv1" class="back-to-image-link">Back to Image</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" id="portfolio-amsterdam-analog-community">
+            <div class="single-image-view" id="singleImageViewAmsterdamAnalogCommunity" style="display:none;">
+                <div class="image-container" style="position: relative;">
+                    <img id="mainGalleryImageAmsterdamAnalogCommunity" src="" alt="" style="max-width:100%; max-height:80vh; display:block; margin:auto;">
+                    <div class="floating-title" id="floatingTitleAmsterdamAnalogCommunity" style="position: absolute; top: 20px; left: 20px; color: white; padding: 8px 12px; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.06em; pointer-events: none; z-index: 10; opacity: 0; transition: opacity 0.3s, color 0.3s;">
+                        <span id="floatingTitleTextAmsterdamAnalogCommunity">Portfolio - Amsterdam Analog Community</span>
+                        <span class="floating-title-sep" id="floatingTitleSepAmsterdamAnalogCommunity" style="margin: 0 7px; color: #bbb;">–</span>
+                        <span id="floatingTitleCounterAmsterdamAnalogCommunity">1/1</span>
+                    </div>
+                </div>
+                <div class="gallery-links" style="text-align:center; margin-top: 32px;">
+                    <a href="#" id="indexLinkAmsterdamAnalogCommunity" onclick="openSidebarAndActivateWorkTab(); return false;">Index</a> <span class="menu-topnav-sep">/</span> <a href="#" id="thumbsLinkAmsterdamAnalogCommunity">Thumbnails</a>
+                </div>
+            </div>
+            <div class="thumbs-view" id="thumbsViewAmsterdamAnalogCommunity" style="display:none;">
+                <div class="thumbs-grid" id="thumbsGridAmsterdamAnalogCommunity" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;"></div>
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="#" id="backToSingleViewAmsterdamAnalogCommunity" class="back-to-image-link">Back to Image</a>
                 </div>
             </div>
         </section>
@@ -2425,6 +2448,9 @@ showSection = function(sectionName) {
     if (sectionName === 'portfolio-njv1') {
         startNjv1Gallery();
     }
+    if (sectionName === 'portfolio-amsterdam-analog-community') {
+        startAmsterdamAnalogCommunityGallery();
+    }
     // ... (repeat for each new gallery)
     closeMenu();
 };
@@ -3269,6 +3295,141 @@ function startNjv1Gallery() {
     const images = getNjv1Images();
     if (images.length > 0) {
         showSingleImageViewNjv1(0);
+    }
+}
+
+// --- Portfolio - Amsterdam Analog Community Gallery Data ---
+let currentImageIndexAmsterdamAnalogCommunity = 0;
+const singleImageViewAmsterdamAnalogCommunity = document.getElementById('singleImageViewAmsterdamAnalogCommunity');
+const mainGalleryImageAmsterdamAnalogCommunity = document.getElementById('mainGalleryImageAmsterdamAnalogCommunity');
+const imageCounterAmsterdamAnalogCommunity = document.getElementById('imageCounterAmsterdamAnalogCommunity');
+const thumbsViewAmsterdamAnalogCommunity = document.getElementById('thumbsViewAmsterdamAnalogCommunity');
+const thumbsGridAmsterdamAnalogCommunity = document.getElementById('thumbsGridAmsterdamAnalogCommunity');
+const thumbsLinkAmsterdamAnalogCommunity = document.getElementById('thumbsLinkAmsterdamAnalogCommunity');
+const backToSingleViewAmsterdamAnalogCommunity = document.getElementById('backToSingleViewAmsterdamAnalogCommunity');
+const indexLinkAmsterdamAnalogCommunity = document.getElementById('indexLinkAmsterdamAnalogCommunity');
+const floatingTitleAmsterdamAnalogCommunity = document.getElementById('floatingTitleAmsterdamAnalogCommunity');
+
+function getAmsterdamAnalogCommunityImages() {
+    return window.galleryConfig && window.galleryConfig['portfolio-amsterdam-analog-community'] ? window.galleryConfig['portfolio-amsterdam-analog-community'] : [];
+}
+
+// Mouse tracking for floating title - Portfolio - Amsterdam Analog Community
+function setupFloatingTitleAmsterdamAnalogCommunity() {
+    const imageContainer = document.querySelector('#singleImageViewAmsterdamAnalogCommunity .image-container');
+    const mainImage = document.getElementById('mainGalleryImageAmsterdamAnalogCommunity');
+    
+    if (imageContainer && floatingTitleAmsterdamAnalogCommunity && mainImage) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            floatingTitleAmsterdamAnalogCommunity.style.left = (x - floatingTitleAmsterdamAnalogCommunity.offsetWidth / 2) + 'px';
+            floatingTitleAmsterdamAnalogCommunity.style.top = (y - floatingTitleAmsterdamAnalogCommunity.offsetHeight - 2) + 'px';
+            floatingTitleAmsterdamAnalogCommunity.style.opacity = '1';
+            
+            const imgRect = mainImage.getBoundingClientRect();
+            const imgX = e.clientX - imgRect.left;
+            const imgY = e.clientY - imgRect.top;
+            
+            if (imgX >= 0 && imgX < mainImage.width && imgY >= 0 && imgY < mainImage.height) {
+                canvas.width = mainImage.width;
+                canvas.height = mainImage.height;
+                ctx.drawImage(mainImage, 0, 0);
+                
+                try {
+                    const pixel = ctx.getImageData(imgX, imgY, 1, 1).data;
+                    const brightness = (pixel[0] * 0.299 + pixel[1] * 0.587 + pixel[2] * 0.114);
+                    
+                    if (brightness < 128) {
+                        floatingTitleAmsterdamAnalogCommunity.style.color = '#ffffff';
+                    } else {
+                        floatingTitleAmsterdamAnalogCommunity.style.color = '#000000';
+                    }
+                } catch (error) {
+                    floatingTitleAmsterdamAnalogCommunity.style.color = '#ffffff';
+                }
+            }
+        });
+        
+        imageContainer.addEventListener('mouseleave', () => {
+            floatingTitleAmsterdamAnalogCommunity.style.opacity = '0';
+        });
+    }
+}
+
+if (mainGalleryImageAmsterdamAnalogCommunity) {
+    mainGalleryImageAmsterdamAnalogCommunity.style.cursor = "pointer";
+    mainGalleryImageAmsterdamAnalogCommunity.onclick = function() {
+        const images = getAmsterdamAnalogCommunityImages();
+        if (currentImageIndexAmsterdamAnalogCommunity < images.length - 1) {
+            showSingleImageViewAmsterdamAnalogCommunity(currentImageIndexAmsterdamAnalogCommunity + 1);
+        } else {
+            showSingleImageViewAmsterdamAnalogCommunity(0);
+        }
+    };
+}
+
+function showSingleImageViewAmsterdamAnalogCommunity(index) {
+    const images = getAmsterdamAnalogCommunityImages();
+    if (!images.length) return;
+    currentImageIndexAmsterdamAnalogCommunity = index;
+    mainGalleryImageAmsterdamAnalogCommunity.src = images[index];
+    const floatingTitleCounter = document.getElementById('floatingTitleCounterAmsterdamAnalogCommunity');
+    if (floatingTitleCounter) {
+        floatingTitleCounter.textContent = `${index + 1}/${images.length}`;
+    }
+    singleImageViewAmsterdamAnalogCommunity.style.display = 'block';
+    thumbsViewAmsterdamAnalogCommunity.style.display = 'none';
+    setupFloatingTitleAmsterdamAnalogCommunity();
+}
+
+function showThumbsViewAmsterdamAnalogCommunity() {
+    const images = getAmsterdamAnalogCommunityImages();
+    thumbsGridAmsterdamAnalogCommunity.innerHTML = '';
+    images.forEach((src, idx) => {
+        const thumbWrapper = document.createElement('div');
+        thumbWrapper.style.width = '120px';
+        thumbWrapper.style.height = '120px';
+        thumbWrapper.style.display = 'flex';
+        thumbWrapper.style.alignItems = 'center';
+        thumbWrapper.style.justifyContent = 'center';
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.style.maxWidth = '100%';
+        thumb.style.maxHeight = '100%';
+        thumb.style.width = 'auto';
+        thumb.style.height = 'auto';
+        thumb.style.cursor = 'pointer';
+        thumb.onclick = () => showSingleImageViewAmsterdamAnalogCommunity(idx);
+        thumbWrapper.appendChild(thumb);
+        thumbsGridAmsterdamAnalogCommunity.appendChild(thumbWrapper);
+    });
+    singleImageViewAmsterdamAnalogCommunity.style.display = 'none';
+    thumbsViewAmsterdamAnalogCommunity.style.display = 'block';
+}
+
+if (thumbsLinkAmsterdamAnalogCommunity && backToSingleViewAmsterdamAnalogCommunity && indexLinkAmsterdamAnalogCommunity) {
+    thumbsLinkAmsterdamAnalogCommunity.onclick = (e) => { e.preventDefault(); showThumbsViewAmsterdamAnalogCommunity(); };
+    backToSingleViewAmsterdamAnalogCommunity.onclick = (e) => { e.preventDefault(); showSingleImageViewAmsterdamAnalogCommunity(currentImageIndexAmsterdamAnalogCommunity); };
+    indexLinkAmsterdamAnalogCommunity.onclick = (e) => { e.preventDefault(); toggleMenu(); };
+}
+
+document.addEventListener('keydown', (e) => {
+    if (singleImageViewAmsterdamAnalogCommunity && singleImageViewAmsterdamAnalogCommunity.style.display === 'block') {
+        if (e.key === 'ArrowLeft') prevImageBtnAmsterdamAnalogCommunity.onclick();
+        if (e.key === 'ArrowRight') nextImageBtnAmsterdamAnalogCommunity.onclick();
+    }
+});
+
+function startAmsterdamAnalogCommunityGallery() {
+    const images = getAmsterdamAnalogCommunityImages();
+    if (images.length > 0) {
+        showSingleImageViewAmsterdamAnalogCommunity(0);
     }
 }
 
